@@ -21,10 +21,10 @@
 title: Eunji Kim
 email: kej12516@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  양념치킨 좋아하는 개발자
+  양념치킨🍗 좋아하는 개발자
   
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://kejdev.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://kejdev.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 github_username: kejdev
 highlighter: rouge
 svg:
@@ -59,7 +59,8 @@ incremental: false
 
 plugins:
   - jekyll-paginate
-paginate: 5
+paginate: 15
+paginate_path: "/page/:num/"
 
 # Exclude from processing.
 # The following items will not be processed, by default.
@@ -70,7 +71,7 @@ paginate: 5
 # their entries' file path in the `include:` list.
 gems:
   - jekyll-feed
-  
+
 exclude:
   - .sass-cache/
   - .jekyll-cache/

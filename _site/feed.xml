@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-08-08T22:13:10+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Eunji Kim</title><subtitle>양념치킨 좋아하는 개발자</subtitle><entry><title type="html">파이썬 for-else 사용하기</title><link href="http://localhost:4000/python/2022/07/12/python-for-else.html" rel="alternate" type="text/html" title="파이썬 for-else 사용하기" /><published>2022-07-12T14:00:00+08:00</published><updated>2022-07-12T14:00:00+08:00</updated><id>http://localhost:4000/python/2022/07/12/python-for-else</id><content type="html" xml:base="http://localhost:4000/python/2022/07/12/python-for-else.html"><![CDATA[<p><code class="highlighter-rouge">if</code>문에 <code class="highlighter-rouge">else</code>문이 있는데, <code class="highlighter-rouge">else</code>는 <code class="highlighter-rouge">for</code>문에도 있다.<br />
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-08-08T23:18:57+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Eunji Kim</title><subtitle>양념치킨🍗 좋아하는 개발자</subtitle><entry><title type="html">파이썬 for-else 사용하기</title><link href="http://localhost:4000/python/2022/07/12/python-for-else.html" rel="alternate" type="text/html" title="파이썬 for-else 사용하기" /><published>2022-07-12T14:00:00+08:00</published><updated>2022-07-12T14:00:00+08:00</updated><id>http://localhost:4000/python/2022/07/12/python-for-else</id><content type="html" xml:base="http://localhost:4000/python/2022/07/12/python-for-else.html"><![CDATA[<p><code class="highlighter-rouge">if</code>문에 <code class="highlighter-rouge">else</code>문이 있는데, <code class="highlighter-rouge">else</code>는 <code class="highlighter-rouge">for</code>문에도 있다.<br />
 친숙하지 않겠지만, 사용법을 이해하면 유용하게 사용할 수 있다.</p>
 
 <h2 id="for-else">for-else</h2>
@@ -542,7 +542,7 @@ b : R2U-Net의 block</p>
 
     <p><img src="/public/img/R2U-Net_3.png" alt="R2U-Net_3" width="70%" height="70%" class="center" /></p>
 
-    <p>그림을 보면 알 수 있듯, weight layer들을 통과한 \(F(x)\) 와 통과하지 않는 \(x\)를 합하는 구조이며, 이 block들이 쌓이면 Residual Network(ResNet) 이라는 모델이 만들어진다.</p>
+    <p>그림을 보면 알 수 있듯, weight layer들을 통과한 $F(x)$ 와 통과하지 않는 $x$를 합하는 구조이며, 이 block들이 쌓이면 Residual Network(ResNet) 이라는 모델이 만들어진다.</p>
   </li>
   <li>
     <p><strong>(d) R2U-Net의 block</strong></p>
@@ -618,8 +618,7 @@ b : R2U-Net의 block</p>
 
 <p>3D U-Net은 2가지 방법으로 사용 될 수 있다.</p>
 
-<p><img src="/public/img/3d-u-net_1.png" alt="3d-u-net_1" width="70%" height="70%" class="center" /></p>
-<center><img src="../../assets/images/3d-u-net_1.png" /></center>
+<p><img src="/public/img/3d-u-net_1.png" alt="3d-u-net" width="70%" height="70%" class="center" /></p>
 
 <p>a) Semi-automated segmentation: 몇 개의 단면만 annotate이 달린 데이터를 가지고 dense segmentation을 예측.<br />
 b) Fullyautomated segmentation: annotate이 전부 달린 데이터를 학습 후, non-annotate 데이터 예측.</p>

@@ -4,9 +4,9 @@
   </header>
 
   <div class="post-content">
-      {%- if site.posts.size > 0 -%}
+      {%- if paginator.posts.size > 0 -%}
     <ul class="post-list">
-      {%- for post in site.posts -%}
+      {%- for post in paginator.posts -%}
       <li class="post-list-item">
         <!-- {%- assign date_format = site.date_format | default: "%b %-d, %Y" -%} -->
         {%- assign date_format = "%Y/%m/%d" -%}
@@ -17,9 +17,9 @@
         {%- if site.show_excerpts -%}{{ post.excerpt }}{%- endif -%}
       </li>
       {%- endfor -%}
-      
     </li>
     </ul>
   {%- endif -%}
   </div>
 </article>
+<center>{% include pagination.html %}</center>

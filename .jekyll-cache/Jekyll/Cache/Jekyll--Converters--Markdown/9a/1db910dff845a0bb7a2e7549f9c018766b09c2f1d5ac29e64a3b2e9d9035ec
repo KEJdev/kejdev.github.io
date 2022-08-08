@@ -1,4 +1,4 @@
-I"�<p><strong>Paper URL : <a href="https://arxiv.org/pdf/1802.06955.pdf">https://arxiv.org/pdf/1802.06955.pdf</a></strong></p>
+I"�<p><strong>Paper URL : <a href="https://arxiv.org/pdf/1802.06955.pdf">https://arxiv.org/pdf/1802.06955.pdf</a></strong></p>
 
 <p>이번 논문에서 제안하는 모델은 두가지이며, RU-Net과 R2U-Net이라는 모델이다.<br />
 RU-Net은 U-Net 기반의 RCNN(Recurrent Convolutional Neural Network), R2U-Net은 U-Net 기반의 RRCNN(Recurrent Residual Convolution Neural Network)이다.</p>
@@ -52,7 +52,7 @@ b : R2U-Net의 block</p>
 
     <p><img src="/public/img/R2U-Net_3.png" alt="R2U-Net_3" width="70%" height="70%" class="center" /></p>
 
-    <p>그림을 보면 알 수 있듯, weight layer들을 통과한 \(F(x)\) 와 통과하지 않는 \(x\)를 합하는 구조이며, 이 block들이 쌓이면 Residual Network(ResNet) 이라는 모델이 만들어진다.</p>
+    <p>그림을 보면 알 수 있듯, weight layer들을 통과한 $F(x)$ 와 통과하지 않는 $x$를 합하는 구조이며, 이 block들이 쌓이면 Residual Network(ResNet) 이라는 모델이 만들어진다.</p>
   </li>
   <li>
     <p><strong>(d) R2U-Net의 block</strong></p>

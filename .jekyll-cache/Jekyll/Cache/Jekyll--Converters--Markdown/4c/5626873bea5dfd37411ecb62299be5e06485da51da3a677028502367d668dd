@@ -1,4 +1,4 @@
-I"�<p>Paper URL : <a href="https://arxiv.org/pdf/1606.06650v1.pdf">https://arxiv.org/pdf/1606.06650v1.pdf</a></p>
+I"\<p>Paper URL : <a href="https://arxiv.org/pdf/1606.06650v1.pdf">https://arxiv.org/pdf/1606.06650v1.pdf</a></p>
 
 <p>보통 3D 데이터 셋을 이용해 모델을 만들고자 했을 때, 3D데이터를 잘게 슬라이스하여 2D 데이터로 만들어 사용한다고 한다.</p>
 
@@ -34,8 +34,7 @@
 
 <p>3D U-Net은 2가지 방법으로 사용 될 수 있다.</p>
 
-<p><img src="/public/img/3d-u-net_1.png" alt="3d-u-net_1" width="70%" height="70%" class="center" /></p>
-<center><img src="../../assets/images/3d-u-net_1.png" /></center>
+<p><img src="/public/img/3d-u-net_1.png" alt="3d-u-net" width="70%" height="70%" class="center" /></p>
 
 <p>a) Semi-automated segmentation: 몇 개의 단면만 annotate이 달린 데이터를 가지고 dense segmentation을 예측.<br />
 b) Fullyautomated segmentation: annotate이 전부 달린 데이터를 학습 후, non-annotate 데이터 예측.</p>
