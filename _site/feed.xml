@@ -1,4 +1,50 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-08-10T22:42:52+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Eunji Kim</title><subtitle>양념치킨🍗 좋아하는 개발자</subtitle><entry><title type="html">파이썬 for-else 사용하기</title><link href="http://localhost:4000/python/2022/07/12/python-for-else.html" rel="alternate" type="text/html" title="파이썬 for-else 사용하기" /><published>2022-07-12T15:00:00+09:00</published><updated>2022-07-12T15:00:00+09:00</updated><id>http://localhost:4000/python/2022/07/12/python-for-else</id><content type="html" xml:base="http://localhost:4000/python/2022/07/12/python-for-else.html"><![CDATA[<p><code class="highlighter-rouge">if</code>문에 <code class="highlighter-rouge">else</code>문이 있는데, <code class="highlighter-rouge">else</code>는 <code class="highlighter-rouge">for</code>문에도 있다.<br />
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-08-10T23:10:56+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Eunji Kim</title><subtitle>양념치킨🍗 좋아하는 개발자</subtitle><entry><title type="html">Deep Learning에서의 DAG구조</title><link href="http://localhost:4000/machinelearning/2022/08/10/ml-directed-acyclic-graph.html" rel="alternate" type="text/html" title="Deep Learning에서의 DAG구조" /><published>2022-08-10T16:00:00+09:00</published><updated>2022-08-10T16:00:00+09:00</updated><id>http://localhost:4000/machinelearning/2022/08/10/ml-directed-acyclic-graph</id><content type="html" xml:base="http://localhost:4000/machinelearning/2022/08/10/ml-directed-acyclic-graph.html"><![CDATA[<p>DAG는 Directed Acyclic Graph의 약자이다. <br />
+순환 그래프가 아닌 비순환 그래프를 말하며, 순환하는 싸이클은 존재하지 않고 일방향성만 가진다.<br />
+그래프 종류와 딥러닝에서의 DAG구조에 대해 알아보자.</p>
+
+<h2 id="graph-종류">Graph 종류</h2>
+
+<p>그래프에 대해 전부 다루게 되면 논점이 흐리게 될 것 같아, 무방향 그래프(Undirected Graph)와 방향 그래프(Directed Graph)만 간단하게 다룰 것이다.</p>
+
+<h3 id="무방향-그래프-undirected-graph">무방향 그래프 (Undirected Graph)</h3>
+
+<p>무방향 그래프는 말 그대로 방향이 없는 그래프를 말한다.<br />
+간선을 통해 노드는 양방향으로 갈 수 있다.</p>
+
+<p><img src="/public/img/DAG1.png" alt="env_img" width="40%" class="center" /></p>
+
+<h3 id="방향-그래프-directed-graph">방향 그래프 (Directed Graph)</h3>
+
+<p>방향 그래프는 간선에 방향이 있는 그래프를 말한다.</p>
+
+<p><img src="/public/img/DAG2.png" alt="env_img" width="40%" class="center" /></p>
+
+<h3 id="사이클cycle과-비순환-그래프-acyclic-graph">사이클(Cycle)과 비순환 그래프 (Acyclic Graph)</h3>
+
+<p>사이클은 단순 경로의 시작 노드와 종료 노드가 동일할 경우를 말하고 비순환 그래프는 사이클이 없는 그래프를 말한다.</p>
+
+<p><img src="/public/img/DAG3.png" alt="env_img" width="70%" class="center" /></p>
+<center>(좌)비순환 그래프 / (우)사이클 </center>
+
+<h2 id="directed-acyclic-graph">Directed Acyclic Graph</h2>
+
+<p>DAG는 비순환 그래프를 말하며, 순환하는 사이클이 존재하지 않고 일방향성만 가진다.</p>
+
+<p><img src="/public/img/DAG4.png" alt="env_img" width="60%" class="center" /></p>
+
+<p>순환한다는 것은 출발한 노드에서 시작하여 끝내 다시 시작노드로 돌아가는 것이 순환 반복될 수 있는 그래프인데, 
+위 그래프처럼 다시 되돌아갈 간선이 없는 그래프라면 비순환 그래프라고 한다.</p>
+
+<h2 id="deep-learning-dag">Deep Learning DAG</h2>
+
+<p>일반적으로 DAG는 작업들의 우선순위를 표현할 때, DAG구조를 사용한다.<br />
+예를 들어 공장에서 작업 스케줄링을 할 때, A라는 작업이 끝나고 B를 해야하고 B가 끝난 다음에는 C,D를 해야한다는 것을 DAG로 표현할 수 있다.</p>
+
+<p>딥러닝에서는 여러 개의 Task로 나뉘어서 순차적으로 실행할 필요가 있다. 만약 DAG가 아닌 사이클 구조를 가진다면 그 작업은 영원히 완수되기 어렵기 때문이다. 따라서 작업간의 순서를 그래프로 표현할때는 DAG로 표현하는 것이 일반적이다.</p>
+
+<p><img src="/public/img/DAG5.png" alt="env_img" class="center" /></p>
+
+<p>요즘은 이런 작업 흐름을 관리하기 위해 workflow 도구가 나와있으며 그 중 하나인 Airflow는 Graph View 기능을 제공한다.</p>]]></content><author><name></name></author><category term="MachineLearning" /><summary type="html"><![CDATA[DAG는 Directed Acyclic Graph의 약자이다. 순환 그래프가 아닌 비순환 그래프를 말하며, 순환하는 싸이클은 존재하지 않고 일방향성만 가진다. 그래프 종류와 딥러닝에서의 DAG구조에 대해 알아보자.]]></summary></entry><entry><title type="html">파이썬 for-else 사용하기</title><link href="http://localhost:4000/python/2022/07/12/python-for-else.html" rel="alternate" type="text/html" title="파이썬 for-else 사용하기" /><published>2022-07-12T15:00:00+09:00</published><updated>2022-07-12T15:00:00+09:00</updated><id>http://localhost:4000/python/2022/07/12/python-for-else</id><content type="html" xml:base="http://localhost:4000/python/2022/07/12/python-for-else.html"><![CDATA[<p><code class="highlighter-rouge">if</code>문에 <code class="highlighter-rouge">else</code>문이 있는데, <code class="highlighter-rouge">else</code>는 <code class="highlighter-rouge">for</code>문에도 있다.<br />
 친숙하지 않겠지만, 사용법을 이해하면 유용하게 사용할 수 있다.</p>
 
 <h2 id="for-else">for-else</h2>
@@ -786,72 +832,4 @@ b) Fullyautomated segmentation: annotate이 전부 달린 데이터를 학습 �
 
 <p><img src="/public/img/open_api_10.png" alt="open_api_10" width="30%" height="30%" class="center" /></p>
 
-<p>아무래도 크롤링 보다 훨씬 빠른데, 1회 호출시 최대 100개씩 받을 수 있기 때문에 빠르고 편리하다.</p>]]></content><author><name></name></author><category term="Python" /><summary type="html"><![CDATA[회사 그만두고 잠시, 다른 회사 노가다 업무 하나 맡아서 했었는데, 그에 대한 일이다. 내가 맡았던 업무는 각종 병원 관련 데이터를 긁어모으는 일이였는데, 생각보다 너무 노가다! 크롤링을 하면 직접하는 것보다 빠르겠지만, 한국인의 성격을 생각하면 느리게만 느껴진다! 그래서 오픈 API를 찾아보니 있어서 그걸로 대체해서 사용했다.]]></summary></entry><entry><title type="html">해시(Hash)에 대해 알아보자.</title><link href="http://localhost:4000/algorithm/2021/12/18/algorithm-hash.html" rel="alternate" type="text/html" title="해시(Hash)에 대해 알아보자." /><published>2021-12-18T15:00:00+09:00</published><updated>2021-12-18T15:00:00+09:00</updated><id>http://localhost:4000/algorithm/2021/12/18/algorithm-hash</id><content type="html" xml:base="http://localhost:4000/algorithm/2021/12/18/algorithm-hash.html"><![CDATA[<p>해시 테이블, 해시 맵, 해시함수등 … 많이 들어봤을텐데 이번에 간단하게 정리 해볼까한다.</p>
-
-<p>📖 해시 테이블(Hash Table)을 특징을 정리하자면, 아래와 같이 정리 할 수 있다.</p>
-
-<ol>
-  <li>임의의 크기를 가진 데이터(Key)를 고정된 크기의 데이터(Value)로 변화시켜 저장.</li>
-  <li><strong>키에 대한 해시값을 사용</strong>하여 값을 저장하고 Key-Value 쌍의 갯수에 따라 크기가 증가.</li>
-  <li>해시값 자체를 index로 사용하기 때문에 평균 시간복잡도가 O(1)로 매우 빠름.</li>
-</ol>
-
-<p>🖍 해시 테이블과 비슷한 것으로 해시 맵이 있는데, 처음에는 같은 용어인줄 알고 헷갈렸는데, <strong>동기화 지원 여부에 대해 차이가 있다</strong>는 걸 알게되었다.</p>
-
-<blockquote>
-  <p>해시 테이블은 동기화를 고려해야대는 상황에서(병렬 처리할 때) 쓰이고, 해시 맵의 경우는 동기화를 고려하지 않아도 되는 상황(병렬 처리 하지 않을 때)에서 주로 쓰인다.</p>
-</blockquote>
-
-<p>📖 해시 함수(hash function)을 특징을 정리하자면, 아래와 같이 정리 할 수 있다.</p>
-
-<ol>
-  <li>입력값의 길이가 달라도 출력값은 언제나 고정된 길이로 반환.</li>
-  <li>동일한 값이 입력되면 언제나 동일한 출력값을 보장.</li>
-  <li>출력된 결과 값을 토대로 입력 값을 유추할 수 없음.</li>
-</ol>
-
-<p><img src="/public/img/hash12.png" alt="hash12" width="70%" height="70%" class="center" /></p>
-
-<p>❗️해시는 언제 사용될까?</p>
-
-<p>리스트를 사용할 수 없을 때 사용한다. 리스트는 숫자 인덱스를 이용하여 접근하는데, 숫자가 아닌 다른 값을 사용하려고 할 때 사용할 수 있다. 또한 빠른 접근과 집계가 필요할 때 사용한다.</p>
-
-<p>해시는 간단하게 아래와 같이 만들어볼 수 있다.</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">cat</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">'name'</span><span class="p">:</span><span class="s">'뚜뚜'</span><span class="p">,</span>
-    <span class="s">'breed'</span><span class="p">:</span> <span class="s">'아메숏'</span><span class="p">,</span>
-    <span class="s">'age'</span> <span class="p">:</span> <span class="mf">2.5</span>
-<span class="p">}</span>
-
-<span class="c1"># {'name': '뚜뚜', 'breed': '아메숏', 'age': 2.5}
-</span></code></pre></div></div>
-
-<p>여기서 value에는 무엇이든 넣을 수 있다는 걸 기억하자.</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 이렇게 함수를 만들어 함수를 넣을 수 있고, 어떤 객체든 전부 가능하다.
-</span><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span>
-
-<span class="n">cat</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">'name'</span><span class="p">:</span><span class="s">'뚜뚜'</span><span class="p">,</span>
-    <span class="s">'breed'</span><span class="p">:</span> <span class="s">'아메숏'</span><span class="p">,</span>
-    <span class="s">'age'</span> <span class="p">:</span> <span class="mf">2.5</span><span class="p">,</span>
-    <span class="s">'fun'</span> <span class="p">:</span> <span class="n">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
-<span class="p">}</span>
-
-<span class="c1"># {'name': '뚜뚜', 'breed': '아메숏', 'age': 2.5, 'fun': 4}
-</span></code></pre></div></div>
-<p>반대로 key에도 무엇이든 넣을 수 있다. ( 리스트 같은건 빼고 )</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">cat</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">'name'</span><span class="p">:</span><span class="s">'뚜뚜'</span><span class="p">,</span>
-    <span class="s">'breed'</span><span class="p">:</span> <span class="s">'아메숏'</span><span class="p">,</span>
-    <span class="s">'age'</span> <span class="p">:</span> <span class="mf">2.5</span><span class="p">,</span>
-    <span class="s">'fun'</span> <span class="p">:</span> <span class="n">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span>
-    <span class="mi">1</span> <span class="p">:</span> <span class="n">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">23</span><span class="p">),</span>
-    <span class="n">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">234</span><span class="p">)</span> <span class="p">:</span> <span class="s">'덧셈'</span>
-<span class="p">}</span>
-
-<span class="c1"># {'name': '뚜뚜', 'breed': '아메숏', 'age': 2.5, 'fun': 4, 1: 24, 235: '덧셈'}
-</span></code></pre></div></div>]]></content><author><name></name></author><category term="Algorithm" /><summary type="html"><![CDATA[해시 테이블, 해시 맵, 해시함수등 … 많이 들어봤을텐데 이번에 간단하게 정리 해볼까한다.]]></summary></entry></feed>
+<p>아무래도 크롤링 보다 훨씬 빠른데, 1회 호출시 최대 100개씩 받을 수 있기 때문에 빠르고 편리하다.</p>]]></content><author><name></name></author><category term="Python" /><summary type="html"><![CDATA[회사 그만두고 잠시, 다른 회사 노가다 업무 하나 맡아서 했었는데, 그에 대한 일이다. 내가 맡았던 업무는 각종 병원 관련 데이터를 긁어모으는 일이였는데, 생각보다 너무 노가다! 크롤링을 하면 직접하는 것보다 빠르겠지만, 한국인의 성격을 생각하면 느리게만 느껴진다! 그래서 오픈 API를 찾아보니 있어서 그걸로 대체해서 사용했다.]]></summary></entry></feed>
