@@ -150,7 +150,7 @@ code {
 a.nav-item {
 	font-size: 110%;
 	font-family: "Noto Sans";
-	text-transform: capitalize;
+	text-transform: lowercase;
 	color: #aaa;
 }
 

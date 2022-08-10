@@ -5,13 +5,13 @@
 
   <div class="post-content">
       {%- if paginator.posts.size > 0 -%}
-    <ul class="post-list">
+    <ul class="post-list" style="margin-left:-40px">
       {%- for post in paginator.posts -%}
-      <li class="post-list-item">
+      <li class="post-list-item" style="text-overflow:ellipsis; overflow:hidden; white-space: nowrap; ">
         <!-- {%- assign date_format = site.date_format | default: "%b %-d, %Y" -%} -->
         {%- assign date_format = "%Y/%m/%d" -%}
         <span class="post-date">{{ post.date | date: date_format }}</span>
-      	<a class="post-link" href="{{ post.url | relative_url }}">
+      	<a class="post-link" href="{{ post.url | relative_url }}" >
     	    {{ post.title | escape }}
 	    	</a>
         {%- if site.show_excerpts -%}{{ post.excerpt }}{%- endif -%}
@@ -19,7 +19,8 @@
       {%- endfor -%}
     </li>
     </ul>
+    <center>{% include pagination.html %}</center>
   {%- endif -%}
   </div>
 </article>
-<center>{% include pagination.html %}</center>
+
