@@ -1,4 +1,35 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-08-10T23:10:56+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Eunji Kim</title><subtitle>양념치킨🍗 좋아하는 개발자</subtitle><entry><title type="html">Deep Learning에서의 DAG구조</title><link href="http://localhost:4000/machinelearning/2022/08/10/ml-directed-acyclic-graph.html" rel="alternate" type="text/html" title="Deep Learning에서의 DAG구조" /><published>2022-08-10T16:00:00+09:00</published><updated>2022-08-10T16:00:00+09:00</updated><id>http://localhost:4000/machinelearning/2022/08/10/ml-directed-acyclic-graph</id><content type="html" xml:base="http://localhost:4000/machinelearning/2022/08/10/ml-directed-acyclic-graph.html"><![CDATA[<p>DAG는 Directed Acyclic Graph의 약자이다. <br />
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-08-11T23:39:22+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Eunji Kim</title><subtitle>양념치킨🍗 좋아하는 개발자</subtitle><entry><title type="html">머신러닝에서 추론과 예측</title><link href="http://localhost:4000/machinelearning/2022/08/10/ml-predict-inference.html" rel="alternate" type="text/html" title="머신러닝에서 추론과 예측" /><published>2022-08-10T16:00:00+09:00</published><updated>2022-08-10T16:00:00+09:00</updated><id>http://localhost:4000/machinelearning/2022/08/10/ml-predict-inference</id><content type="html" xml:base="http://localhost:4000/machinelearning/2022/08/10/ml-predict-inference.html"><![CDATA[<p>머신러닝 개발자로 일을하다보면, “예측”과 “추론” 이라는 단어를 많이 듣는다. 
+이 둘의 차이가 무엇일까?</p>
+
+<h2 id="예측">예측</h2>
+
+<p>예측은 미래 가치를 추정하는 값을 말한다.<br />
+예를 들어 주식 예측, 집값 예측, 버스 도착 시간 예측 등이 있을 수 있다.</p>
+
+<p>그리고 예측에는 온라인 예측과 배치 예측 두가지 종류가 있다.</p>
+
+<ul>
+  <li>온라인 예측(oneline prediction)은 거의 실시간으로 적은 수의 예측값을 얻고자할 때 사용된다.</li>
+  <li>배치 예측(batch prediction)은 오프라인에서 많은 양의 데이터에 대한 예측을 생성하는 것을 말한다.</li>
+</ul>
+
+<p>온라인 예측의 경우 어떻게 사용할 수 있을까?</p>
+
+<p>쉽게 생각하면 인스타그램에서 사용될 수 있는데, 예를 들어 내가 어떠한 해시태그를 검색 했을 때, 실시간 데이터에 의해 30분 후 관련 추천 게시물이 나에게 뜨는 것이 예로 볼 수 있다.</p>
+
+<p><img src="/public/img/oneline.png" alt="oneline" class="center" /></p>
+<center>30분마다 데이터를 받아서 예측하는 모델이라 가정</center>
+<p><br />
+배치 예측 작업은 많은 양의 데이터에 대한 예측을 분석할 때 유용하다. 배치 예측은 온라인 예측보다 더 많은 데이터를 다루기 때문에 배치 예측이 온라인 예측보다 오래걸린다.</p>
+
+<h2 id="추론">추론</h2>
+
+<p>그렇다면 추론은 무엇일까?</p>
+
+<p>우리는 이미지를 분류하거나, 텍스트 리뷰에 대한 감정 분류와 같은 모델을 보고 예측이라는 말을 사용하지 않는다.<br />
+예측은 미래를 뜻하는 단어이기 때문이기 때문에 ‘예측’이라는 용어를 사용하긴 어렵다. 이런 경우에는 ‘예측’이라는 용어를 대체할 수 있는 ‘추론’이라는 용어를 사용한다.</p>
+
+<p><img src="/public/img/inference.png" alt="inference" class="center" /></p>]]></content><author><name></name></author><category term="MachineLearning" /><summary type="html"><![CDATA[머신러닝 개발자로 일을하다보면, “예측”과 “추론” 이라는 단어를 많이 듣는다. 이 둘의 차이가 무엇일까?]]></summary></entry><entry><title type="html">Deep Learning에서의 DAG구조</title><link href="http://localhost:4000/machinelearning/2022/08/10/ml-directed-acyclic-graph.html" rel="alternate" type="text/html" title="Deep Learning에서의 DAG구조" /><published>2022-08-10T16:00:00+09:00</published><updated>2022-08-10T16:00:00+09:00</updated><id>http://localhost:4000/machinelearning/2022/08/10/ml-directed-acyclic-graph</id><content type="html" xml:base="http://localhost:4000/machinelearning/2022/08/10/ml-directed-acyclic-graph.html"><![CDATA[<p>DAG는 Directed Acyclic Graph의 약자이다. <br />
 순환 그래프가 아닌 비순환 그래프를 말하며, 순환하는 싸이클은 존재하지 않고 일방향성만 가진다.<br />
 그래프 종류와 딥러닝에서의 DAG구조에 대해 알아보자.</p>
 
@@ -11,26 +42,26 @@
 <p>무방향 그래프는 말 그대로 방향이 없는 그래프를 말한다.<br />
 간선을 통해 노드는 양방향으로 갈 수 있다.</p>
 
-<p><img src="/public/img/DAG1.png" alt="env_img" width="40%" class="center" /></p>
+<p><img src="/public/img/DAG1.png" alt="DAG1" width="40%" class="center" /></p>
 
 <h3 id="방향-그래프-directed-graph">방향 그래프 (Directed Graph)</h3>
 
 <p>방향 그래프는 간선에 방향이 있는 그래프를 말한다.</p>
 
-<p><img src="/public/img/DAG2.png" alt="env_img" width="40%" class="center" /></p>
+<p><img src="/public/img/DAG2.png" alt="DAG2" width="40%" class="center" /></p>
 
 <h3 id="사이클cycle과-비순환-그래프-acyclic-graph">사이클(Cycle)과 비순환 그래프 (Acyclic Graph)</h3>
 
 <p>사이클은 단순 경로의 시작 노드와 종료 노드가 동일할 경우를 말하고 비순환 그래프는 사이클이 없는 그래프를 말한다.</p>
 
-<p><img src="/public/img/DAG3.png" alt="env_img" width="70%" class="center" /></p>
+<p><img src="/public/img/DAG3.png" alt="DAG3" width="70%" class="center" /></p>
 <center>(좌)비순환 그래프 / (우)사이클 </center>
 
 <h2 id="directed-acyclic-graph">Directed Acyclic Graph</h2>
 
 <p>DAG는 비순환 그래프를 말하며, 순환하는 사이클이 존재하지 않고 일방향성만 가진다.</p>
 
-<p><img src="/public/img/DAG4.png" alt="env_img" width="60%" class="center" /></p>
+<p><img src="/public/img/DAG4.png" alt="DAG4" width="60%" class="center" /></p>
 
 <p>순환한다는 것은 출발한 노드에서 시작하여 끝내 다시 시작노드로 돌아가는 것이 순환 반복될 수 있는 그래프인데, 
 위 그래프처럼 다시 되돌아갈 간선이 없는 그래프라면 비순환 그래프라고 한다.</p>
@@ -42,7 +73,7 @@
 
 <p>딥러닝에서는 여러 개의 Task로 나뉘어서 순차적으로 실행할 필요가 있다. 만약 DAG가 아닌 사이클 구조를 가진다면 그 작업은 영원히 완수되기 어렵기 때문이다. 따라서 작업간의 순서를 그래프로 표현할때는 DAG로 표현하는 것이 일반적이다.</p>
 
-<p><img src="/public/img/DAG5.png" alt="env_img" class="center" /></p>
+<p><img src="/public/img/DAG5.png" alt="DAG5" class="center" /></p>
 
 <p>요즘은 이런 작업 흐름을 관리하기 위해 workflow 도구가 나와있으며 그 중 하나인 Airflow는 Graph View 기능을 제공한다.</p>]]></content><author><name></name></author><category term="MachineLearning" /><summary type="html"><![CDATA[DAG는 Directed Acyclic Graph의 약자이다. 순환 그래프가 아닌 비순환 그래프를 말하며, 순환하는 싸이클은 존재하지 않고 일방향성만 가진다. 그래프 종류와 딥러닝에서의 DAG구조에 대해 알아보자.]]></summary></entry><entry><title type="html">파이썬 for-else 사용하기</title><link href="http://localhost:4000/python/2022/07/12/python-for-else.html" rel="alternate" type="text/html" title="파이썬 for-else 사용하기" /><published>2022-07-12T15:00:00+09:00</published><updated>2022-07-12T15:00:00+09:00</updated><id>http://localhost:4000/python/2022/07/12/python-for-else</id><content type="html" xml:base="http://localhost:4000/python/2022/07/12/python-for-else.html"><![CDATA[<p><code class="highlighter-rouge">if</code>문에 <code class="highlighter-rouge">else</code>문이 있는데, <code class="highlighter-rouge">else</code>는 <code class="highlighter-rouge">for</code>문에도 있다.<br />
 친숙하지 않겠지만, 사용법을 이해하면 유용하게 사용할 수 있다.</p>
@@ -755,81 +786,4 @@ b) Fullyautomated segmentation: annotate이 전부 달린 데이터를 학습 �
 
     <p>그러나 양적인 실험결과는 오히려 단순히 노말 GAN+L1 Loss를 사용하는 편이 정확도 등의 측면에서는 더 나음을 보여준다.</p>
   </li>
-</ul>]]></content><author><name></name></author><category term="paper" /><summary type="html"><![CDATA[Paper URL : https://arxiv.org/pdf/1611.07004.pdf]]></summary></entry><entry><title type="html">간단하게 오픈 API 사용하기</title><link href="http://localhost:4000/python/2022/02/15/python-open-api.html" rel="alternate" type="text/html" title="간단하게 오픈 API 사용하기" /><published>2022-02-15T15:00:00+09:00</published><updated>2022-02-15T15:00:00+09:00</updated><id>http://localhost:4000/python/2022/02/15/python-open-api</id><content type="html" xml:base="http://localhost:4000/python/2022/02/15/python-open-api.html"><![CDATA[<p>회사 그만두고 잠시, 다른 회사 노가다 업무 하나 맡아서 했었는데, 그에 대한 일이다. 
-내가 맡았던 업무는 각종 병원 관련 데이터를 긁어모으는 일이였는데, 생각보다 너무 노가다!
-크롤링을 하면 직접하는 것보다 빠르겠지만, 한국인의 성격을 생각하면 느리게만 느껴진다! 
-그래서 오픈 API를 찾아보니 있어서 그걸로 대체해서 사용했다.</p>
-
-<p>우선 오픈 API를 사용하려면 <a href="https://www.data.go.kr/index.do">공공데이터포털</a>에 로그인을 해야한다.</p>
-
-<p><img src="/public/img/open_api_1.png" alt="open_api_1" width="90%" height="90%" class="center" /></p>
-
-<p>그리고 찾고자 하는 것을 검색해서 사용하고자 하는 API를 찾으면 된다.</p>
-
-<p><img src="/public/img/open_api_2.png" alt="open_api_2" width="90%" height="90%" class="center" /></p>
-
-<p>API를 사용하려면 활용 신청을 해야는데, 오픈 API는 따로 심사를 하지 않고, 활용 신청 후 바로 사용이 가능하다.</p>
-
-<p><img src="/public/img/open_api_3.png" alt="open_api_3" width="90%" height="90%" class="center" /></p>
-
-<p>신청 후에 마이페이지 들어가서 확인해보면 아래와 같은 개발 계정을 볼 수 있다. 여기서 아래 인증키 두개 중에서 decoding 인증키만 복사한다.</p>
-
-<p><img src="/public/img/open_api_4.png" alt="open_api_4" width="90%" height="90%" class="center" /></p>
-
-<p>그리고 아래로 내리면 인증키 설정하는 부분에 복사한 키를 넣는다.</p>
-
-<p><img src="/public/img/open_api_5.png" alt="open_api_5" width="90%" height="90%" class="center" /></p>
-
-<p>설정 완료되면 바로 API 테스트를 할 수 있다.</p>
-
-<p><img src="/public/img/open_api_6.png" alt="open_api_6" width="90%" height="90%" class="center" /></p>
-
-<p>key - b_no에 검색하고자 하는 사업자 번호를 넣어서 테스트 해본다.</p>
-
-<p><img src="/public/img/open_api_7.png" alt="open_api_7" width="90%" height="90%" class="center" /></p>
-
-<p>그럼 아래와 같이 리턴 값을 받을 수 있다.</p>
-
-<p><img src="/public/img/open_api_8.png" alt="open_api_8" width="90%" height="90%" class="center" /></p>
-
-<p>이제 여기서 Python으로 실행해보기 위해 Curl을 복사한다. 복사 후 <a href="https://curlconverter.com/">링크</a>를 눌러 Json으로 변환 시키자!</p>
-
-<p><img src="/public/img/open_api_9.png" alt="open_api_9" width="90%" height="90%" class="center" /></p>
-
-<p>json으로 변환이 끝나면 파이참에 붙여넣기를 해보자. 
-그럼 아래와 같이 결과를 볼 수 있다. 그리고 검색하고자 하는 번호를 josn_data에 넣고 돌리면 끝난다.</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">requests</span>
-<span class="kn">import</span> <span class="nn">pprint</span>
-
-<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">'accept'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
-    <span class="s">'Authorization'</span><span class="p">:</span> <span class="p">[</span><span class="n">본인의</span> <span class="n">인증키</span><span class="p">],</span>
-    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
-<span class="p">}</span>
-
-<span class="n">params</span> <span class="o">=</span> <span class="p">(</span>
-    <span class="p">(</span><span class="s">'serviceKey'</span><span class="p">,</span> <span class="p">[</span><span class="n">본인의</span> <span class="n">인증키</span><span class="p">]),</span>
-<span class="p">)</span>
-
-<span class="n">json_data</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">'b_no'</span><span class="p">:</span> <span class="p">[</span>
-        <span class="s">'1082122133'</span><span class="p">,</span>
-        <span class="s">'1081296521'</span><span class="p">,</span>
-        <span class="s">'1010158608'</span><span class="p">,</span>
-        <span class="s">'1010201835'</span>
-    <span class="p">],</span>
-<span class="p">}</span>
-
-<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://api.odcloud.kr/api/nts-businessman/v1/status'</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">json_data</span><span class="p">)</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">response</span><span class="p">.</span><span class="n">json</span><span class="p">()[</span><span class="s">"data"</span><span class="p">]</span>
-
-<span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
-    <span class="n">pprint</span><span class="p">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">val</span><span class="p">[</span><span class="s">'b_stt'</span><span class="p">])</span>
-</code></pre></div></div>
-
-<p>아래와 같이 결과를 확인 할 수있다.</p>
-
-<p><img src="/public/img/open_api_10.png" alt="open_api_10" width="30%" height="30%" class="center" /></p>
-
-<p>아무래도 크롤링 보다 훨씬 빠른데, 1회 호출시 최대 100개씩 받을 수 있기 때문에 빠르고 편리하다.</p>]]></content><author><name></name></author><category term="Python" /><summary type="html"><![CDATA[회사 그만두고 잠시, 다른 회사 노가다 업무 하나 맡아서 했었는데, 그에 대한 일이다. 내가 맡았던 업무는 각종 병원 관련 데이터를 긁어모으는 일이였는데, 생각보다 너무 노가다! 크롤링을 하면 직접하는 것보다 빠르겠지만, 한국인의 성격을 생각하면 느리게만 느껴진다! 그래서 오픈 API를 찾아보니 있어서 그걸로 대체해서 사용했다.]]></summary></entry></feed>
+</ul>]]></content><author><name></name></author><category term="paper" /><summary type="html"><![CDATA[Paper URL : https://arxiv.org/pdf/1611.07004.pdf]]></summary></entry></feed>
