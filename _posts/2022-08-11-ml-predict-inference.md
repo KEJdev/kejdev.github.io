@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 머신러닝에서 추론과 예측
-date: 2022-08-10 10:00:00 +0300
+date: 2022-08-11 10:00:00 +0300
 category: MachineLearning
 ---
 
