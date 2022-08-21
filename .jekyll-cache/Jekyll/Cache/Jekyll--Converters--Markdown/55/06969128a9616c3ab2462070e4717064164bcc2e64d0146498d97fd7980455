@@ -1,0 +1,9 @@
+I"�<p>Docker환경에서 YOLOv4를 학습시키려고 한다.<br />
+GPU로 돌릴 예정이기 때문에 Docker Hub에서 <a href="https://hub.docker.com/r/nvidia/cuda">Nvidia CUDA</a> 이미지를 사용했다.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker pull nvidia/cuda:11.6.0-base-ubuntu20.04
+</code></pre></div></div>
+
+<p><img src="/public/img/yolo1.png" alt="yolo1" class="center" /></p>
+
+:ET

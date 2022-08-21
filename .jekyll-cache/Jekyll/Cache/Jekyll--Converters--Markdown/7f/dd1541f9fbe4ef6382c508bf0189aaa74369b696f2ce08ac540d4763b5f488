@@ -1,0 +1,45 @@
+I"4
+<p>Docker환경에서 YOLOv4를 학습시키려고 한다.<br />
+GPU로 돌릴 예정이기 때문에 Docker Hub에서 <a href="https://hub.docker.com/r/nvidia/cuda">Nvidia CUDA</a> 이미지를 사용했다.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker pull nvidia/cuda:11.6.0-cudnn8-devel-ubuntu20.04
+</code></pre></div></div>
+
+<p>버전은 각자 컴퓨터 사양에 맞게 하면 되는데 나는 11.6 버전으로 진행하였다. 해당 이미지는 cudnn까지 설치되어 있어서 따로 cudnn까지 설치는 하지 않아도 된다.</p>
+
+<p><img src="/public/img/yolo1.png" alt="yolo1" class="center" /></p>
+
+<p>이미지를 실행 시킬때 <code class="highlighter-rouge">--runtime=nvidia</code> 라던가 <code class="highlighter-rouge">--gpus</code> 옵션을 사용하지 않는다면 cpu로 돌아가니 주의하자.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker run -it --gpus all --name darknet -e DISPLAY=unix$DISPLAY nvidia/cuda:11.6.0-cudnn8-devel-ubuntu20.04
+</code></pre></div></div>
+
+<p>이미지 실행 후 <code class="highlighter-rouge">nvidia-smi</code> 와 <code class="highlighter-rouge">nvcc -V</code>으로 nvidia가 잘 잡히는지 확인하자.</p>
+
+<p><img src="/public/img/yolo2.png" alt="yolo2" class="center" /></p>
+
+<p>참고로 <code class="highlighter-rouge">nvidia-smi</code> 에서 보이는 CUDA Version의 경우에는 현재 driver와 호환이 잘되는 CUDA버전을 추천해주는 것이지 현재의 CUDA 버전을 이야기하는 것은 아니다. 그래서 <code class="highlighter-rouge">nvcc -V</code>로 현재의 버전을 보면 된다.</p>
+
+<p>이제 yolo를 사용하기 위해 아래와 같이 <a href="https://github.com/AlexeyAB/darknet">Git clone</a> 받자</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apt-get update
+apt install git
+apt install vim
+apt install wget
+sudo apt-get install libopencv-dev
+git clone https://github.com/AlexeyAB/darknet.git
+</code></pre></div></div>
+
+<p>아래와 같이 파일이 들어와 있다면 잘 된 것이다</p>
+
+<p><img src="/public/img/yolo3.png" alt="yolo3" class="center" /></p>
+
+<p>우선 Makefile을 아래와 수정하자.</p>
+
+<p><img src="/public/img/yolo3.png" alt="yolo3" class="center" /></p>
+
+<p>그리고 <code class="highlighter-rouge">make</code> 를 입력하면 아래와 같이 <code class="highlighter-rouge">darknet</code> 파일이 생기는 것을 볼 수 있다.</p>
+
+<p><img src="/public/img/yolo3.png" alt="yolo3" class="center" /></p>
+
+:ET

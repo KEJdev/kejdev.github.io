@@ -1,4 +1,74 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-08-14T19:17:34+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Eunji Kim</title><subtitle>양념치킨🍗 좋아하는 개발자</subtitle><entry><title type="html">가짜 상관관계(spurious correlation)란?</title><link href="http://localhost:4000/machinelearning/2022/08/14/spurious-correlation.html" rel="alternate" type="text/html" title="가짜 상관관계(spurious correlation)란?" /><published>2022-08-14T16:00:00+09:00</published><updated>2022-08-14T16:00:00+09:00</updated><id>http://localhost:4000/machinelearning/2022/08/14/spurious-correlation</id><content type="html" xml:base="http://localhost:4000/machinelearning/2022/08/14/spurious-correlation.html"><![CDATA[<h2 id="spurious-correlation">Spurious Correlation</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-08-21T11:36:04+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Eunji Kim</title><subtitle>양념치킨🍗 좋아하는 개발자</subtitle><entry><title type="html">Docker와 YOLOv4 사용하기</title><link href="http://localhost:4000/machinelearning/2022/08/20/docker-yolo4.html" rel="alternate" type="text/html" title="Docker와 YOLOv4 사용하기" /><published>2022-08-20T16:00:00+09:00</published><updated>2022-08-20T16:00:00+09:00</updated><id>http://localhost:4000/machinelearning/2022/08/20/docker-yolo4</id><content type="html" xml:base="http://localhost:4000/machinelearning/2022/08/20/docker-yolo4.html"><![CDATA[<p>Docker환경에서 YOLOv4를 학습시키려고 한다.<br />
+GPU로 돌릴 예정이기 때문에 Docker Hub에서 <a href="https://hub.docker.com/r/nvidia/cuda">Nvidia CUDA</a> 이미지를 사용했다.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker pull nvidia/cuda:11.6.0-cudnn8-devel-ubuntu20.04
+</code></pre></div></div>
+
+<p>버전은 각자 컴퓨터 사양에 맞게 하면 되는데 나는 11.6 버전으로 진행하였다. 해당 이미지는 cudnn까지 설치되어 있어서 따로 cudnn까지 설치는 하지 않아도 된다.</p>
+
+<p><img src="/public/img/yolo1.png" alt="yolo1" class="center" /></p>
+
+<p>이미지를 실행 시킬때 <code class="highlighter-rouge">--runtime=nvidia</code> 라던가 <code class="highlighter-rouge">--gpus</code> 옵션을 사용하지 않는다면 cpu로 돌아가니 주의하자.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker run -it --gpus all -e DISPLAY=unix$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix --privileged nvidia/cuda:11.6.0-cudnn8-devel-ubuntu20.04
+</code></pre></div></div>
+
+<p>나는 Docker에서 yolo를 돌리면서 이미지나 그래프를 확인하고 싶어서 내 화면에 띄우기 위해 DISPLAY 옵션을 넣었다. 나처럼 도커에서 실행한 이미지결과를 확인하고 싶다면 
+<a href="https://sourceforge.net/projects/xming/">Xming X Server for Windows</a>를 설치, 도커 실행 후 <code class="highlighter-rouge">apt-get install x11-apps</code> 와 <code class="highlighter-rouge">export DISPLAY=WINDOWS_IP:0.0</code> 를 꼭 해줘야 한다.</p>
+
+<p>이미지 실행 후 <code class="highlighter-rouge">nvidia-smi</code> 와 <code class="highlighter-rouge">nvcc -V</code>으로 CUDA가 잘 잡히는지 확인하자.</p>
+
+<p><img src="/public/img/yolo2.png" alt="yolo2" class="center" /></p>
+
+<p>참고로 <code class="highlighter-rouge">nvidia-smi</code> 에서 보이는 CUDA Version의 경우에는 현재 driver와 호환이 잘되는 CUDA버전을 추천해주는 것이지 현재의 CUDA 버전을 이야기하는 것은 아니다. 그래서 <code class="highlighter-rouge">nvcc -V</code>로 현재의 버전을 보면 된다.</p>
+
+<p>이제 yolo를 사용하기 위해 아래와 같이 <a href="https://github.com/AlexeyAB/darknet">Git clone</a> 받자</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apt-get update
+apt install git
+apt install vim
+apt install wget
+sudo apt-get install libopencv-dev # opencv=0으로 할꺼면 빼도 된다.
+git clone https://github.com/AlexeyAB/darknet.git
+</code></pre></div></div>
+
+<p>아래와 같이 파일이 들어와 있다면 잘 된 것이다</p>
+
+<p><img src="/public/img/yolo3.png" alt="yolo3" class="center" /></p>
+
+<p>우선 Makefile을 아래와 수정하자.</p>
+
+<p><img src="/public/img/yolo4.png" alt="yolo4" class="center" /></p>
+
+<p>그리고 <code class="highlighter-rouge">make</code> 를 입력하면 아래와 같이 <code class="highlighter-rouge">darknet</code> 파일이 생기는 것을 볼 수 있다.</p>
+
+<p><img src="/public/img/yolo5.png" alt="yolo5" class="center" /></p>
+
+<p>가중치 파일을 다운 받아야하는데 나는 <code class="highlighter-rouge">yolov4.conv.137</code> 를 사용하였다.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget https://github.com/AlexeyAB/darknet/releases/download/darknet_yolo_v3_optimal/yolov4.conv.137
+</code></pre></div></div>
+
+<p><img src="/public/img/yolo6.png" alt="yolo6" class="center" /></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./darknet detector train cfg/coco.data cfg/yolov4.cfg yolov4.conv.137
+</code></pre></div></div>
+
+<p>vi로 coco.data 경로 맞춰주고 일부 수정한다면 아래와 같이 돌아가는 모습을 볼 수 있다.</p>
+
+<p><img src="/public/img/yolo7.png" alt="yolo7" class="center" /></p>
+
+<p>만약 학습말고 기존의 가중치로 결과를 확인하고 싶다면 아래와 같이 명령어를 입력하면 확인할 수 있다.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget https://github.com/AlexeyAB/darknet/releases/download/darknet_yolo_v3_optimal/yolov4.weights
+./darknet detect cfg/yolov4.cfg yolov4.weights data/dog.jpg
+</code></pre></div></div>
+
+<p><img src="/public/img/yolo9.png" alt="yolo9" class="center" /></p>
+
+<p>도커에서 실행한 이미지를 내 컴퓨터로 띄어서 확인할 수 있다.</p>
+
+<p><img src="/public/img/yolo8.png" alt="yolo8" class="center" /></p>]]></content><author><name></name></author><category term="MachineLearning" /><summary type="html"><![CDATA[Docker환경에서 YOLOv4를 학습시키려고 한다. GPU로 돌릴 예정이기 때문에 Docker Hub에서 Nvidia CUDA 이미지를 사용했다.]]></summary></entry><entry><title type="html">가짜 상관관계(spurious correlation)란?</title><link href="http://localhost:4000/machinelearning/2022/08/14/spurious-correlation.html" rel="alternate" type="text/html" title="가짜 상관관계(spurious correlation)란?" /><published>2022-08-14T16:00:00+09:00</published><updated>2022-08-14T16:00:00+09:00</updated><id>http://localhost:4000/machinelearning/2022/08/14/spurious-correlation</id><content type="html" xml:base="http://localhost:4000/machinelearning/2022/08/14/spurious-correlation.html"><![CDATA[<h2 id="spurious-correlation">Spurious Correlation</h2>
 <p>두 변수가 상관관계가 있다고 이야기 했지만, 알고보니 두 변수가 전혀 관계 없는 경우 Spurious Correlation이라고 말한다.</p>
 
 <p>예를 들어 해변에서의 아이스크림 판매와 상어의 공격은 양의 상관관계가 있다.  <br />
@@ -691,51 +761,4 @@ b : R2U-Net의 block</p>
     <p><img src="/public/img/R2U-Net_11.png" alt="R2U-Net_11" width="70%" height="70%" class="center" />
   <img src="/public/img/R2U-Net_12.png" alt="R2U-Net_12" width="70%" height="70%" class="center" /></p>
   </li>
-</ul>]]></content><author><name></name></author><category term="paper" /><summary type="html"><![CDATA[Paper URL : https://arxiv.org/pdf/1802.06955.pdf]]></summary></entry><entry><title type="html">논문 리뷰 - 3D U-Net Learning Dense Volumetric Segmentation from Sparse Annotation</title><link href="http://localhost:4000/paper/2022/02/20/U-Net(3D).html" rel="alternate" type="text/html" title="논문 리뷰 - 3D U-Net Learning Dense Volumetric Segmentation from Sparse Annotation" /><published>2022-02-20T15:00:00+09:00</published><updated>2022-02-20T15:00:00+09:00</updated><id>http://localhost:4000/paper/2022/02/20/U-Net(3D)</id><content type="html" xml:base="http://localhost:4000/paper/2022/02/20/U-Net(3D).html"><![CDATA[<p>Paper URL : <a href="https://arxiv.org/pdf/1606.06650v1.pdf">https://arxiv.org/pdf/1606.06650v1.pdf</a></p>
-
-<p>보통 3D 데이터 셋을 이용해 모델을 만들고자 했을 때, 3D데이터를 잘게 슬라이스하여 2D 데이터로 만들어 사용한다고 한다.</p>
-
-<p>대부분의 경우 잘 작동하겠지만, 많은 3D 데이터 세트에 대해서는 이상적인 선택은 아닐 것이다. 그래서 3D 데이터를 사용할 때의 모델 데이터 단위가 2D가 아닌 3D단위를 사용하는 것이 좋다. 그래서 기존의 U-Net(2D)의 구조에서 3D로 바꾼 것이 해당 논문의 핵심이다.</p>
-
-<h2 id="요약">요약</h2>
-
-<ol>
-  <li>이전에 제시된 U-Net 2D연산을 3D로 확장시켰다.</li>
-  <li>3D U-Net은 3D volumes을 input으로 받으며, 3D convolutions, 3D max pooling, batch normalization(BN) 을 사용한다.</li>
-</ol>
-
-<h2 id="3d-u-net-architecture">3D U-Net Architecture</h2>
-
-<p>Architecture 자체는 이전 U-Net에서 구조에서 크게 바뀌지 않았다.</p>
-
-<p><img src="/public/img/3d-u-net_1.png" alt="3d-u-net_1" width="70%" height="70%" class="center" /></p>
-<center>기존의 2D U-Net 아키텍처</center>
-
-<p><img src="/public/img/3d-u-net_2.png" alt="3d-u-net_2" width="70%" height="70%" class="center" /></p>
-<center>3D U-Net 아키텍처</center>
-
-<ul>
-  <li>왼쪽 Layer에는 각 2개의 3x3x3 convolutions, ReLU, strides, max pooling 2x2x2,</li>
-  <li>오른쪽 Layer에는 각 2개의 2x2x2 up-convolutio, 3x3x3 convolutions, ReLu</li>
-  <li>마지막 Layer에서는 1x1x1 convolutions은 출력 채널 수를 labels 수인 3으로 줄임.</li>
-  <li>참고로 각 ReLu전에 batch normalization(BN) 사용.</li>
-</ul>
-
-<p>그리고 그림을 보면, input shape이 output shape보다 작은데, 그 이유는 이미지를 한번에 넣지 않고 patch 단위로 넣었기 때문이다.</p>
-
-<h2 id="결과">결과</h2>
-
-<p>3D U-Net은 2가지 방법으로 사용 될 수 있다.</p>
-
-<p><img src="/public/img/3d-u-net_1.png" alt="3d-u-net" width="70%" height="70%" class="center" /></p>
-
-<p>a) Semi-automated segmentation: 몇 개의 단면만 annotate이 달린 데이터를 가지고 dense segmentation을 예측.<br />
-b) Fullyautomated segmentation: annotate이 전부 달린 데이터를 학습 후, non-annotate 데이터 예측.</p>
-
-<p><img src="/public/img/3d-u-net_3.png" alt="3d-u-net_3" width="70%" height="70%" class="center" /></p>
-
-<p>첫 번째 테이블을 보면 3개의 subset에 대해 3D+BN이 성능이 좋은 것을 알 수 있고, 두번째 테이블은 Semi-automated 학습에 사용되는 annotate 달린 단면(slices)의 개수가 많을수록 더 IoU가 높아진다.</p>
-
-<p><img src="/public/img/3d-u-net_4.png" alt="3d-u-net_4" width="70%" height="70%" class="center" /></p>
-
-<p>Fullyautomated segmentation에서도 2D+BN 보다 3D+BN를 사용하는 것이 좋다고 한다.</p>]]></content><author><name></name></author><category term="paper" /><summary type="html"><![CDATA[Paper URL : https://arxiv.org/pdf/1606.06650v1.pdf]]></summary></entry></feed>
+</ul>]]></content><author><name></name></author><category term="paper" /><summary type="html"><![CDATA[Paper URL : https://arxiv.org/pdf/1802.06955.pdf]]></summary></entry></feed>

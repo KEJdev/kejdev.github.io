@@ -1,0 +1,19 @@
+I"�<p>Docker환경에서 YOLOv4를 학습시키려고 한다.<br />
+Docker Hub에서 도커 이미지를 가져오려다가 처음부터 만드는 것도 재밌을 것 같아서 삽질 겸 Dockerfile를 만들었다.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>FROM ubuntu:20.04
+USER root
+
+RUN echo "Acquire::Check-Valid-Until \"false\";\nAcquire::Check-Date \"false\";" | cat &gt; /etc/apt/apt.conf.d/10no--check-valid-until
+
+RUN apt-get update
+RUN apt-get upgrade -y
+RUN apt-get install git -y
+
+RUN mkdir /ejkim
+RUN git clone https://github.com/AlexeyAB/darknet.git /ejkim
+</code></pre></div></div>
+
+<p>처음 <code class="highlighter-rouge">FROM ubuntu:20.04</code> 만</p>
+
+:ET

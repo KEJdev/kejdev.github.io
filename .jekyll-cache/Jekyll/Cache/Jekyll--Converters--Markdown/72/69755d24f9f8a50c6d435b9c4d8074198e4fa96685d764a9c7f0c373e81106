@@ -1,0 +1,3 @@
+I"�<p>Docker환경에서 YOLOv4를 학습시키려고 한다.<br />
+GPU로 돌릴 예정이기 때문에 Docker Hub에서 Nvidia CUDA 이미지를 사용했다.</p>
+:ET

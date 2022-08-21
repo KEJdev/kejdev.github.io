@@ -1,0 +1,19 @@
+I"g<p>Docker환경에서 YOLOv4를 학습시키려고 한다.<br />
+GPU로 돌릴 예정이기 때문에 Docker Hub에서 <a href="https://hub.docker.com/r/nvidia/cuda">Nvidia CUDA</a> 이미지를 사용했다.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker pull nvidia/cuda:11.6.0-cudnn8-devel-ubuntu20.04
+</code></pre></div></div>
+
+<p>버전은 각자 컴퓨터 사양에 맞게 하면 되는데 나는 11.6 버전으로 진행하였다.</p>
+
+<p><img src="/public/img/yolo1.png" alt="yolo1" class="center" /></p>
+
+<p>이미지를 실행 시킬때 <code class="highlighter-rouge">--runtime=nvidia</code> 라던가 <code class="highlighter-rouge">--gpus</code> 옵션을 사용하지 않는다면 cpu로 돌아가니 주의하자.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker run -it --gpus all --name darknet \
+-e DISPLAY=unix$DISPLAY nvidia/cuda:11.6.0-cudnn8-devel-ubuntu20.04
+</code></pre></div></div>
+
+<p>이미지 실행 후 <code class="highlighter-rouge">nvidia-smi</code> 로 nvidia가 잘 잡히는지 확인하자.</p>
+
+:ET
