@@ -126,13 +126,39 @@ code {
 	color: #fff;
 }
 
+.cat_img {
+	border-radius: 70%; 
+	overflow: hidden; 
+	width: 95px;
+	height: 95px; 
+	/* margin: 0px auto; 
+	float: left; */
+}
+
+@media (max-width: 575px) {
+	.cat_img {
+		float: none;
+		width: auto;
+		transform: scale(1.1);
+	}
+}
+
 .lead {
 	font-size: 90%;
 	color: #aaa;
 }
 
 .sidebar-header {
+	margin-top: 20px;
 	margin-bottom: 50px;
+	float: right;
+}
+
+@media (max-width: 575px) {
+	.sidebar-header {
+		float: none;
+		width: auto;
+	}
 }
 
 .sidebar-nav {
@@ -150,7 +176,7 @@ code {
 a.nav-item {
 	font-size: 110%;
 	font-family: "Noto Sans";
-	text-transform: lowercase;
+	text-transform: inherit;
 	color: #aaa;
 }
 

@@ -32,11 +32,16 @@
   <body>
   	<div class="container"> 
 		<div class="sidebar">
-			<div class="sidebar-item sidebar-header">
-	<div class='sidebar-brand'>
-		<a href="/">Eunji Kim</a>
-	</div>
-	<p class="lead">양념치킨🍗 좋아하는 개발자</p></div>
+			<div>
+	<a href="/">
+		<img src="/public/img/cat.jpg" class="cat_img" alt="cat" style="margin-left: auto; margin-right: auto; display: block;">
+	</a>
+	<div class="sidebar-item sidebar-header">
+		<div class='sidebar-brand'>
+			<a href="/">Eunji Kim</a>
+		</div>
+		<p class="lead">양념치킨🍗 좋아하는 개발자</p></div>
+</div>
 
 <div class="sidebar-item sidebar-nav">
 	<ul class="nav">
@@ -80,10 +85,6 @@
 	  
 	    
 	  
-	    
-	  
-	    
-	  
 	</ul>
 </div>
 
@@ -94,7 +95,7 @@
 	    <li>
 	    	<a class="nav-item" href="/category/#ETC">
 				<span class="name">ETC</span>
-				<span class="badge">3</span>
+				<span class="badge">5</span>
 	    	</a>
  		</li>
 	    
@@ -113,9 +114,9 @@
  		</li>
 	    
 	    <li>
-	    	<a class="nav-item" href="/category/#PLSQL">
-				<span class="name">PLSQL</span>
-				<span class="badge">4</span>
+	    	<a class="nav-item" href="/category/#DB">
+				<span class="name">DB</span>
+				<span class="badge">5</span>
 	    	</a>
  		</li>
 	    
@@ -141,15 +142,8 @@
  		</li>
 	    
 	    <li>
-	    	<a class="nav-item" href="/category/#Oracle">
-				<span class="name">Oracle</span>
-				<span class="badge">1</span>
-	    	</a>
- 		</li>
-	    
-	    <li>
-	    	<a class="nav-item" href="/category/#paper">
-				<span class="name">paper</span>
+	    	<a class="nav-item" href="/category/#Paper">
+				<span class="name">Paper</span>
 				<span class="badge">6</span>
 	    	</a>
  		</li>
@@ -157,20 +151,6 @@
 	    <li>
 	    	<a class="nav-item" href="/category/#Docker">
 				<span class="name">Docker</span>
-				<span class="badge">1</span>
-	    	</a>
- 		</li>
-	    
-	    <li>
-	    	<a class="nav-item" href="/category/#CS">
-				<span class="name">CS</span>
-				<span class="badge">1</span>
-	    	</a>
- 		</li>
-	    
-	    <li>
-	    	<a class="nav-item" href="/category/#Error">
-				<span class="name">Error</span>
 				<span class="badge">1</span>
 	    	</a>
  		</li>
@@ -212,7 +192,7 @@ GPU로 돌릴 예정이기 때문에 Docker Hub에서 <a href="https://hub.docke
 </code></pre></div></div>
 
 <p>나는 Docker에서 yolo를 돌리면서 이미지나 그래프를 확인하고 싶어서 내 화면에 띄우기 위해 DISPLAY 옵션을 넣었다. 나처럼 도커에서 실행한 이미지결과를 확인하고 싶다면 
-<a href="https://sourceforge.net/projects/xming/">Xming X Server for Windows</a>를 설치, 도커 실행 후 <code class="highlighter-rouge">apt-get install x11-apps</code> 와 <code class="highlighter-rouge">export DISPLAY=WINDOWS_IP:0.0</code> 를 꼭 해줘야 한다.</p>
+<a href="https://sourceforge.net/projects/xming/">Xming X Server for Windows</a>를 설치, 도커 실행 후 <code class="highlighter-rouge">apt-get install x11-apps</code> 와 <code class="highlighter-rouge">export DISPLAY=WINDOWS_IP:0.0</code> 를 해주면 된다.</p>
 
 <p>이미지 실행 후 <code class="highlighter-rouge">nvidia-smi</code> 와 <code class="highlighter-rouge">nvcc -V</code>으로 CUDA가 잘 잡히는지 확인하자.</p>
 

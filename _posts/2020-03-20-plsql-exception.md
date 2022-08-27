@@ -2,7 +2,7 @@
 layout: post
 title:  PLSQL에서 예외처리(exception)하기
 date: 2020-03-20 09:00:00 +0300
-category : PLSQL
+category : DB
 use_math : true
 ---     
 

@@ -26,7 +26,7 @@ docker run -it --gpus all -e DISPLAY=unix$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-un
 ```
 
 나는 Docker에서 yolo를 돌리면서 이미지나 그래프를 확인하고 싶어서 내 화면에 띄우기 위해 DISPLAY 옵션을 넣었다. 나처럼 도커에서 실행한 이미지결과를 확인하고 싶다면 
-[Xming X Server for Windows](https://sourceforge.net/projects/xming/)를 설치, 도커 실행 후 `apt-get install x11-apps` 와 `export DISPLAY=WINDOWS_IP:0.0` 를 꼭 해줘야 한다. 
+[Xming X Server for Windows](https://sourceforge.net/projects/xming/)를 설치, 도커 실행 후 `apt-get install x11-apps` 와 `export DISPLAY=WINDOWS_IP:0.0` 를 해주면 된다.  
 
 이미지 실행 후 `nvidia-smi` 와 `nvcc -V`으로 CUDA가 잘 잡히는지 확인하자. 
 

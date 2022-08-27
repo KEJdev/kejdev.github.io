@@ -2,7 +2,7 @@
 layout: post
 title: 프로세스와 스레드
 date: 2021-11-17 09:00:00 +0300
-category : CS
+category : ETC
 ---
 
 프로세스와 스레드를 완벽하게 이해하려면 동시성(Concurrency)과 병렬성(Parallelism)에 대해서도 알고 있어야 하는데, 오늘은 이 개념들까지 정리해볼까한다. 

@@ -2,7 +2,7 @@
 layout: post
 title: 논문 리뷰 - Predicting remaining useful life of rolling bearings based on deep feature representation and long short-term memory neural network
 date: 2019-12-17 09:00:00 +0300
-category : paper
+category : Paper
 ---
 
 Paper URL: <https://journals.sagepub.com/doi/full/10.1177/1687814018817184>

@@ -2,7 +2,7 @@
 layout: post
 title: 논문 리뷰 - Conditional Generative Adversarial Nets
 date: 2021-12-10 09:00:00 +0300
-category : paper
+category : Paper
 ---
 
 

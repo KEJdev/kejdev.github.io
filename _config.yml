@@ -71,7 +71,7 @@ incremental: false
 
 plugins:
   - jekyll-paginate
-paginate: 16
+paginate: 25
 paginate_path: "/page/:num/"
 
 # Exclude from processing.

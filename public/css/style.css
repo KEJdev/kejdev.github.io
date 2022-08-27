@@ -132,6 +132,7 @@ code {
 }
 
 .sidebar-header {
+	margin-top: 20px;
 	margin-bottom: 50px;
 }
 
@@ -150,7 +151,7 @@ code {
 a.nav-item {
 	font-size: 110%;
 	font-family: "Noto Sans";
-	text-transform: lowercase;
+	text-transform: inherit;
 	color: #aaa;
 }
 

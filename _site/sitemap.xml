@@ -84,7 +84,7 @@
     </url>
     
     <url>
-        <loc>http://localhost:4000/error/2022/07/03/conda-env-name-missing.html</loc>
+        <loc>http://localhost:4000/etc/2022/07/03/conda-env-name-missing.html</loc>
         
         <lastmod>2022-07-03T15:00:00+09:00</lastmod>
         
@@ -260,7 +260,7 @@
     </url>
     
     <url>
-        <loc>http://localhost:4000/cs/2021/11/17/python-process-thread.html</loc>
+        <loc>http://localhost:4000/etc/2021/11/17/python-process-thread.html</loc>
         
         <lastmod>2021-11-17T15:00:00+09:00</lastmod>
         
@@ -932,7 +932,7 @@
     </url>
     
     <url>
-        <loc>http://localhost:4000/plsql/2020/03/20/plsql-exception.html</loc>
+        <loc>http://localhost:4000/db/2020/03/20/plsql-exception.html</loc>
         
         <lastmod>2020-03-20T15:00:00+09:00</lastmod>
         
@@ -948,7 +948,7 @@
     </url>
     
     <url>
-        <loc>http://localhost:4000/plsql/2020/03/20/plsql-cursor.html</loc>
+        <loc>http://localhost:4000/db/2020/03/20/plsql-cursor.html</loc>
         
         <lastmod>2020-03-20T15:00:00+09:00</lastmod>
         
@@ -1620,7 +1620,7 @@
     </url>
     
     <url>
-        <loc>http://localhost:4000/oracle/2019/12/11/sql-qracle-join-8.html</loc>
+        <loc>http://localhost:4000/db/2019/12/11/sql-qracle-join-8.html</loc>
         
         <lastmod>2019-12-11T15:00:00+09:00</lastmod>
         
@@ -1924,7 +1924,7 @@
     </url>
     
     <url>
-        <loc>http://localhost:4000/plsql/2019/11/05/plsql-exception.html</loc>
+        <loc>http://localhost:4000/db/2019/11/05/plsql-exception.html</loc>
         
         <lastmod>2019-11-05T15:00:00+09:00</lastmod>
         
@@ -1940,7 +1940,7 @@
     </url>
     
     <url>
-        <loc>http://localhost:4000/plsql/2019/11/04/plsql.html</loc>
+        <loc>http://localhost:4000/db/2019/11/04/plsql.html</loc>
         
         <lastmod>2019-11-04T15:00:00+09:00</lastmod>
         

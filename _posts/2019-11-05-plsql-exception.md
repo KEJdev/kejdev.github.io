@@ -2,7 +2,7 @@
 layout: post
 title: PL/SQL의 예외처리(exception)란?
 date: 2019-11-05 09:00:00 +0300
-category : PLSQL
+category : DB
 ---
 
 이번 포스팅에서는 PL/SQL의 예외처리(exception)처리에 대해서 알아보겠습니다. 그리고 예외처리를 왜 해야하는지와 종류에 대해 알아보겠습니다. 
