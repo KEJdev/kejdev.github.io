@@ -21,6 +21,11 @@
 	<link rel="alternate" href="https://kejdev.github.io/" hreflang="x-default">
 	<link rel="alternate" href="https://kejdev.github.io/" hreflang="ko">
 	
+	<!-- tipuesearch -->
+	<link rel="stylesheet" href="/assets/tipuesearch/css/tipuesearch.css">
+	
+
+
 	
 	
 	</head>
@@ -34,136 +39,162 @@
 		<div class="sidebar">
 			<div>
 	<a href="/">
-		<img src="/public/img/cat.jpg" class="cat_img" alt="cat" style="margin-left: auto; margin-right: auto; display: block;">
+		<img src="/public/img/cat.jpg" class="cat_img" alt="cat" 
+		style="width :96px; margin-left: auto; border-radius: 70%;
+		overflow: hidden; object-fit: cover; margin-right: auto; display: block;">
 	</a>
 	<div class="sidebar-item sidebar-header">
 		<div class='sidebar-brand'>
 			<a href="/">Eunji Kim</a>
 		</div>
 		<p class="lead">양념치킨🍗 좋아하는 개발자</p></div>
+	<form action="/search" class="tipue_search_right">
+		<div >
+		<input type="text" name="q" id="tipue_search_input"
+		placeholder="검색어를 입력하세요
+		pattern=".{1,}" title="At least 1 characters" required></div>
+		<div style="clear: both;"></div>
+	</form>
+</div>
+
+<div class="sidebar-item sidebar-nav" style="margin-right:8px; margin-top:20px">
+	<ul class="nav">
+	<li class="nav-title">Pages</li>
+	<li>
+		<a class="nav-item" style="text-transform: capitalize;" href="/">Articles</a>
+	</li>
+	<li>
+		<a class="nav-item" style="text-transform: capitalize;" href="/about">About</a>
+	</li>
+	<!-- 
+	
+		
+	
+		
+			
+				<li>
+					<a class="nav-item" href="/about/" style="text-transform: capitalize;">
+						About
+					</a>
+				</li>
+			
+		
+	
+		
+			
+		
+	
+		
+	
+		
+	
+		
+			
+				<li>
+					<a class="nav-item" href="/search/" style="text-transform: capitalize;">
+						Search
+					</a>
+				</li>
+			
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	 -->
+	</ul>
 </div>
 
 <div class="sidebar-item sidebar-nav">
 	<ul class="nav">
-      <li class="nav-title">Pages</li>
-	  <li>
-	  	<a class="nav-item" style="text-transform: capitalize;" href="/">Articles</a>
-	  </li>
-	  
-	  
-	    
-	  
-	    
-	      
-	        <li>
-	        	<a class="nav-item" href="/about/" style="text-transform: capitalize;">
-	            	About
-	            </a>
-	        </li>
-	      
-	    
-	  
-	    
-	      
-	    
-	  
-	    
-	  
-	    
-	  
-	    
-	  
-	    
-	  
-	    
-	  
-	    
-	  
-	    
-	  
-	    
-	  
-	    
-	  
-	</ul>
-</div>
-
-<div class="sidebar-item sidebar-nav">
-  	<ul class="nav">
 			<li class="nav-title">Category</li>
-	    
-	    <li>
-	    	<a class="nav-item" href="/category/#ETC">
+		
+		<li>
+			<a class="nav-item" href="/category/#ETC">
 				<span class="name">ETC</span>
 				<span class="badge">5</span>
-	    	</a>
- 		</li>
-	    
-	    <li>
-	    	<a class="nav-item" href="/category/#R">
+			</a>
+		</li>
+		
+		<li>
+			<a class="nav-item" href="/category/#R">
 				<span class="name">R</span>
 				<span class="badge">22</span>
-	    	</a>
- 		</li>
-	    
-	    <li>
-	    	<a class="nav-item" href="/category/#MachineLearning">
+			</a>
+		</li>
+		
+		<li>
+			<a class="nav-item" href="/category/#MachineLearning">
 				<span class="name">MachineLearning</span>
 				<span class="badge">25</span>
-	    	</a>
- 		</li>
-	    
-	    <li>
-	    	<a class="nav-item" href="/category/#DB">
+			</a>
+		</li>
+		
+		<li>
+			<a class="nav-item" href="/category/#DB">
 				<span class="name">DB</span>
 				<span class="badge">5</span>
-	    	</a>
- 		</li>
-	    
-	    <li>
-	    	<a class="nav-item" href="/category/#Python">
+			</a>
+		</li>
+		
+		<li>
+			<a class="nav-item" href="/category/#Python">
 				<span class="name">Python</span>
 				<span class="badge">35</span>
-	    	</a>
- 		</li>
-	    
-	    <li>
-	    	<a class="nav-item" href="/category/#Algorithm">
+			</a>
+		</li>
+		
+		<li>
+			<a class="nav-item" href="/category/#Algorithm">
 				<span class="name">Algorithm</span>
 				<span class="badge">21</span>
-	    	</a>
- 		</li>
-	    
-	    <li>
-	    	<a class="nav-item" href="/category/#Go">
+			</a>
+		</li>
+		
+		<li>
+			<a class="nav-item" href="/category/#Go">
 				<span class="name">Go</span>
 				<span class="badge">8</span>
-	    	</a>
- 		</li>
-	    
-	    <li>
-	    	<a class="nav-item" href="/category/#Paper">
+			</a>
+		</li>
+		
+		<li>
+			<a class="nav-item" href="/category/#Paper">
 				<span class="name">Paper</span>
 				<span class="badge">6</span>
-	    	</a>
- 		</li>
-	    
-	    <li>
-	    	<a class="nav-item" href="/category/#Docker">
+			</a>
+		</li>
+		
+		<li>
+			<a class="nav-item" href="/category/#Docker">
 				<span class="name">Docker</span>
 				<span class="badge">1</span>
-	    	</a>
- 		</li>
-	    
-	  </nav>
+			</a>
+		</li>
+		
+	</nav>
 	</ul>
+	
 </div>
-
 
 <div class="sidebar-item sidebar-footer">
 	<p>Powered by <a href="https://github.com/jekyll/jekyll">Jekyll</a></p>
 </div>
 		</div>
+	
+
 		<div class="content-wrapper">
 			<div class="content">
 				<article class="post">
@@ -273,16 +304,129 @@
     	    머신러닝 알고리즘, Knn(K-Nearest Neighbors)이란?
 	    	</a></li></li>
     </ul>
-    <center><!-- Pagination links -->
-<div class="pagination">
+    <center><!--
+The paginator for post list on HomgPage.
+-->
+<!-- left arrow -->
+
+  <a  href="/page/4/ "  aria-label="previous-page"> </a>
+
+
+<!-- page numbers -->
+
+
+
+
+
   
-    <a href="/page/4/" class="previous">Previous</a>
   
-  <span class="page_number ">Page: 5 of 6</span>
   
-    <a href="/page/6/" class="next">Next</a>
   
-</div></center></div>
+  
+
+  
+
+  
+      <a href="/" style="border:1px solid; padding:10px; color:
+        #AAA">
+        1
+      </a>
+
+  
+
+
+
+  
+  
+  
+  
+  
+
+  
+
+  
+      <a href="/page/2/" style="border:1px solid; padding:10px; color:
+        #AAA">
+        2
+      </a>
+
+  
+
+
+
+  
+  
+  
+  
+  
+
+  
+
+  
+      <a href="/page/3/" style="border:1px solid; padding:10px; color:
+        #AAA">
+        3
+      </a>
+
+  
+
+
+
+  
+  
+  
+  
+  
+
+  
+
+  
+      <a href="/page/4/" style="border:1px solid; padding:10px; color:
+        #AAA">
+        4
+      </a>
+
+  
+
+
+
+  
+  
+  
+  
+  
+
+  
+
+  
+      <a href="/page/5/" style="border:1px solid; padding:10px; color:
+        #DDD;">
+        5
+      </a>
+
+  
+
+
+
+  
+  
+  
+  
+  
+
+  
+
+  
+      <a href="/page/6/" style="border:1px solid; padding:10px; color:
+        #AAA">
+        6
+      </a>
+
+  
+
+
+
+</center></div>
 </article>
 
 

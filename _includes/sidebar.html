@@ -1,6 +1,8 @@
 <div>
 	<a href="/">
-		<img src="/public/img/cat.jpg" class="cat_img" alt="cat" style="margin-left: auto; margin-right: auto; display: block;">
+		<img src="/public/img/cat.jpg" class="cat_img" alt="cat" 
+		style="width :96px; margin-left: auto; border-radius: 70%;
+		overflow: hidden; object-fit: cover; margin-right: auto; display: block;">
 	</a>
 	<div class="sidebar-item sidebar-header">
 		<div class='sidebar-brand'>
@@ -14,44 +16,54 @@
 				</svg></a></li>
 		{%- endif -%}
 	</div>
+	<form action="/search" class="tipue_search_right">
+		<div >
+		<input type="text" name="q" id="tipue_search_input"
+		placeholder="검색어를 입력하세요
+		pattern=".{1,}" title="At least 1 characters" required></div>
+		<div style="clear: both;"></div>
+	</form>
+</div>
+
+<div class="sidebar-item sidebar-nav" style="margin-right:8px; margin-top:20px">
+	<ul class="nav">
+	<li class="nav-title">Pages</li>
+	<li>
+		<a class="nav-item" style="text-transform: capitalize;" href="/">Articles</a>
+	</li>
+	<li>
+		<a class="nav-item" style="text-transform: capitalize;" href="/about">About</a>
+	</li>
+	<!-- {% assign pages_list = site.pages %}
+	{% for node in pages_list %}
+		{% if node.title != null %}
+			{% if node.layout == "page" %}
+				<li>
+					<a class="nav-item" href="{{ node.url }}" style="text-transform: capitalize;">
+						{{ node.title }}
+					</a>
+				</li>
+			{% endif %}
+		{% endif %}
+	{% endfor %} -->
+	</ul>
 </div>
 
 <div class="sidebar-item sidebar-nav">
 	<ul class="nav">
-      <li class="nav-title">Pages</li>
-	  <li>
-	  	<a class="nav-item" style="text-transform: capitalize;" href="/">Articles</a>
-	  </li>
-	  {% assign pages_list = site.pages %}
-	  {% for node in pages_list %}
-	    {% if node.title != null %}
-	      {% if node.layout == "page" %}
-	        <li>
-	        	<a class="nav-item" href="{{ node.url }}" style="text-transform: capitalize;">
-	            	{{ node.title }}
-	            </a>
-	        </li>
-	      {% endif %}
-	    {% endif %}
-	  {% endfor %}
-	</ul>
-</div>
-
-<div class="sidebar-item sidebar-nav">
-  	<ul class="nav">
 			<li class="nav-title">Category</li>
-	    {% for category in site.categories %}
-	    <li>
-	    	<a class="nav-item" href="{{ root_url }}/{{ site.category_dir }}#{{ category | first }}">
+		{% for category in site.categories %}
+		<li>
+			<a class="nav-item" href="{{ root_url }}/{{ site.category_dir }}#{{ category | first }}">
 				<span class="name">{{ category | first }}</span>
 				<span class="badge">{{ category | last | size }}</span>
-	    	</a>
- 		</li>
-	    {% endfor %}
-	  </nav>
+			</a>
+		</li>
+		{% endfor %}
+	</nav>
 	</ul>
+	
 </div>
-
 
 <div class="sidebar-item sidebar-footer">
 	<p>Powered by <a href="https://github.com/jekyll/jekyll">Jekyll</a></p>

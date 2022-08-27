@@ -74,6 +74,16 @@ plugins:
 paginate: 25
 paginate_path: "/page/:num/"
 
+
+tipue_search:
+    include:
+        pages: false
+        collections: []
+    exclude:
+        files: [search.html, index.html, tags.html]
+        categories: []
+        tags: []
+
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to
