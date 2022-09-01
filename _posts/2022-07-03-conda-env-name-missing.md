@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 에러 - Anconda 가상환경 구축 후, env name 사라짐
+title: 에러 - Anconda 가상환경 구축 후, env name 사라지는 현상
 date: 2022-07-03 09:00:00 +0300
 category : ETC
 ---
