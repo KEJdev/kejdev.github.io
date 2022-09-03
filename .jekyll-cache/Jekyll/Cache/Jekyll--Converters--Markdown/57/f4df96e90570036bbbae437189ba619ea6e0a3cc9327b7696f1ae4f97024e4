@@ -1,0 +1,14 @@
+I"�<p>이번 토이 프로젝트는 Django기반의 라벨링툴을 개발하려고 합니다.<br />
+아직 넣을 기능을 다 구상한 것이 아니여서 필수 기능만 먼저 만들어보겠습니다.<br />
+필요 기능이라고 생각되는 것은 회원가입 페이지, 로그인 페이지, 관리자 페이지입니다.</p>
+
+<h2 id="django-프로젝트-생성">Django 프로젝트 생성</h2>
+
+<p>장고가 설치되어 있지 않다면 아래 명령어로 설치해주세요.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python -m pip install Django
+</code></pre></div></div>
+
+<p><img src="/public/img/3.png" alt="3" width="60%" height="60%" class="center" /></p>
+
+:ET
