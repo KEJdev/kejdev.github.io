@@ -211,7 +211,7 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 		<li>
 			<a class="nav-item" style="color:aliceblue;" href="/category/#ToyProject">
 				<span class="name">ToyProject</span>
-				<span class="badge">1</span>
+				<span class="badge">2</span>
 			</a>
 		</li>
 		
@@ -233,69 +233,12 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 		<time class="post-date dt-published" datetime="2022-09-03T15:00:00+09:00" itemprop="datePublished">2022/09/03
 		</time>		
 		<div class="post-title"> 
-			Django - 프로젝트 생성 및 관리자 페이지 구현하기
+			Django - 관리자 페이지 구현하기
 		</div>
 	</header>
 
 	<div class="post-content">
-		<p>이번 토이 프로젝트는 Django기반의 라벨링툴을 개발하려고 합니다.<br />
-우선 기초 공사부터 시작하겠습니다!! 이번 포스팅에서는 관리자 페이지 구현에 대해 다루어보겠습니다.</p>
-
-<h2 id="django-프로젝트-생성">Django 프로젝트 생성</h2>
-
-<p>장고가 설치되어 있지 않다면 아래 명령어로 설치해주세요.</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python -m pip install Django
-</code></pre></div></div>
-
-<p>프로젝트는 아래와 같이 생성합니다.</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>django-admin startproject LabelingTools
-</code></pre></div></div>
-
-<p>저는 <code class="highlighter-rouge">LabelingTools</code> 이라는 이름으로 프로젝트를 생성했습니다.</p>
-
-<h3 id="django-setting">Django Setting</h3>
-
-<p>처음에 세팅해야 하는 부분은 아래와 같습니다.</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#settings.py
-</span><span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s">'django.contrib.admin'</span><span class="p">,</span>  
-    <span class="s">'django.contrib.auth'</span><span class="p">,</span> 
-    <span class="s">''</span> <span class="c1"># 앱 이름 추가 
-</span><span class="p">]</span>
-
-<span class="p">...</span>
-
-<span class="c1"># LANGUAGE_CODE = 'en-us'
-</span><span class="n">LANGUAGE_CODE</span> <span class="o">=</span> <span class="s">'ko'</span> <span class="c1"># 한글로 보고싶으면 언어설정 해주기
-</span></code></pre></div></div>
-
-<p>프로젝트가 제대로 동작하는지 확인하려면 <code class="highlighter-rouge">manage.py</code> 파일이 있는 위치에서 아래와 같이 명령어로 실행합니다.</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python manage.py runserver
-</code></pre></div></div>
-
-<p><img src="/public/img/django1-1.png" alt="django1-1" class="center" /></p>
-
-<p>기본 포트는 8000번이지만, 포트를 변경하고 싶다면 아래와 같이 수정하여 사용할 수 있습니다.</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python manage.py runserver 8080 
-# 또는 
-python manage.py runserver 0:8080 
-</code></pre></div></div>
-
-<p>추가로 매번 <code class="highlighter-rouge">python manage.py runserver</code>를 치는 것이 불편하여 bat파일을 작성해줍니다.</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@echo off
-echo ===============Run Django===================
-python ./labeling/manage.py runserver
-</code></pre></div></div>
-
-<p>저는 앞으로 <code class="highlighter-rouge">python manage.py runserver</code> 라는 명령어 대신 <code class="highlighter-rouge">call run.bat</code>을 입력하면 장고가 실행됩니다.</p>
-
-<p><img src="/public/img/django1.png" alt="django1" width="60%" height="60%" class="center" /></p>
+		<p>이번 포스팅에서는 관리자 페이지 구현에 대해 다루어보겠습니다.</p>
 
 <h2 id="django-관리자-페이지">Django 관리자 페이지</h2>
 
@@ -316,7 +259,7 @@ python manage.py createsuperuser
 
 <p><img src="/public/img/django3.png" alt="django3" class="center" /></p>
 
-<p>가끔 관리자 인증 문제가 있어서 다른 컴퓨터로 pull 받고 실행이 안될 때가 있어서 <code class="highlighter-rouge">settings.py</code>에 아래 코드를 추가해줍니다.</p>
+<p>관리자 인증 문제가 있어서 다른 컴퓨터로 관리자 로그인이 안될 때가 있어서 <code class="highlighter-rouge">settings.py</code>에 아래 코드를 추가해줍니다.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># settings.py
 </span><span class="n">AUTHENTICATION_BACKENDS</span> <span class="o">=</span> <span class="p">[</span>
