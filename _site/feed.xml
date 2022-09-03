@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-09-03T17:15:43+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Eunji Kim</title><subtitle>양념치킨🍗 좋아하는 개발자</subtitle><entry><title type="html">Django - 프로젝트 생성 및 관리자 페이지 구현하기</title><link href="http://localhost:4000/toyproject/2022/09/03/django-labeling-tools.html" rel="alternate" type="text/html" title="Django - 프로젝트 생성 및 관리자 페이지 구현하기" /><published>2022-09-03T15:00:00+09:00</published><updated>2022-09-03T15:00:00+09:00</updated><id>http://localhost:4000/toyproject/2022/09/03/django-labeling-tools</id><content type="html" xml:base="http://localhost:4000/toyproject/2022/09/03/django-labeling-tools.html"><![CDATA[<p>이번 토이 프로젝트는 Django기반의 라벨링툴을 개발하려고 합니다.<br />
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-09-03T17:52:14+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Eunji Kim</title><subtitle>양념치킨🍗 좋아하는 개발자</subtitle><entry><title type="html">Django - 프로젝트 생성 및 관리자 페이지 구현하기</title><link href="http://localhost:4000/toyproject/2022/09/03/django-labeling-tools.html" rel="alternate" type="text/html" title="Django - 프로젝트 생성 및 관리자 페이지 구현하기" /><published>2022-09-03T15:00:00+09:00</published><updated>2022-09-03T15:00:00+09:00</updated><id>http://localhost:4000/toyproject/2022/09/03/django-labeling-tools</id><content type="html" xml:base="http://localhost:4000/toyproject/2022/09/03/django-labeling-tools.html"><![CDATA[<p>이번 토이 프로젝트는 Django기반의 라벨링툴을 개발하려고 합니다.<br />
 우선 기초 공사부터 시작하겠습니다!! 이번 포스팅에서는 관리자 페이지 구현에 대해 다루어보겠습니다.</p>
 
 <h2 id="django-프로젝트-생성">Django 프로젝트 생성</h2>
@@ -10,21 +10,10 @@
 
 <p>프로젝트는 아래와 같이 생성합니다.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>django-admin startproject labeling
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>django-admin startproject LabelingTools
 </code></pre></div></div>
 
-<p>저는 <code class="highlighter-rouge">labeling</code> 이라는 이름으로 만들었으며, 아래와 같은 프로젝트 구조가 생성됩니다.</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>─── labeling 
-    └── labeling   
-    │   └── __init__.py
-    │       ├── asgi.py
-    │       ├── settings.py
-    │       ├── urls.py  
-    │       └── wsgi.py    
-    ├── db.sqlite3      
-    └── manage.py
-</code></pre></div></div>
+<p>저는 <code class="highlighter-rouge">LabelingTools</code> 이라는 이름으로 프로젝트를 생성했습니다.</p>
 
 <h3 id="django-setting">Django Setting</h3>
 
@@ -34,7 +23,7 @@
 </span><span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">[</span>
     <span class="s">'django.contrib.admin'</span><span class="p">,</span>  
     <span class="s">'django.contrib.auth'</span><span class="p">,</span> 
-    <span class="s">'labeling'</span> <span class="c1"># 앱 이름 추가 
+    <span class="s">''</span> <span class="c1"># 앱 이름 추가 
 </span><span class="p">]</span>
 
 <span class="p">...</span>

@@ -21,22 +21,10 @@ python -m pip install Django
 프로젝트는 아래와 같이 생성합니다.
 
 ```
-django-admin startproject labeling
+django-admin startproject LabelingTools
 ```
 
-저는 `labeling` 이라는 이름으로 만들었으며, 아래와 같은 프로젝트 구조가 생성됩니다.
-
-```
-─── labeling 
-    └── labeling   
-    │   └── __init__.py
-    │       ├── asgi.py
-    │       ├── settings.py
-    │       ├── urls.py  
-    │       └── wsgi.py    
-    ├── db.sqlite3      
-    └── manage.py
-```
+저는 `LabelingTools` 이라는 이름으로 프로젝트를 생성했습니다. 
 
 ### Django Setting 
 
@@ -47,7 +35,7 @@ django-admin startproject labeling
 INSTALLED_APPS = [
     'django.contrib.admin',  
     'django.contrib.auth', 
-    'labeling' # 앱 이름 추가 
+    '' # 앱 이름 추가 
 ]
 
 ...
