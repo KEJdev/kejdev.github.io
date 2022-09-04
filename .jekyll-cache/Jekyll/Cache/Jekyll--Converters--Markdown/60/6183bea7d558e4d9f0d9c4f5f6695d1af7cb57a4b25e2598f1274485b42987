@@ -1,0 +1,59 @@
+I"�<p>우선 최종적으로 구현된 로그인 페이지는 아래와 같습니다.</p>
+
+<p><img src="/public/img/django4.png" alt="django4" class="center" /></p>
+
+<p>DB연동은 아직 하지 않았기 때문에 Username과 Password 부분에 들어갈 값은 지금 신경쓰지 않겠습니다. 지금은 로그인 페이지에서 값 입력 후 <code class="highlighter-rouge">Login</code>을 누르면 Home으로 넘어가는 부분을 구현 해보도록 하겠습니다.</p>
+
+<h2 id="settings">Settings</h2>
+
+<p>우선 <a href="https://django-crispy-forms.readthedocs.io/en/latest/template_packs.html#template-packs">Django 라이브러리</a>를 설치합니다.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip install django-crispy-forms
+</code></pre></div></div>
+
+<p>설치 후 아래와 같이 파일을 수정합니다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># settings.py
+</span>
+<span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s">'django.contrib.admin'</span><span class="p">,</span>
+    <span class="s">'django.contrib.auth'</span><span class="p">,</span>
+    <span class="s">'django.contrib.contenttypes'</span><span class="p">,</span>
+    <span class="s">'django.contrib.sessions'</span><span class="p">,</span>
+    <span class="s">'django.contrib.messages'</span><span class="p">,</span>
+    <span class="s">'django.contrib.staticfiles'</span><span class="p">,</span>
+    <span class="s">'crispy_forms'</span><span class="p">,</span> <span class="c1"># 추가 
+</span>    <span class="s">'accounts.apps.AccountsConfig'</span><span class="p">,</span> <span class="c1"># 앱 추가 
+</span><span class="p">]</span>
+</code></pre></div></div>
+
+<h2 id="login">Login</h2>
+
+<p>아래와 같이 <code class="highlighter-rouge">login.html</code> 을 만들었습니다.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;link rel="stylesheet" href="static/css/style.css"&gt;
+&lt;div class="wrapper"&gt;
+  &lt;div class="form"&gt;
+    &lt;div class="title"&gt;
+      Login
+    &lt;/div&gt;
+    &lt;form method="post" action="/home/" onsubmit="return validation();"&gt;
+      &lt;div class="input_wrap"&gt;
+        &lt;span class="error_msg"&gt;Incorrect username or password. Please try again&lt;/span&gt;
+          {"%" csrf_token "%"}
+          
+      &lt;/div&gt;
+      &lt;button class="btn disabled input_wrap" style="padding: 15px" type="submit" &gt;Login&lt;/button&gt;
+    &lt;/form&gt;
+    &lt;div style="margin:0 auto"&gt;
+      &lt;p class="text-center"&gt;Don't have an account? &lt;a href="/register"&gt;Create an account&lt;/a&gt;.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre></div></div>
+
+<p>참고로 제 파일 구조는 아래와 같이 되어 있습니다.</p>
+
+<p><img src="/public/img/django5.png" alt="django5" class="center" /></p>
+
+:ET

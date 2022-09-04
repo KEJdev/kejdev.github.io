@@ -1,0 +1,80 @@
+I"<p>우선 최종적으로 구현된 로그인 페이지는 아래와 같습니다.</p>
+
+<p><img src="/public/img/django4.png" alt="django4" class="center" /></p>
+
+<p>DB연동은 아직 하지 않았기 때문에 Username과 Password 부분에 들어갈 값은 지금 신경쓰지 않겠습니다. 지금은 로그인 페이지에서 값 입력 후 <code class="highlighter-rouge">Login</code>을 누르면 Home으로 넘어가는 부분을 구현 해보도록 하겠습니다.</p>
+
+<p>장고에서 로그인 기능을 제공해주기 때문에 로그인 폼을 가져오고 거기에 CSS를 입혀보겠습니다.</p>
+
+<h2 id="settings">Settings</h2>
+
+<p>우선 <a href="https://django-crispy-forms.readthedocs.io/en/latest/template_packs.html#template-packs">Django 라이브러리</a>를 설치합니다.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip install django-crispy-forms
+</code></pre></div></div>
+
+<p>설치 후 아래와 같이 파일을 수정합니다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># settings.py
+</span>
+<span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s">'django.contrib.admin'</span><span class="p">,</span>
+    <span class="s">'django.contrib.auth'</span><span class="p">,</span>
+    <span class="s">'django.contrib.contenttypes'</span><span class="p">,</span>
+    <span class="s">'django.contrib.sessions'</span><span class="p">,</span>
+    <span class="s">'django.contrib.messages'</span><span class="p">,</span>
+    <span class="s">'django.contrib.staticfiles'</span><span class="p">,</span>
+    <span class="s">'crispy_forms'</span><span class="p">,</span> <span class="c1"># 추가 
+</span>    <span class="s">'accounts.apps.AccountsConfig'</span><span class="p">,</span> <span class="c1"># 앱 추가 
+</span><span class="p">]</span>
+</code></pre></div></div>
+
+<h2 id="login-html">Login html</h2>
+
+<p>아래와 같이 <code class="highlighter-rouge">login.html</code> 을 만들었습니다.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"static/css/style.css"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"wrapper"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"title"</span><span class="nt">&gt;</span>
+      Login
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;form</span> <span class="na">method=</span><span class="s">"post"</span> <span class="na">action=</span><span class="s">"/home/"</span> <span class="na">onsubmit=</span><span class="s">"return validation();"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input_wrap"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"error_msg"</span><span class="nt">&gt;</span>Incorrect username or password. Please try again<span class="nt">&lt;/span&gt;</span>
+          {"%" csrf_token "%"}
+          {"{"login_form"}"}
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn disabled input_wrap"</span> <span class="na">style=</span><span class="s">"padding: 15px"</span> <span class="na">type=</span><span class="s">"submit"</span> <span class="nt">&gt;</span>Login<span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;/form&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">"margin:0 auto"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"text-center"</span><span class="nt">&gt;</span>Don't have an account? <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"/register"</span><span class="nt">&gt;</span>Create an account<span class="nt">&lt;/a&gt;</span>.<span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<p>위 코드에서 <code class="highlighter-rouge">{"%" csrf_token "%"}, {"{"login_form"}"}</code>에서 따옴표는 제거하고 사용해주세요.<br />
+참고로 저는아래와 같은 파일구조로 되어 있습니다.</p>
+
+<p><img src="/public/img/django5.png" alt="django5" class="center" /></p>
+
+<h2 id="login-url">Login URL</h2>
+
+<p>전 첫 화면에 무조건 로그인 화면이 나오기를 바라기 때문에 아래와 같이 URL을 만들었습니다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">path</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">views</span>
+
+<span class="n">app_name</span> <span class="o">=</span> <span class="s">"accounts"</span> 
+
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">path</span><span class="p">(</span><span class="s">""</span><span class="p">,</span> <span class="n">views</span><span class="p">.</span><span class="n">login_request</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">"login"</span><span class="p">),</span> <span class="c1"># 로그인 페이지 주소 
+</span>    <span class="n">path</span><span class="p">(</span><span class="s">"home/"</span><span class="p">,</span> <span class="n">views</span><span class="p">.</span><span class="n">home_request</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">"home"</span><span class="p">),</span>
+    <span class="n">path</span><span class="p">(</span><span class="s">"register/"</span><span class="p">,</span> <span class="n">views</span><span class="p">.</span><span class="n">register_request</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">"register"</span><span class="p">),</span>
+<span class="p">]</span>
+</code></pre></div></div>
+
+<h2 id="views">views</h2>
+
+:ET
