@@ -10,9 +10,7 @@ use_math : true
 
 ![django4](/public/img/django4.png){: .center}
 
-DB연동은 아직 하지 않았기 때문에 Username과 Password 부분에 들어갈 값은 지금 신경쓰지 않겠습니다. 지금은 로그인 페이지에서 값 입력 후 `Login`을 누르면 `Home`으로 넘어가는 부분을 구현 해보도록 하겠습니다.  
-
-장고에서 로그인 기능을 제공해주기 때문에 로그인 폼을 가져오고 CSS를 입혀보겠습니다. 
+로그인 페이지에서 값 입력 후 `Login`을 누르면 `Home`으로 넘어가는 부분을 구현 해보도록 하겠습니다.  기본적으로 장고에서 로그인 기능을 제공해주기 때문에 로그인 폼을 가져오고 CSS를 입혀보겠습니다. 
 
 
 ## Settings
@@ -51,7 +49,7 @@ INSTALLED_APPS = [
     <div class="title">
       Login
     </div>
-    <form method="post" action="/home/" onsubmit="return validation();">
+    <form method="post">
       <div class="input_wrap">
         <span class="error_msg">Incorrect username or password. Please try again</span>
           {"%" csrf_token "%"}
@@ -69,8 +67,6 @@ INSTALLED_APPS = [
 
 ![django5](/public/img/django5.png){: .center}
 
-
-저는 로그인 성공되면 홈 화면이 나올 수 있도록 `action="/home/"`을 추가했습니다. 
 
 ## Login URL
 
@@ -115,7 +111,7 @@ def login_request(request):
             if user is not None:
                 login(request, user)
                 messages.info(request, f"You are now logged in as {username}.")
-                return redirect("main:home")
+                return redirect("/home")
             else:
                 messages.error(request,"Invalid username or password.")
         else:
@@ -124,10 +120,11 @@ def login_request(request):
     return render(request=request, template_name="main/login.html", context={"login_form":form})
 ```
 
+저는 로그인 성공되면 홈 화면이 나올 수 있도록 `redirect('/home')`으로 작성하였습니다.   
 
 ## Login CSS   
 
-로그인 CSS는 아래와 같고, 만약에 아래의 CSS가 적용이 되지 않는다면, 경로 확인 부탁드려요! 
+로그인 CSS는 아래와 같고, 만약에 아래의 CSS가 적용이 되지 않는다면, 경로 확인 부탁드려요~! 
 
 ```css
 @import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap');
@@ -227,4 +224,4 @@ body{
 }
 ```
 
-이제 로그인 화면이 완성되었고, 로그인 페이지에 집중하여 만들었기 때문에 아무 숫자나 문자를 넣어도 로그인이 가능합니다. 다음에 DB와 연동하여 유저추가 기능을 넣어보도록 하겠습니다. 
+이제 로그인 화면이 완성되었고, 다음에는 회원가입 기능을 추가해보도록 하겠습니다. 
