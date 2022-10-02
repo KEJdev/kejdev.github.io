@@ -2,7 +2,7 @@
 layout: post
 title: Django - 관리자 페이지 구현하기
 date: 2022-09-03 09:00:00 +0300
-category : ToyProject
+category : ETC
 use_math : true
 ---   
 

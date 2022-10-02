@@ -2,7 +2,7 @@
 layout: post
 title: Django - 프로젝트 생성하기
 date: 2022-09-03 08:00:00 +0300
-category : ToyProject
+category : ETC
 use_math : true
 ---   
  

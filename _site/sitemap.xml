@@ -4,7 +4,7 @@
         xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     
     <url>
-        <loc>http://localhost:4000/toyproject/2022/09/04/django-login.html</loc>
+        <loc>http://localhost:4000/etc/2022/09/04/django-login.html</loc>
         
         <lastmod>2022-09-04T06:00:00+09:00</lastmod>
         
@@ -20,7 +20,7 @@
     </url>
     
     <url>
-        <loc>http://localhost:4000/toyproject/2022/09/03/django-admin.html</loc>
+        <loc>http://localhost:4000/etc/2022/09/03/django-admin.html</loc>
         
         <lastmod>2022-09-03T15:00:00+09:00</lastmod>
         
@@ -36,7 +36,7 @@
     </url>
     
     <url>
-        <loc>http://localhost:4000/toyproject/2022/09/03/django-startproject.html</loc>
+        <loc>http://localhost:4000/etc/2022/09/03/django-startproject.html</loc>
         
         <lastmod>2022-09-03T14:00:00+09:00</lastmod>
         
