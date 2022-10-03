@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Python환경 OpenCV + CUDA Build 하기
-date: 2022-10-02 08:00:00 +0300
+date: 2022-10-03 08:00:00 +0300
 category : ETC
 use_math : true
 ---   
