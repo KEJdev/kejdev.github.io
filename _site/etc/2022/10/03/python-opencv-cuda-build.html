@@ -282,9 +282,8 @@ conda install numpy
 <p>그리고 Configure를 누르면 아래와 같이 창이 뜨면 아래와 같이 설정 후 Finish를 누른다.</p>
 
 <ul>
-  <li>OPENCV_DNN_CUDA = ON</li>
   <li>WITH_CUDA = ON</li>
-  <li>BUILD_WITH_STATIC_CRT = OFF</li>
+  <li>OPENCV_DNN_CUDA = ON</li>
   <li>ENABLE_FAST_MATH = ON</li>
   <li>INSTALL_PYTHON_EXAMPLES = ON</li>
 </ul>
@@ -315,6 +314,8 @@ conda install numpy
   <li>PYTHON3_PACKAGES_PATH = C:/Users/ejkim/anaconda3/envs/opencv_gpu/Lib/site-packages</li>
   <li>BUILD_opencv_world = ON</li>
   <li>OPENCV_ENABLE_NONFREE = ON</li>
+  <li>BUILD_WITH_STATIC_CRT = OFF</li>
+  <li>CPU_DISPATCH = 공백</li>
 </ul>
 
 <p>Configire 누른 후 Generate를 누른다.</p>
@@ -348,7 +349,7 @@ conda install numpy
 <p>그리고 <code class="highlighter-rouge">cv2.cuda.getCudaEnabledDeviceCount()</code> 로 GPU가 잡히는지 확인하면 끝! 
 나는 그래픽 카드가 1개 설치되어 있어서 1이 나온다.</p>
 
-<p>아 그리고!
+<p>아 그리고, 
 하다가 중간에 <code class="highlighter-rouge">ImportError: OpenCV loader: missing configuration file: ['config-3.7.py', 'config-3.py']</code> 와 같은 에러를 만약 보게 된다면, 파이썬 버전을 확인해보자.</p>
 
 <p>나의 경우에는 가상환경 생성 시에 Python 3.7로 생성했는데, 실제 빌드하고 나니까 아래와 같이 파이썬 3.9로 빌드되어 있었다.</p>
@@ -360,6 +361,8 @@ conda install numpy
 <p>나는 두가지 다 해봤는데, 첫번째의 경우에는 밀고 다시 처음부터를 3번정도 반복하니까…. 잘되었고, 다른 컴퓨터에 다시 빌드 했을 때는 그냥 귀찮아서 파이썬 버전을 맞춰주니 금방 끝났다.</p>
 
 <p>가상환경 파이썬 버전을 다시 맞출 때는 <code class="highlighter-rouge">conda install python==3.9</code> 라고 하면 끝난다.</p>
+
+<p>그리고, 혹시나 빌드 후에 cv2파일이 생성되지 않았다면, CMake 빌드를 위 순서대로 해야 제대로 생성된다.</p>
 
 	</div>
 </article>

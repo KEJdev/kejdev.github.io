@@ -56,16 +56,15 @@ CMake에 Where is the source code에는 아까 다운 받은 opencv 폴더 경�
 
 그리고 Configure를 누르면 아래와 같이 창이 뜨면 아래와 같이 설정 후 Finish를 누른다. 
 
-* OPENCV_DNN_CUDA = ON
 * WITH_CUDA = ON
-* BUILD_WITH_STATIC_CRT = OFF
+* OPENCV_DNN_CUDA = ON
 * ENABLE_FAST_MATH = ON
 * INSTALL_PYTHON_EXAMPLES = ON
 
 Configire 를 누른다. 
 
 * WITH_CUDNN = ON
-* WITH_CUBLAS = ON 
+* WITH_CUBLAS = ON
 * CUDA_FAST_MATH = ON
 
 CUDA ARCH BIN은 [https://en.wikipedia.org/wiki/CUDA](https://en.wikipedia.org/wiki/CUDA)에서 자신의 그래픽에 맞늦
@@ -83,6 +82,8 @@ CUDA ARCH BIN은 [https://en.wikipedia.org/wiki/CUDA](https://en.wikipedia.org/w
 * PYTHON3_PACKAGES_PATH = C:/Users/ejkim/anaconda3/envs/opencv_gpu/Lib/site-packages  
 * BUILD_opencv_world = ON 
 * OPENCV_ENABLE_NONFREE = ON
+* BUILD_WITH_STATIC_CRT = OFF
+* CPU_DISPATCH = 공백
 
 Configire 누른 후 Generate를 누른다. 
 
@@ -117,7 +118,7 @@ Release, x64로 설정하고 ALL_BUILD에서 빌드를 누른다.
 나는 그래픽 카드가 1개 설치되어 있어서 1이 나온다.
 
 
-아 그리고!
+아 그리고, 
 하다가 중간에 `ImportError: OpenCV loader: missing configuration file: ['config-3.7.py', 'config-3.py']` 와 같은 에러를 만약 보게 된다면, 파이썬 버전을 확인해보자.  
 
 
@@ -130,3 +131,5 @@ Release, x64로 설정하고 ALL_BUILD에서 빌드를 누른다.
 나는 두가지 다 해봤는데, 첫번째의 경우에는 밀고 다시 처음부터를 3번정도 반복하니까.... 잘되었고, 다른 컴퓨터에 다시 빌드 했을 때는 그냥 귀찮아서 파이썬 버전을 맞춰주니 금방 끝났다. 
 
 가상환경 파이썬 버전을 다시 맞출 때는 `conda install python==3.9` 라고 하면 끝난다. 
+
+그리고, 혹시나 빌드 후에 cv2파일이 생성되지 않았다면, CMake 빌드를 위 순서대로 해야 제대로 생성된다. 
