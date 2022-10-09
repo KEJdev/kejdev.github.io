@@ -1,0 +1,59 @@
+I"�<p>라이선스의 종류에 대해 알아볼까한다.
+최근 MIT 라이선스인 오픈 소스를 가지고 2차 창작물로 만들고 있는데, 내부에 LGPL라이선스를 가지고 있는 라이브러리를 보게 되었다.</p>
+
+<p>개념이 조금 헷갈리기 시작해서 공부할 겸 적어볼까한다.</p>
+
+<h3 id="라이선스-종류">라이선스 종류</h3>
+
+<ol>
+  <li>Apache License</li>
+  <li>GNU(Gnu is Not Unix)</li>
+  <li>General Public License(GPL)</li>
+  <li>GNU Affero GPL(AGPL)</li>
+  <li>GNU Lesser GPL(LGPL)</li>
+  <li>MIT License</li>
+  <li>Artistic License</li>
+  <li>Eclipse License</li>
+  <li>Berkeley Software Distribution(BSD) License</li>
+  <li>Mozilla Public License(MPL)</li>
+</ol>
+
+<h3 id="apache-license">Apache License</h3>
+<p>많이 들어온 아파치 라이선스는 아파치 소프트웨어 재단에서 자체적으로 만든 라이선스이다. <br />
+아파치 라이선스는 누구든 자유롭게 사용이 가능하며, 부분 혹은 전체를 개인적 혹은 상업적 목적으로 이용할 수 있다. 소스코드에 대한 공개 의무 또한 없다.</p>
+
+<p>그러나 반드시 아파치 라이선스 버전 및 표기는 포함하여 아파치 라이선스로 개발된 소프트웨어라는 것을 명확하게 밝혀야 한다.</p>
+
+<h4 id="소스-코드-내-라이선스-문구">소스 코드 내 라이선스 문구</h4>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Copyright [yyyy] [name of copyright owner]
+ 
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+ 
+http://www.apache.org/licenses/LICENSE-2.0
+ 
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+</code></pre></div></div>
+
+<h3 id="gnugnu-is-not-unix--general-public-licensegpl">GNU(Gnu is Not Unix) , General Public License(GPL)</h3>
+<p>우선 이 두가지에 대해 설명하기 전에 Copyleft에 대해 잠깐 보고 가자.</p>
+
+<h4 id="copyleft">Copyleft</h4>
+<p>Copyleft는 지식, 정보, 저작물은 자유롭게 공유되어야 한다라고 이야기한다.<br />
+1980년대 리처드 스톨먼이 자유로운 소프트웨어 이용을 주장하면서 나왔다고 한다.</p>
+
+<p>그래서 프로그램을 무료로 만들고 프로그램의 모든 수정 및 확장 버전도 무료로 요구하는 것이 일반적이라고 한다.</p>
+
+<h4 id="gnugnu-is-not-unix">GNU(Gnu is Not Unix)</h4>
+<p>GNU는 1980년대 소프트웨어의 저작권에 대한 법률이 강화되면서 리처드 스톨먼에 의해 GNU 프로젝트와 Free Software Foundation(자유 소프트웨어 재단)을 세우고 여러 프로그래머들이 합류하며 시작되었다.</p>
+
+<p>GNU프로젝트를 따르는 소프트웨어는 누구나 자유롭게 실행, 복사, 수정, 배포할 수 있고 이 권리를 침해할 수 없다.</p>
+
+<h4 id="general-public-licensegpl">General Public License(GPL)</h4>
+
+:ET

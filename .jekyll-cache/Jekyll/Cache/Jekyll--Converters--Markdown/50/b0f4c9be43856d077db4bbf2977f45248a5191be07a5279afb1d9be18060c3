@@ -1,0 +1,44 @@
+I"t<p>라이선스의 종류에 대해 알아볼까한다.
+최근 MIT 라이선스인 오픈 소스를 가지고 2차 창작물로 만들고 있는데, 내부에 LGPL라이선스를 가지고 있는 라이브러리를 보게 되었다.</p>
+
+<p>개념이 조금 헷갈리기 시작해서 공부할 겸 적어볼까한다.</p>
+
+<h3 id="라이선스-종류">라이선스 종류</h3>
+
+<ol>
+  <li>Apache License</li>
+  <li>GNU(Gnu is Not Unix) General Public License(GPL)</li>
+  <li>GNU Affero GPL(AGPL)</li>
+  <li>GNU Lesser GPL(LGPL)</li>
+  <li>MIT License</li>
+  <li>Artistic License</li>
+  <li>Eclipse License</li>
+  <li>Berkeley Software Distribution(BSD) License</li>
+  <li>Mozilla Public License(MPL)</li>
+</ol>
+
+<h3 id="apache-license">Apache License</h3>
+<p>많이 들어온 아파치 라이선스는 아파치 소프트웨어 재단에서 자체적으로 만든 라이선스이다. <br />
+아파치 라이선스는 누구든 자유롭게 사용이 가능하며, 부분 혹은 전체를 개인적 혹은 상업적 목적으로 이용할 수 있다. 소스코드에 대한 공개 의무 또한 없다.</p>
+
+<p>그러나 반드시 아파치 라이선스 버전 및 표기는 포함하여 아파치 라이선스로 개발된 소프트웨어라는 것을 명확하게 밝혀야 한다.</p>
+
+<h4 id="소스-코드-내-라이선스-문구">소스 코드 내 라이선스 문구</h4>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Copyright [yyyy] [name of copyright owner]
+ 
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+ 
+http://www.apache.org/licenses/LICENSE-2.0
+ 
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+</code></pre></div></div>
+
+<h3 id="gnugun-is-not-unix-general-public-licensegpl">GNU(Gun is Not Unix) General Public License(GPL)</h3>
+
+:ET
