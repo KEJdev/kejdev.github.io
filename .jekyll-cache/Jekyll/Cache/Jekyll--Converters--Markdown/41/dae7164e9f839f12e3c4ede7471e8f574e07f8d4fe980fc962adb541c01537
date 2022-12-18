@@ -1,0 +1,22 @@
+I"�<p>🔐 <strong>What is MFA ?</strong></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>💡 MFA는 Multi-Factor Authentication의 약자.
+사용자 인증 방식 중 하나. 2차 인증이기 때문에 하는 것이 꼭 좋다.
+</code></pre></div></div>
+
+<h3 id="mfa-3가지-방식">MFA 3가지 방식</h3>
+
+<p>대중적은 MFA 방식은 3가지가 있다.</p>
+
+<ol>
+  <li>Password : 사용자가 설정한 Password를 입력하여 인증</li>
+  <li>OTP(One Time Password) : 사전에 OTP기기와 AWS에서 세팅을 한 후에, 일정 시간동안 유효한 숫자 Password를 입력하여 인증</li>
+  <li>인증 전용 USB(U2E) : 사전에 등록된 USB를 발급받고 인증 시 USB를 PC에 꽂아서 인증</li>
+</ol>
+
+<h3 id="root-user-mfa">Root User MFA</h3>
+
+<p>우선 Root User로 로그인 후 보안 자격 증명을 클릭하자.</p>
+
+<p><img src="/public/img/aws-mfa11.png" alt="aws" /></p>
+:ET

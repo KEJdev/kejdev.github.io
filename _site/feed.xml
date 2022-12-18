@@ -1,4 +1,47 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-10-11T22:37:15+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Eunji Kim</title><subtitle>양념치킨🍗 좋아하는 개발자</subtitle><entry><title type="html">AWS 프리티어 계정 생성하기</title><link href="http://localhost:4000/aws/2022/10/11/aws-create-account.html" rel="alternate" type="text/html" title="AWS 프리티어 계정 생성하기" /><published>2022-10-11T14:00:00+09:00</published><updated>2022-10-11T14:00:00+09:00</updated><id>http://localhost:4000/aws/2022/10/11/aws-create-account</id><content type="html" xml:base="http://localhost:4000/aws/2022/10/11/aws-create-account.html"><![CDATA[<p>AWS 프리티어는 1년간 AWS 일부 서비스를 무료로 사용할 수 있는 것을 말한다. 회원 가입은 생각보다 간단하다.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-12-18T22:48:47+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Eunji Kim</title><subtitle>양념치킨🍗 좋아하는 개발자</subtitle><entry><title type="html">AWS MFA 2차 인증 설정하기 (Multi Factor Authentication)</title><link href="http://localhost:4000/aws/2022/12/18/AWS-MFA.html" rel="alternate" type="text/html" title="AWS MFA 2차 인증 설정하기 (Multi Factor Authentication)" /><published>2022-12-18T14:00:00+09:00</published><updated>2022-12-18T14:00:00+09:00</updated><id>http://localhost:4000/aws/2022/12/18/AWS-MFA</id><content type="html" xml:base="http://localhost:4000/aws/2022/12/18/AWS-MFA.html"><![CDATA[<p>🔐 <strong>What is MFA ?</strong></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>💡 MFA는 Multi-Factor Authentication의 약자.
+사용자 인증 방식 중 하나. 2차 인증이기 때문에 하는 것이 꼭 좋다.
+</code></pre></div></div>
+
+<h3 id="mfa-3가지-방식">MFA 3가지 방식</h3>
+
+<p>대중적은 MFA 방식은 3가지가 있다.</p>
+
+<ol>
+  <li>Password : 사용자가 설정한 Password를 입력하여 인증</li>
+  <li>OTP(One Time Password) : 사전에 OTP기기와 AWS에서 세팅을 한 후에, 일정 시간동안 유효한 숫자 Password를 입력하여 인증</li>
+  <li>인증 전용 USB(U2E) : 사전에 등록된 USB를 발급받고 인증 시 USB를 PC에 꽂아서 인증</li>
+</ol>
+
+<h3 id="root-user-mfa">Root User MFA</h3>
+
+<p>우선 Root User로 로그인 후 보안 자격 증명을 클릭하자.</p>
+
+<p><img src="/public/img/aws-mfa1.png" alt="aws1" /></p>
+
+<p>보안 자격 증명에서 멀티 팩터 인증(MFA)을 클릭하자.</p>
+
+<p><img src="/public/img/aws-mfa2.png" alt="aws2" /></p>
+
+<p>MFA 활성화 클릭 후 가상 MFA디바이스 체크 후 휴대폰으로 설정하면 끝난다. 
+<img src="/public/img/aws-mfa3.png" alt="aws3" /></p>
+
+<h3 id="iam-user-mfa">IAM User MFA</h3>
+
+<p>권한이 없을 경우 Root User로 로그인 후 상단 검색창에 IAM 검색하자.</p>
+
+<p><img src="/public/img/aws-mfa4.png" alt="aws4" /></p>
+
+<p>사용자를 클릭하여 보안 자격증명 탭-사용자 이름을 클릭하자.</p>
+
+<p><img src="/public/img/aws-mfa5.png" alt="aws5" /></p>
+
+<p>그리고 아까와 같이 보안 자격 증명에서 MFA 클릭 후 설정하면 끝이다.</p>
+
+<p><img src="/public/img/aws-mfa6.png" alt="aws5" /></p>
+
+<p>AWS는 해킹으로 인해 과금되는 썰들이 간혹 들리는데, 혹시 모르니 무조건 설정하자.</p>]]></content><author><name></name></author><category term="AWS" /><summary type="html"><![CDATA[🔐 What is MFA ?]]></summary></entry><entry><title type="html">AWS 프리티어 계정 생성하기</title><link href="http://localhost:4000/aws/2022/10/11/aws-create-account.html" rel="alternate" type="text/html" title="AWS 프리티어 계정 생성하기" /><published>2022-10-11T14:00:00+09:00</published><updated>2022-10-11T14:00:00+09:00</updated><id>http://localhost:4000/aws/2022/10/11/aws-create-account</id><content type="html" xml:base="http://localhost:4000/aws/2022/10/11/aws-create-account.html"><![CDATA[<p>AWS 프리티어는 1년간 AWS 일부 서비스를 무료로 사용할 수 있는 것을 말한다. 회원 가입은 생각보다 간단하다.</p>
 
 <h3 id="메일-인증">메일 인증</h3>
 
@@ -807,50 +850,4 @@ git clone https://github.com/AlexeyAB/darknet.git
 <p>우리는 이미지를 분류하거나, 텍스트 리뷰에 대한 감정 분류와 같은 모델을 보고 예측이라는 말을 사용하지 않는다.<br />
 예측은 미래를 뜻하는 단어이기 때문이기 때문에 ‘예측’이라는 용어를 사용하긴 어렵다. 이런 경우에는 ‘예측’이라는 용어를 대체할 수 있는 ‘추론’이라는 용어를 사용한다.</p>
 
-<p><img src="/public/img/inference.png" alt="inference" class="center" /></p>]]></content><author><name></name></author><category term="MachineLearning" /><summary type="html"><![CDATA[머신러닝 개발자로 일을하다보면, “예측”과 “추론” 이라는 단어를 많이 듣는다. 이 둘의 차이가 무엇일까?]]></summary></entry><entry><title type="html">Deep Learning에서의 DAG구조</title><link href="http://localhost:4000/machinelearning/2022/08/10/ml-directed-acyclic-graph.html" rel="alternate" type="text/html" title="Deep Learning에서의 DAG구조" /><published>2022-08-10T16:00:00+09:00</published><updated>2022-08-10T16:00:00+09:00</updated><id>http://localhost:4000/machinelearning/2022/08/10/ml-directed-acyclic-graph</id><content type="html" xml:base="http://localhost:4000/machinelearning/2022/08/10/ml-directed-acyclic-graph.html"><![CDATA[<p>DAG는 Directed Acyclic Graph의 약자이다. <br />
-순환 그래프가 아닌 비순환 그래프를 말하며, 순환하는 싸이클은 존재하지 않고 일방향성만 가진다.<br />
-그래프 종류와 딥러닝에서의 DAG구조에 대해 알아보자.</p>
-
-<h2 id="graph-종류">Graph 종류</h2>
-
-<p>그래프에 대해 전부 다루게 되면 논점이 흐리게 될 것 같아, 무방향 그래프(Undirected Graph)와 방향 그래프(Directed Graph)만 간단하게 다룰 것이다.</p>
-
-<h3 id="무방향-그래프-undirected-graph">무방향 그래프 (Undirected Graph)</h3>
-
-<p>무방향 그래프는 말 그대로 방향이 없는 그래프를 말한다.<br />
-간선을 통해 노드는 양방향으로 갈 수 있다.</p>
-
-<p><img src="/public/img/DAG1.png" alt="DAG1" width="40%" class="center" /></p>
-
-<h3 id="방향-그래프-directed-graph">방향 그래프 (Directed Graph)</h3>
-
-<p>방향 그래프는 간선에 방향이 있는 그래프를 말한다.</p>
-
-<p><img src="/public/img/DAG2.png" alt="DAG2" width="40%" class="center" /></p>
-
-<h3 id="사이클cycle과-비순환-그래프-acyclic-graph">사이클(Cycle)과 비순환 그래프 (Acyclic Graph)</h3>
-
-<p>사이클은 단순 경로의 시작 노드와 종료 노드가 동일할 경우를 말하고 비순환 그래프는 사이클이 없는 그래프를 말한다.</p>
-
-<p><img src="/public/img/DAG3.png" alt="DAG3" width="70%" class="center" /></p>
-<center>(좌)비순환 그래프 / (우)사이클 </center>
-
-<h2 id="directed-acyclic-graph">Directed Acyclic Graph</h2>
-
-<p>DAG는 비순환 그래프를 말하며, 순환하는 사이클이 존재하지 않고 일방향성만 가진다.</p>
-
-<p><img src="/public/img/DAG4.png" alt="DAG4" width="60%" class="center" /></p>
-
-<p>순환한다는 것은 출발한 노드에서 시작하여 끝내 다시 시작노드로 돌아가는 것이 순환 반복될 수 있는 그래프인데, 
-위 그래프처럼 다시 되돌아갈 간선이 없는 그래프라면 비순환 그래프라고 한다.</p>
-
-<h2 id="deep-learning-dag">Deep Learning DAG</h2>
-
-<p>일반적으로 DAG는 작업들의 우선순위를 표현할 때, DAG구조를 사용한다.<br />
-예를 들어 공장에서 작업 스케줄링을 할 때, A라는 작업이 끝나고 B를 해야하고 B가 끝난 다음에는 C,D를 해야한다는 것을 DAG로 표현할 수 있다.</p>
-
-<p>딥러닝에서는 여러 개의 Task로 나뉘어서 순차적으로 실행할 필요가 있다. 만약 DAG가 아닌 사이클 구조를 가진다면 그 작업은 영원히 완수되기 어렵기 때문이다. 따라서 작업간의 순서를 그래프로 표현할때는 DAG로 표현하는 것이 일반적이다.</p>
-
-<p><img src="/public/img/DAG5.png" alt="DAG5" class="center" /></p>
-
-<p>요즘은 이런 작업 흐름을 관리하기 위해 workflow 도구가 나와있으며 그 중 하나인 Airflow는 Graph View 기능을 제공한다.</p>]]></content><author><name></name></author><category term="MachineLearning" /><summary type="html"><![CDATA[DAG는 Directed Acyclic Graph의 약자이다. 순환 그래프가 아닌 비순환 그래프를 말하며, 순환하는 싸이클은 존재하지 않고 일방향성만 가진다. 그래프 종류와 딥러닝에서의 DAG구조에 대해 알아보자.]]></summary></entry></feed>
+<p><img src="/public/img/inference.png" alt="inference" class="center" /></p>]]></content><author><name></name></author><category term="MachineLearning" /><summary type="html"><![CDATA[머신러닝 개발자로 일을하다보면, “예측”과 “추론” 이라는 단어를 많이 듣는다. 이 둘의 차이가 무엇일까?]]></summary></entry></feed>

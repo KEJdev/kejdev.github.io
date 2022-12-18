@@ -1,0 +1,43 @@
+I"�<p>🔐 <strong>What is MFA ?</strong></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>💡 MFA는 Multi-Factor Authentication의 약자.
+사용자 인증 방식 중 하나. 2차 인증이기 때문에 하는 것이 꼭 좋다.
+</code></pre></div></div>
+
+<h3 id="mfa-3가지-방식">MFA 3가지 방식</h3>
+
+<p>대중적은 MFA 방식은 3가지가 있다.</p>
+
+<ol>
+  <li>Password : 사용자가 설정한 Password를 입력하여 인증</li>
+  <li>OTP(One Time Password) : 사전에 OTP기기와 AWS에서 세팅을 한 후에, 일정 시간동안 유효한 숫자 Password를 입력하여 인증</li>
+  <li>인증 전용 USB(U2E) : 사전에 등록된 USB를 발급받고 인증 시 USB를 PC에 꽂아서 인증</li>
+</ol>
+
+<h3 id="root-user-mfa">Root User MFA</h3>
+
+<p>우선 Root User로 로그인 후 보안 자격 증명을 클릭하자.</p>
+
+<p><img src="/public/img/aws-mfa1.png" alt="aws1" /></p>
+
+<p>보안 자격 증명에서 멀티 팩터 인증(MFA)을 클릭하자.</p>
+
+<p><img src="/public/img/aws-mfa2.png" alt="aws2" /></p>
+
+<p>MFA 활성화 클릭 후 가상 MFA디바이스 체크 후 휴대폰으로 설정하면 끝난다. 
+<img src="/public/img/aws-mfa3.png" alt="aws3" /></p>
+
+<h3 id="iam-user-mfa">IAM User MFA</h3>
+
+<p>권한이 없을 경우 Root User로 로그인 후 상단 검색창에 IAM 검색하자.</p>
+
+<p><img src="/public/img/aws-mfa4.png" alt="aws4" /></p>
+
+<p>사용자를 클릭하여 보안 자격증명 탭-사용자 이름을 클릭하자.</p>
+
+<p><img src="/public/img/aws-mfa5.png" alt="aws5" /></p>
+
+<p>그리고 아까와 같이 보안 자격 증명에서 MFA 클릭 후 설정하면 끝이다.</p>
+
+<p><img src="/public/img/aws-mfa6.png" alt="aws5" /></p>
+:ET
