@@ -1,4 +1,4 @@
-I"�<p>🔐 <strong>What is MFA ?</strong></p>
+I"�<p>🔐 <strong>What is MFA ?</strong></p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>💡 MFA는 Multi-Factor Authentication의 약자.
 사용자 인증 방식 중 하나. 2차 인증이기 때문에 하는 것이 꼭 좋다.
@@ -6,13 +6,15 @@
 
 <h3 id="mfa-3가지-방식">MFA 3가지 방식</h3>
 
-<p>대중적은 MFA 방식은 3가지가 있다.</p>
+<p>대중적인 MFA 방식은 3가지가 있다.</p>
 
 <ol>
   <li>Password : 사용자가 설정한 Password를 입력하여 인증</li>
   <li>OTP(One Time Password) : 사전에 OTP기기와 AWS에서 세팅을 한 후에, 일정 시간동안 유효한 숫자 Password를 입력하여 인증</li>
   <li>인증 전용 USB(U2E) : 사전에 등록된 USB를 발급받고 인증 시 USB를 PC에 꽂아서 인증</li>
 </ol>
+
+<p>여기서 나는 OTP방식으로 사용하려고 한다.</p>
 
 <h3 id="root-user-mfa">Root User MFA</h3>
 
@@ -40,4 +42,6 @@
 <p>그리고 아까와 같이 보안 자격 증명에서 MFA 클릭 후 설정하면 끝이다.</p>
 
 <p><img src="/public/img/aws-mfa6.png" alt="aws5" /></p>
+
+<p>AWS는 해킹으로 인해 과금되는 썰들이 간혹 들리는데, 혹시 모르니 무조건 설정하자.</p>
 :ET

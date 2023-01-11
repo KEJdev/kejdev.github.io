@@ -1,0 +1,36 @@
+I"/<p>Paper URL : <a href="https://arxiv.org/pdf/1311.2524.pdf">https://arxiv.org/pdf/1311.2524.pdf</a></p>
+
+<p>원본 논문은 위 링크를 참고하면 된다. <br />
+깊게 논문을 읽으며 하나하나 파악하기 보다는 간단하게 다룰 예정이므로, 더 궁금한 내용이 있다면 직접 논문을 읽어보는 것을 추천한다.</p>
+
+<h3 id="r-cnn">R-CNN</h3>
+
+<p>RCNN은 Region Proposals + CNN을 결합한 모델을 말한다.</p>
+<ul>
+  <li>Region Proposals : 카테고리와 무관하게 물체의 영역을 찾는 모델
+<img src="/public/img/rcnn01.png" alt="rcnn" /></li>
+</ul>
+
+<p>핵심만 간단하게 말하면 R-CNN은 아래와 같은 과정을 거친다.</p>
+
+<ol>
+  <li>입력 이미지에서 Selective Search 알고리즘 적용하여 bounding box(bbox) 2000개 추출
+    <ul>
+      <li>Selective Search : bbox들을 random하게 많이 생성하고 이들을 조금씩 merge해나가면서 물체를 인식해나가는 방식</li>
+    </ul>
+  </li>
+  <li>추출된 bbox를 warp(resize)하여 CNN에 입력</li>
+  <li>fine tuning 되어 있는 pre-trained CNN을 사용하여 특징 벡터 추출
+    <ul>
+      <li>fine tunning : 모델 파라미터를 미세하게 조정하는 것</li>
+      <li>pre-trained : 이미 학습된 모델</li>
+    </ul>
+  </li>
+  <li>추출된 특징 벡터를 SVM을 이용하여 class를 분류</li>
+  <li>bbox regression을 적용하여 bbox 위치를 조정
+    <ul>
+      <li>bbox regression 의 목표 : predicted box 와 ground truth box와 유사하도록 학습하는 것</li>
+    </ul>
+  </li>
+</ol>
+:ET
