@@ -1,7 +1,16 @@
-I"�<p>Paper URL : <a href="https://arxiv.org/pdf/1311.2524.pdf">https://arxiv.org/pdf/1311.2524.pdf</a></p>
+I"�<p>Paper URL : <a href="https://arxiv.org/pdf/1311.2524.pdf">https://arxiv.org/pdf/1311.2524.pdf</a></p>
 
 <p>원본 논문은 위 링크를 참고하면 된다. <br />
 깊게 논문을 읽으며 하나하나 파악하기 보다는 간단하게 다룰 예정이므로, 더 궁금한 내용이 있다면 직접 논문을 읽어보는 것을 추천한다.</p>
+
+<h3 id="들어가기-전에">들어가기 전에…</h3>
+<p>Object detection에는 1-stage detector, 2-stage detector가 있다.</p>
+
+<p><img src="/public/img/2-stage.png" alt="2-stage" /></p>
+
+<p>2-stage detector는 Selective search, Region proposal network와 같은 알고리즘을 및 네트워크를 통해 object가 있을만한 영역을 우선 뽑고( 이 영역을 RoI 라고 함) , 각 영역을 Conv를 통해 classification, box regression(localization)을 수행</p>
+
+<p><img src="/public/img/1-stage.png" alt="1-stage" /></p>
 
 <h3 id="r-cnn">R-CNN</h3>
 
@@ -39,5 +48,27 @@
 
 <p><img src="/public/img/rcnn02.png" alt="rcnn2" />
 <img src="/public/img/rcnn03.png" alt="rcnn3" /></p>
+
+<h3 id="단점">단점</h3>
+<ol>
+  <li>오래걸린다.
+    <ul>
+      <li>인풋 이미지에 대해 2000개의 bbox를 추출하여 CNN모델에 넣기 때문에 오래걸린다.</li>
+    </ul>
+  </li>
+  <li>모델이 생각보다 복잡하다.
+    <ul>
+      <li>CNN, SVM, BBOX Regression 총 3가지 모델을 필요로 하는 모델이다.</li>
+    </ul>
+  </li>
+  <li>back Propagation이 안된다.
+    <ul>
+      <li>SVM, BBOX Regression 에서의 학습결과가 CNN을 업데이트 시키지 못한다.</li>
+    </ul>
+  </li>
+</ol>
+
+<p>그럼 이러한 단점에도 R-CNN논문이 왜 유명한가?<br />
+2-stage detector들의 구조에 많은 영향을 주었고, Obejct Detection에 CNN을 적용시켰다는 점에서 아주 의미가 있기 때문에 유명하다.</p>
 
 :ET
