@@ -65,7 +65,7 @@ squared = map(lambda x, y: x ** y, numbers1, numbers2)
 print(list(squared)) # [1, 128, 6561, 262144, 9765625]
 ```
 
-또는 함수를 사용하여 이렇게도 가능하다.
+또는 함수를 이렇게도 사용가능하다.
 
 ```python
 first_it = [1, 2, 3]
