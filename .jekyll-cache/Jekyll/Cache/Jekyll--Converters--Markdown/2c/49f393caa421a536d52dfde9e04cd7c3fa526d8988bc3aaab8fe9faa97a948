@@ -1,0 +1,36 @@
+I"�<p>파이썬의 <code class="highlighter-rouge">map</code>함수는 파이썬 내장 함수 중 하나로 리스트, 튜플 등 반복 가능한(iterable)를 입력받아, 해당 객체의 모든 요소에 대해 특정 함수를 적용한 결과를 새로운 리스트로 반환하는 함수이다. <br />
+<br />
+가장 기본적인 형태로 자주 쓰이는 <code class="highlighter-rouge">map</code>는 아래와 같다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">numbers</span><span class="p">)))</span> <span class="c1"># ['1', '2', '3', '4', '5']
+</span></code></pre></div></div>
+
+<p>파이썬의 <code class="highlighter-rouge">map</code>함수는 인자를 2개를 받는데, 첫번째 인자는 자료형, 함수를 받을 수 있고, 두번째 인자는 반복가능한 irerable을 받는다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">map</span><span class="p">(</span><span class="n">function</span><span class="p">,</span> <span class="n">iterable</span><span class="p">[,</span> <span class="n">iterable1</span><span class="p">,</span> <span class="n">iterable2</span><span class="p">,...,</span> <span class="n">iterableN</span><span class="p">])</span>
+</code></pre></div></div>
+
+<p><br />
+<code class="highlighter-rouge">map</code> 함수를 조금 더 이해하기 위해 리스트에 있는 모든 숫자를 제곱하여 리스트로 반환하는 코드를 작성했다. 
+<code class="highlighter-rouge">map</code>함수를 쓰지 않고 for문만을 사용한다고 하면 아래와 같이 작성할 수 있다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+<span class="n">squared</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">:</span>
+    <span class="n">squared</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">num</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> 
+<span class="k">print</span><span class="p">(</span><span class="n">squared</span><span class="p">)</span> <span class="c1"># [1, 4, 9, 16, 25]
+</span></code></pre></div></div>
+
+<p>위 코드를 <code class="highlighter-rouge">map</code>함수를 이용하여 코드를 작성한다고 하면, 아래와 같이 작성할 수 있다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">square</span><span class="p">(</span><span class="n">numbers</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">numbers</span> <span class="o">**</span> <span class="mi">2</span>
+
+<span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+<span class="n">squared</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="n">square</span><span class="p">,</span> <span class="n">numbers</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">squared</span><span class="p">))</span> <span class="c1"># [1, 4, 9, 16, 25]
+</span></code></pre></div></div>
+
+:ET
