@@ -45,7 +45,7 @@ nvidia-smi
 
 ### 1.2 Nvidia Docs를 참고하자.
 
-이럴땐 그냥 깔끔하게 [정식 문서](https://docs.nvidia.com/datacenter/tesla/tesla-installation-notes/index.html) 보고 설치하자. 
+이럴땐 그냥 깔끔하게 [공식 문서](https://docs.nvidia.com/datacenter/tesla/tesla-installation-notes/index.html) 보고 설치하자. 
 
 ```
 wget https://download.nvidia.com/XFree86/Linux-x86_64/530.30.02/NVIDIA-Linux-x86_64-530.30.02.run
