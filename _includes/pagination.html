@@ -35,7 +35,7 @@ The paginator for post list on HomgPage.
   {% endif %}
 
   {% if show %}
-      <a href="{{ site.baseurl }}/{% if i > 1%}page/{{ i }}/{% endif %}" style="border:1px solid; padding:10px; color:
+      <a href="{{ site.baseurl }}/{% if i > 1%}page/{{ i }}/{% endif %}" style=" padding:10px; color: 
         {% if paginator.page == i %}#DDD;{% else %}#AAA{% endif %}">
         {{ i }}
       </a>
