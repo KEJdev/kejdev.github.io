@@ -15,8 +15,19 @@ MVC(Model-View-Controller)와 MVC2는 소프트웨어 디자인 패턴 중 하�
 
 * Controller : 사용자의 입력을 받고 처리하는 부분이다. 사용자의 요청을 분석하고 , 해당하는 Model을 호출하고 그 결과를 View에 전달한다. 
 
-![MVC-Process](/public/img/MVC-Process.png)
+이제 스프링에서 사용하는 MVC 구조를 살펴보자.
 
+### Spring MVC구조
+
+![MVC-Process](/public/img/MVC-Process.png)
+이미지 출처: [Spring MVC Architecture](https://terasolunaorg.github.io/guideline/5.0.1.RELEASE/en/Overview/SpringMVCOverview.html)
+* Dispatcher Servlet : 모든 요청을 받아서 Controller에게 넘겨주는 역활을 주로 함
+* HandlerMapping : 들어오는 요청 URL에 매핑되는 컨트롤러를 선택하고,선택된 핸들러(Handler)와 컨트롤러를 DispatcherServlet에 반환하고, DispatcherServlet이 컨트롤러의 비즈니스 로직 실행 작업을 HandlerAdapter에게 위임함
+* HandlerAdapter : 컨트롤러의 비즈니스 로직 프로세스를 호출함
+* 컨트롤러가 비즈니스 로직을 실행하고, 처리 결과를 모델에 설정한 후 논리적 이름을 HandlerAdapter에 반환함  
+** 논리적 이름 : 컨트롤러가 View에 대해 참조하는 방식을 말함. 논리적 이름은 실제 View 파일(ex. test.html) 경로나 파일명과 직접적으로 일치하지 않고도 대신 View Resolver에 의해 해석되어 실제 뷰 리소스로 매핑됨.
+* ViewResolver는 뷰 이름에 매핑된 뷰를 반환함
+* 뷰는 모델 데이터를 렌더링하고 응답을 반환함.
 
 ### 🔎 MVC 패턴을 왜 써야 될까 ?
 
