@@ -29,6 +29,17 @@ MVC(Model-View-Controller)와 MVC2는 소프트웨어 디자인 패턴 중 하�
 * ViewResolver는 뷰 이름에 매핑된 뷰를 반환함
 * 뷰는 모델 데이터를 렌더링하고 응답을 반환함.
 
+위 이미지는 DispatcherServlet의 동작 과정인데, 실제 스프링 MVC패턴의 핵심 요소이다. 
+DispatcherServlet의 동작 방식은 MVC패턴을 원칙으로 따르며 스프링 MVC에서 웹 애플리케이션의 요청과 흐름을 관리하는데 중심적인 역활을 한다.
+
+#### DispatcherServlet의 역할과 MVC
+
+* 컨트롤러(Controller) 역할: DispatcherServlet은 스프링 MVC에서 프론트 컨트롤러(Front Controller) 패턴을 구현하고, 모든 웹 요청은 먼저 DispatcherServlet을 통과하는데, 이건 MVC 패턴의 컨트롤러 부분에 해당함
+
+* 요청 라우팅(Request Routing): DispatcherServlet은 들어오는 요청을 분석하고 적절한 핸들러(Controller)에게 요청을 전달하고, 이 과정에서 HandlerMapping을 사용하여 요청 URL을 처리할 컨트롤러 메소드와 매핑함
+
+* 모델과 뷰의 선택: 컨트롤러가 비즈니스 로직을 처리한 후, DispatcherServlet은 반환된 정보(모델)와 뷰 이름을 바탕으로 응답을 생성하는데, ViewResolver는 뷰 이름을 사용하여 실제 뷰를 결정하고, 뷰는 모델 데이터를 사용하여 최종적인 사용자 응답을 렌더링함.
+
 ### 🔎 MVC 패턴을 왜 써야 될까 ?
 
 MVC패턴을 사용하는 이유에는 여러가지가 있다. 
