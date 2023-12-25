@@ -9,9 +9,7 @@
 	<meta property="og:description" content="{{ page.content | strip_html | strip_newlines | truncatewords: 255 }}">
 	<meta property="og:type" content="website">
 	<meta property="og:url" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}"/>
-	
-	<meta property="og:image" content="{{ page.content | extract_first_image | prepend: site.url | default: site.url | append: '/public/img/cat.jpg' }}">
-
+	<meta property="og:image" content="{% if page.image %}{{ site.url }}{{ page.image }}{% else %}{{ site.url }}/public/img/cat.jpg{% endif %}">
 	<meta property="og:image:width" content="420" />
 	<meta property="og:image:height" content="420" />
 	<meta property="og:image:type" content="image/png">
