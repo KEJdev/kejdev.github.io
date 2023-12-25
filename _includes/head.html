@@ -4,11 +4,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<!-- Open Graph tags -->
-    <meta property="og:title" content="제목" />
+    <meta property="og:title" content="{{ page.title | escape }}"/>
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://kejdev.github.io/" />
-    <meta property="og:image" content="https://kejdev.github.io/public/img/cat.jpg" />
-    <meta property="og:description" content="즐겁게 개발하자" />
+    <meta property="og:url" content="{{ site.url }}{{ page.url }}"/>
+	{% assign image_url = page.content | extract_first_image | default: '/public/img/cat.jpg' %}
+	<meta property="og:image" content="{{ site.url }}{{ image_url }}" />
+	{% assign description = page.content | strip_html | truncatewords: 255 %}
+    <meta property="og:description" content="{{ description | escape }}" />
     <meta property="og:site_name" content="양념치킨🍗 좋아하는 개발자" />
     <meta property="og:locale" content="ko_KR" />
 
