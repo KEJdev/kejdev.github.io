@@ -69,8 +69,6 @@ lsi: false
 excerpt_separator: "\n\n"
 incremental: false
 
-og_image : "/public/img/cat.jpg"
-
 plugins:
   - jekyll-paginate
 paginate: 25
