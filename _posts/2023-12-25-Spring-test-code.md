@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Spring Test Code 종류
+title: Spring Test Code 종류와 Spock 테스트 코드 작성하기
 date: 2023-12-25 09:00:00 +0300
 category : Spring
 ---
