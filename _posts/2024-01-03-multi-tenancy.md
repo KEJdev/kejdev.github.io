@@ -2,7 +2,7 @@
 layout: post
 title: Hibernate Multi Tenancy
 date: 2024-01-03 00:00:00 +0000
-category : Paper
+category : Spring
 ---
 
 ## Multi Tenancy
