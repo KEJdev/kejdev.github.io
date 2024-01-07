@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Spring Security 주요 기능 - 1편
+title: Spring Security 주요 기능 
 date: 2024-01-06 00:00:00 +0000
 category : Spring
 ---
@@ -15,7 +15,7 @@ Spring Security는 Java 애플리케이션, 특히 Spring 프레임워크를 사
 * 권한 부여(Authorization)
 * CSRF 보호
 * 세션관리
-* 외부 인증(LDAP, OAuth2, OpenID Connect) 통합
+* 외부 인증(LDAP, OAuth2 등) 
 * 보안 헤더 관리
 * 사용자 정의 보안 기능
 
@@ -55,11 +55,59 @@ CSRF 공격의 특징으로는 다음과 같다.
  
 
 ### Session  
-Spring Security에서 제공하는 주요 세션 관리 기능은 아래와 같다.  
+Spring Security에서 제공하는 주요 세션 관리 및 보안 기능은 아래와 같다.  
 
-1. 세션 고정 보호 : 로그인 시 자동으로 새로운 세션을 생성하여 이전 세션 ID를 무효화시킨다.  
-2. 동시 세션 제어 : 사용자가 동시에 여러 세션을 열지 못하도록 제어한다.  
-3. 세션 만료 및 타임아웃 관리 : 특정 기간 동안 활동이 없는 세션을 자동으로 만료시키는 기능을 제공한다.  
-4. 세션 정책 설정 : 언제 새로운 세션을 생성할지 제어할 수 있다.   
-5. 세션에 대한 CSRF 보호 : CSRF 토큰을 세션에 저장하고 관리하여, CSRF 공격으로부터 보호한다.  
+1. 로그인 시 자동으로 새로운 세션을 생성하여 이전 세션 ID를 무효화시킨다.  
+2. 사용자가 동시에 여러 세션을 열지 못하도록 제어한다.  
+3. 특정 기간 동안 활동이 없는 세션을 자동으로 만료시키는 기능을 제공한다.  
+4. 언제 새로운 세션을 생성할지 제어할 수 있다.   
+5. CSRF 토큰을 세션에 저장하고 관리하여, CSRF 공격으로부터 보호한다.  
 
+
+### 외부 인증(LDAP, OAuth2 등) 
+
+Spring Security는 외부 인증 시스템과의 통합을 지원하며, 다양한 인증 방법을 제공한다. 
+
+* LDAP (Lightweight Directory Access Protocol)  
+네트워크상에서 사용자와 그룹 같은 디렉토리 정보를 관리하기 위한 프로토콜이다. 사용자 인증, 정보 검색, 조직 구조 관리 등에 보통 많이 사용되는데 예를 들어 직원들의 로그인 정보, 이메일 주소, 부서 정보 등을 중앙 집중화하여 관리한다. 기업이나 대학과 같은 조직에서 주로 사용된다.  
+
+
+* OAuth2   
+OAuth2는 외부 서비스 제공자를 통한 인증 및 권한 부여를 위한 표준 프로토콜이다. 다른 서비스(카카오, 네이버, 페이스북 등)의 인증을 통해 로그인하고 접근할 수 있게 해준다. 다들 많이 알다시피 소셜 로그인이나 타 서비스에 대한 권한 부여에 사용된다.  
+
+
+## Spring Security Architecture
+
+![Spring Security Architecture](/public/img/SpringSecurityArchitecture.png)
+
+위 사진은 로그인 인증처리 과정이다.
+
+1. AuthenticationFilter (UsernamePasswordAuthenticationFilter)
+초기 요청이 들어오면, 이 필터는 사용자의 자격 증명(사용자 이름과 비밀번호)을 추출한다.
+
+2. UsernamePasswordAuthenticationToken 생성
+추출된 자격 증명을 이용해 UsernamePasswordAuthenticationToken(Token)을 생성한다.
+
+3. AuthenticationManager에게 Token 전달
+생성된 Token은 AuthenticationManager에 전달되어, 이 Token이 올바른 사용자에게서 온 것인지 확인한다.
+
+4. AuthenticationManager와 AuthenticationProvider
+AuthenticationManager는 하나 이상의 AuthenticationProvider (이하 A-Provider)를 사용하여 Token을 검증한다. 
+
+5. UserDetailsService 호출
+A-Provider는 UserDetailsService 구현 클래스를 호출하여, 해당 사용자에 대한 상세 정보를 요청한다.
+
+6. UserDetails 반환
+UserDetailsService 구현 클래스는 데이터베이스에서 사용자 정보를 조회하여 UserDetails 객체를 반환한다. 
+
+7. 인증 정보 대조 및 검증
+A-Provider는 UserDetailsService에서 반환된 UserDetails와 클라이언트가 제공한 Token을 대조한다. 이 과정에서 사용자의 자격 증명이 유효한지 확인한다. 
+
+8. SecurityContext에 인증 정보 저장
+사용자가 유효하다고 판단되면, 인증 정보는 SecurityContext에 저장된다. 이는 인증된 사용자의 정보를 보관하는 곳이다. 
+
+9. 인증 완료
+이렇게 인증 과정을 성공적으로 마치면, 사용자는 시스템에 안전하게 인증된 것으로 간주한다.
+
+10. 이후 접근 제어 및 권한 부여
+인증이 완료된 후, 사용자의 요청은 접근 제어 및 권한 부여 과정을 거쳐 처리된다. 
