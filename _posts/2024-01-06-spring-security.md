@@ -49,7 +49,7 @@ CSRF 공격의 특징으로는 다음과 같다.
 
 #### CSRF 공격은 어떻게 방지할 수 있을까?  
 
-1. CSRF 토큰 사용 : 서버는 폼을 제출할 때마다 고유한 토큰을 생성하여 사용자가 이 토큰을 함께 제출핟록 한다.  
+1. CSRF 토큰 사용 : 서버는 폼을 제출할 때마다 고유한 토큰을 생성하여 사용자가 이 토큰을 함께 제출하록 한다.  
 2. 세션 확인 : 사용자의 세션을 확인하여 요청이 같은 출처에서 온 것인지 검증한다.  
 3. 사용자 인터랙션 요구 : 중요한 작업을 수행하기 전에 사용자 인터랙션(비밀번호 재입력, 캡차 등)을 요구한다.  
  
@@ -82,32 +82,32 @@ OAuth2는 외부 서비스 제공자를 통한 인증 및 권한 부여를 위�
 
 위 사진은 로그인 인증처리 과정이다.
 
-1. AuthenticationFilter (UsernamePasswordAuthenticationFilter)
-초기 요청이 들어오면, 이 필터는 사용자의 자격 증명(사용자 이름과 비밀번호)을 추출한다.
+1. AuthenticationFilter (UsernamePasswordAuthenticationFilter)  
+초기 요청이 들어오면, 이 필터는 사용자의 자격 증명(사용자 이름과 비밀번호)을 확인한다.  
 
-2. UsernamePasswordAuthenticationToken 생성
+2. UsernamePasswordAuthenticationToken 생성  
 추출된 자격 증명을 이용해 UsernamePasswordAuthenticationToken(Token)을 생성한다.
 
-3. AuthenticationManager에게 Token 전달
+3. AuthenticationManager에게 Token 전달  
 생성된 Token은 AuthenticationManager에 전달되어, 이 Token이 올바른 사용자에게서 온 것인지 확인한다.
 
-4. AuthenticationManager와 AuthenticationProvider
+4. AuthenticationManager와 AuthenticationProvider  
 AuthenticationManager는 하나 이상의 AuthenticationProvider (이하 A-Provider)를 사용하여 Token을 검증한다. 
 
-5. UserDetailsService 호출
+5. UserDetailsService 호출  
 A-Provider는 UserDetailsService 구현 클래스를 호출하여, 해당 사용자에 대한 상세 정보를 요청한다.
 
-6. UserDetails 반환
+6. UserDetails 반환  
 UserDetailsService 구현 클래스는 데이터베이스에서 사용자 정보를 조회하여 UserDetails 객체를 반환한다. 
 
-7. 인증 정보 대조 및 검증
+7. 인증 정보 대조 및 검증  
 A-Provider는 UserDetailsService에서 반환된 UserDetails와 클라이언트가 제공한 Token을 대조한다. 이 과정에서 사용자의 자격 증명이 유효한지 확인한다. 
 
-8. SecurityContext에 인증 정보 저장
+8. SecurityContext에 인증 정보 저장  
 사용자가 유효하다고 판단되면, 인증 정보는 SecurityContext에 저장된다. 이는 인증된 사용자의 정보를 보관하는 곳이다. 
 
-9. 인증 완료
+9. 인증 완료  
 이렇게 인증 과정을 성공적으로 마치면, 사용자는 시스템에 안전하게 인증된 것으로 간주한다.
 
-10. 이후 접근 제어 및 권한 부여
+10. 이후 접근 제어 및 권한 부여  
 인증이 완료된 후, 사용자의 요청은 접근 제어 및 권한 부여 과정을 거쳐 처리된다. 
