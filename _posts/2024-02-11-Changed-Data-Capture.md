@@ -2,7 +2,7 @@
 layout: post
 title: CDC, 데이터 캡처 기술
 date: 2024-02-11 00:00:00 +0000
-category : ETC
+category : DB
 ---
 
 CDC에 대한 개념과 왜 필요한지를 알아보자.  
