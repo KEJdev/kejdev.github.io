@@ -42,16 +42,7 @@ COMMENT='유저 통계 테이블';
 <br>
 
 ```java
-@Setter
-@Getter
-@Entity
-@Table(name = "user_metrics")
-@NoArgsConstructor
 public class UserMetric extends AbstractBaseEntity {
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
 
 	@Column(name = "new_users", nullable = true)
 	private Long newUsers;
@@ -59,20 +50,18 @@ public class UserMetric extends AbstractBaseEntity {
 	@Column(name = "total_users", nullable = true)
 	private Long totalUsers;
 
-	@CreatedDate
-	@Column(name = "created_at", nullable = false)
-	private LocalDateTime createdAt;
-
-	@LastModifiedDate
-	@Column(name = "modified_at", nullable = false)
-	private LocalDateTime modifiedAt;
-
 	@Builder
-	public UserMetric(Long newUsers, Long totalUsers, LocalDateTime createdAt, LocalDateTime modifiedAt) {
+	public UserMetric(Long newUsers, Long totalUsers) {
 		this.newUsers = newUsers;
 		this.totalUsers = totalUsers;
-		this.createdAt = createdAt;
-		this.modifiedAt = modifiedAt;
+	}
+
+	public static UserMetric of(Long newUsers, Long totalUsers, LocalDateTime createdAt) {
+		UserMetric userMetric = new UserMetric();
+		userMetric.setNewUsers(newUsers);
+		userMetric.setTotalUsers(totalUsers);
+		userMetric.setCreatedAt(createdAt);
+		return userMetric;
 	}
 }
 ```  
@@ -180,7 +169,7 @@ public class QuartzJobListener implements JobListener {
 
 	@Override
 	public void jobWasExecuted(JobExecutionContext context, JobExecutionException jobException) {
-		if (jobException != null) {
+		if (ObjectUtils.isEmpty(jobException)) {
 			log.info("Job execution resulted in exception: {}", context.getJobDetail().getKey(), jobException);
 		} else {
 			log.info("Job was executed successfully: {}", context.getJobDetail().getKey());
@@ -273,7 +262,7 @@ public class QuartzJob implements Job {
 		JobDataMap dataMap = context.getJobDetail().getJobDataMap();
 		String dateString = dataMap.getString("date");
 
-		if (dateString == null) {
+		if (ObjectUtils.isEmpty(dateString)) {
 			throw new IllegalArgumentException("Date is required in JobDataMap");
 		}
 
@@ -287,16 +276,13 @@ public class QuartzJob implements Job {
 		Long totalUserToday = totalUsersYesterday + newUserToday;
 
 		UserMetric existingMetric = userMetricRepository.findTopByCreatedAtBetween(startOfDay, endOfDay);
-		if (existingMetric != null) {
+		if (ObjectUtils.isEmpty(existingMetric)) {
 			log.info("User metrics for date {} already exist: {}", dateString, existingMetric);
 			slackNotificationService.sendDailyUserMetrics(date, newUserToday, totalUserToday);
 			return;
 		}
 
-		UserMetric userMetric = new UserMetric();
-		userMetric.setNewUsers(newUserToday);
-		userMetric.setTotalUsers(totalUserToday);
-		userMetric.setCreatedAt(LocalDateTime.now());
+		UserMetric userMetric = UserMetric.of(newUserToday, totalUserToday, LocalDateTime.now());
 		userMetricRepository.save(userMetric);
 
 		slackNotificationService.sendDailyUserMetrics(date, newUserToday, totalUserToday);
@@ -307,7 +293,7 @@ public class QuartzJob implements Job {
 <br>  
 
 
-주석으로도 잠깐 적어두긴 했지만, **쿼츠를 구현할때 수행해야는 실제 작업은 execute 메서드에 구현**해야 한다.   
+주석으로도 잠깐 적어두긴 했지만, **쿼츠를 구현할때 수행해야는 실제 작업은 execute 메서드에 구현**해야 한다. 또한 Quartz가 Job 인스턴스를 직접 생성하기 때문에 생성자를 통해 의존성을 주입하는 방식은 작동하지 않는다. Quartz가 Job 인스턴스를 생성할 때 Spring의 컨텍스트를 사용하지 않기 때문에 Autowired를 사용해야 작동한다.
 
 <br>  
 
@@ -332,10 +318,9 @@ public class QuartzService {
 			paramsMap.put("date", LocalDate.now().toString());
             
             // 테스트 할때는 "0 * * * * ?" 으로 수정해야 확인이 편하다.  
-			addJob(QuartzJob.class, "QuartzJob", "Quartz Job 입니다", paramsMap, "0 0 0 * * ?");
+			addJob(QuartzJob.class, "UserMetricSendQuartzJob", "유저 회원가입 통계 Job 입니다.", paramsMap, "0 0 0 * * ?");
 
 			if (!scheduler.isStarted()) {
-				log.info("스케줄러 시작");
 				scheduler.start();
 			}
 
@@ -360,9 +345,7 @@ public class QuartzService {
 			scheduler.scheduleJob(jobDetail, trigger);
 		} catch (SchedulerException e) {
 			log.info("잡 스케줄링 중 SchedulerException 발생: {}", jobName, e);
-		} catch (Exception e) {
-			log.info("잡 스케줄링 중 예상치 못한 예외 발생: {}", jobName, e);
-		}
+		} 
 	}
 
 	private JobDetail buildJobDetail(Class<? extends Job> job, String name, String desc,
