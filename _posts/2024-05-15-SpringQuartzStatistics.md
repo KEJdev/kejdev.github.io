@@ -128,8 +128,8 @@ org.quartz.dataSource.test.maxConnections=30
 
 <br>  
 
-이렇게 설정하면 쿼츠 설정은 다 끝나고 실행하면 Quartz Scheduler v.2.3.2 created. ~~ 이렇게 로그가 찍히면 정상적으로 실행하고 있는거다. 실행되면서 테이블도 원래 자동으로 해주는 걸 설정할 수 있는데, 난 그냥 수동으로 했다.   
-[스키마](https://github.com/quartz-scheduler/quartz/blob/main/quartz/src/main/resources/org/quartz/impl/jdbcjobstore/tables_mysql_innodb.sql)는 여기서 다운받아서 쓰면 된다.  
+이렇게 설정하면 쿼츠 설정은 다 끝나고 실행하면 Quartz Scheduler v.2.3.2 created. ~~ 이렇게 로그가 찍히면 정상적으로 실행하고 있는거다. 실행되면서 쿼츠 테이블도 원래 자동으로 생성하는걸 설정할 수 있는데, 난 그냥 수동으로 테이블을 생성했다.   
+[스키마](https://github.com/quartz-scheduler/quartz/blob/main/quartz/src/main/resources/org/quartz/impl/jdbcjobstore/tables_mysql_innodb.sql)는 여기서 다운받아서 쓰면 된다. 쿼츠 테이블은 있어야 쿼츠 Job, 트리거 상태 등을 기록 할수 있기 때문에 생성해야 된다.  
 
 <br>  
 
@@ -277,7 +277,6 @@ public class QuartzJob implements Job {
 
 		UserMetric existingMetric = userMetricRepository.findTopByCreatedAtBetween(startOfDay, endOfDay);
 		if (ObjectUtils.isEmpty(existingMetric)) {
-			log.info("User metrics for date {} already exist: {}", dateString, existingMetric);
 			slackNotificationService.sendDailyUserMetrics(date, newUserToday, totalUserToday);
 			return;
 		}
@@ -307,45 +306,35 @@ public class QuartzService {
 	private final Scheduler scheduler;
 
 	@PostConstruct
-	public void init() {
-		try {
-			scheduler.clear();
-			scheduler.getListenerManager().addJobListener(new QuartzJobListener());
-			scheduler.getListenerManager().addTriggerListener(new QuartzTriggerListener());
+	public void init() throws SchedulerException {
+		scheduler.clear();
+		scheduler.getListenerManager().addJobListener(new QuartzJobListener());
+		scheduler.getListenerManager().addTriggerListener(new QuartzTriggerListener());
 
-			Map<String, Object> paramsMap = new HashMap<>();
-			paramsMap.put("executeCount", 1);
-			paramsMap.put("date", LocalDate.now().toString());
-            
-            // 테스트 할때는 "0 * * * * ?" 으로 수정해야 확인이 편하다.  
-			addJob(QuartzJob.class, "UserMetricSendQuartzJob", "유저 회원가입 통계 Job 입니다.", paramsMap, "0 0 0 * * ?");
+		Map<String, Object> paramsMap = new HashMap<>();
+		paramsMap.put("executeCount", 1);
+		paramsMap.put("date", LocalDate.now().toString());
 
-			if (!scheduler.isStarted()) {
-				scheduler.start();
-			}
+		addJob(QuartzJob.class, "UserMetricSendQuartzJob", "유저 회원가입 통계 Job 입니다.", paramsMap, "0 0 0 * * ?");
 
-		} catch (Exception e) {
-			log.error("Quartz 스케줄러 초기화 중 오류 발생", e);
+		if (!scheduler.isStarted()) {
+			scheduler.start();
 		}
 	}
 
 	public void addJob(Class<? extends Job> jobClass, String jobName, String jobDescription,
-		Map<String, Object> jobDataMap, String cronExpression) {
-		try {
-			JobDetail jobDetail = buildJobDetail(jobClass, jobName, jobDescription, jobDataMap);
-			Trigger trigger = buildCronTrigger(cronExpression, jobName + "Trigger");
+		Map<String, Object> jobDataMap, String cronExpression) throws SchedulerException {
+		JobDetail jobDetail = buildJobDetail(jobClass, jobName, jobDescription, jobDataMap);
+		Trigger trigger = buildCronTrigger(cronExpression, jobName + "Trigger");
 
-			if (scheduler.checkExists(jobDetail.getKey())) {
-				log.info("업데이트 할 Job : {}", jobDetail.getKey());
-				scheduler.deleteJob(jobDetail.getKey());
-			} else {
-                // 기존에 등록된 Job이 없다면 추가 
-				log.info("새로운 Job 추가 : {}", jobDetail.getKey());
-			}
-			scheduler.scheduleJob(jobDetail, trigger);
-		} catch (SchedulerException e) {
-			log.info("잡 스케줄링 중 SchedulerException 발생: {}", jobName, e);
-		} 
+		if (scheduler.checkExists(jobDetail.getKey())) {
+			log.error("업데이트 할 Job : {}", jobDetail.getKey());
+			scheduler.deleteJob(jobDetail.getKey());
+		} else {
+			log.error("새로운 Job 추가 : {}", jobDetail.getKey());
+		}
+		scheduler.scheduleJob(jobDetail, trigger);
+
 	}
 
 	private JobDetail buildJobDetail(Class<? extends Job> job, String name, String desc,
