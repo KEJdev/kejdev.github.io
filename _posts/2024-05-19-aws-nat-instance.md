@@ -2,7 +2,7 @@
 layout: post
 title: AWS NAT Instance 만들기
 date: 2024-05-19 00:00:00 +0900
-category: aws
+category: AWS
 ---
 
 현재 프리티어를 사용하고 있는데, 생성한 EC2안에 Docker를 설치하려고 한다. ECR(Elastic Container Registry)에 Docker 이미지 저장소는 구축되어 있지만 어찌되었건 EC2에서 Docker를 쓰려면 설치해야 한다.  
@@ -71,7 +71,7 @@ EIP 연결이 끝났으면 라우팅 테이블을 새로 하나 만들어 서브
 ![aws-nat-10](/public/img/aws-nat-10.png)
 
 
-그리고 대상을 인스턴스로 설정하고 아까 만들었던 NAT 인스턴스를 넣고 저장을 누르면 끝난다.  
+그리고 대상을 인스턴스로 설정하고 아까 만들었던 NAT 인스턴스를 넣고 저장을 누르면 NAT 인스턴스 만들기는 끝난다.  
 
 ## EC2 Docker Install 
 

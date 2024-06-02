@@ -2,7 +2,7 @@
 layout: post
 title: '[오늘의 집 클론코딩] 간편 회원가입, 자체 회원가입 Table 만들기'
 date: 2024-01-13 00:00:00 +0000
-category : Side Project
+category : SideProject
 ---
 
 #### 🥕 스터디 소개 

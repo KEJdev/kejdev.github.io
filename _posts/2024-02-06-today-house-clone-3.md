@@ -2,7 +2,7 @@
 layout: post
 title: "[오늘의 집 클론코딩] Spring Security UserDetails 구현하기"
 date: 2024-02-06 00:00:00 +0000
-category: Side Project
+category: SideProject
 ---
 
 ## Spring Security UserDetails

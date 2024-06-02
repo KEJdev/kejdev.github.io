@@ -2,7 +2,7 @@
 layout: post
 title: "[오늘의 집 클론코딩] 소셜로그인 구현하기(카카오)"
 date: 2024-01-13 00:00:00 +0000
-category: Side Project
+category: SideProject
 ---
 
 ## kakao developers
