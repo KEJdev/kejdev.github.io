@@ -9,26 +9,59 @@ category: Spring
 
 ### 계층형 구조
 
-계층형 구조는 기능별로 시스템을 여러 계층으로 분리하여 모듈화한다. 각 계층은 명확한 책임을 가지고 있고, 상위 계층은 하위 계층에 의존하지만 그 반대는 허용하지 않는다.   
+계층형 구조는 기능별로 시스템을 여러 계층으로 분리하여 모듈화한다. 각 계층은 명확한 책임을 가지고 있고, 상위 계층은 하위 계층에 의존하지만 그 반대는 허용하지 않는다. 현재 스터디에서 하고 있는 프로젝트 구조는 도메인 구조이지만 계층형으로 바꾼다고 하면 아래와 같이 바꿀 수 있다. 
 
 <br>
 
 ```
-└── src
-    ├── main
-    │   ├── java
-    │   │   └── com
-    │   │       └── example
-    │   │           └── demo
-    │   │               ├── DemoApplication.java
-    │   │               ├── config
-    │   │               ├── controller
-    │   │               ├── dao
-    │   │               ├── domain
-    │   │               ├── exception
-    │   │               └── service
-    │   └── resources
-    │       └── application.properties
+├── main
+│   ├── java
+│   │   └── com
+│   │       └── meowdev
+│   │           └── echo
+│   │               ├── application
+│   │               │   └── EchoApplication.java
+│   │               ├── presentation
+│   │               │   ├── controller
+│   │               │   │   ├── PolicyAgreeController.java
+│   │               │   │   └── PolicyHistoryController.java
+│   │               ├── business
+│   │               │   ├── service
+│   │               │   │   ├── base
+│   │               │   │   │   ├── AbstractBaseEntity.java
+│   │               │   │   │   ├── AbstractBaseUserByEntity.java
+│   │               │   │   │   ├── AbstractBaseUserDeleteEntity.java
+│   │               │   │   │   └── QuerydslConfiguration.java
+│   │               │   │   ├── oauth
+│   │               │   │   │   ├── AuthCodeRequestUrlProvider.java
+│   │               │   │   │   ├── OauthMemberClient.java
+│   │               │   │   │   └── GoogleApiClient.java
+│   │               ├── data
+│   │               │   ├── repository
+│   │               │   │   ├── base
+│   │               │   │   │   ├── QAbstractBaseEntity.java
+│   │               │   │   │   ├── QAbstractBaseUserByEntity.java
+│   │               │   │   │   ├── QAbstractBaseUserDeleteEntity.java
+│   │               │   │   ├── hurdles
+│   │               │   │   │   ├── QBag.java
+│   │               │   │   │   └── QItem.java
+│   │               │   │   ├── policy
+│   │               │   │   │   ├── QPolicyAgree.java
+│   │               │   │   │   └── QPolicyHistory.java
+│   │               │   │   ├── quartz
+│   │               │   │   │   └── QUserMetric.java
+│   │               │   │   ├── user
+│   │               │   │   │   ├── QUser.java
+│   │               │   │   │   └── QUserMetric.java
+│   │               │   └── config
+│   │               │       └── AppConfig.java
+│   │               ├── security
+│   │               │   ├── BaseWebClient.java
+│   │               │   ├── WebAuthenticationEntryPoint.java
+│   │               │   ├── WebSecurityConfig.java
+│   │               │   └── exception
+│   │               │       └── TokenExpiredException.java
+            ...
 ```
 
 * 장점 
@@ -47,33 +80,74 @@ category: Spring
 도메인형 구조는 도메인 주도 설계(DDD)의 원칙에 따라 도메인 모델을 중심으로 시스템을 구성하는 것을 말한다. 보통 복잡한 비즈니스 로직을 효과적으로 관리할 수 있도록 설계되어 있어서 많이 채용하는 편이다. 
 
 ```
-└── src
-    ├── main
-    │   ├── java
-    │   │   └── com
-    │   │       └── example
-    │   │           └── demo
-    │   │               ├── DemoApplication.java
-    │   │               ├── coupon
-    │   │               │   ├── controller
-    │   │               │   ├── domain
-    │   │               │   ├── exception
-    │   │               │   ├── repository
-    │   │               │   └── service
-    │   │               ├── member
-    │   │               │   ├── controller
-    │   │               │   ├── domain
-    │   │               │   ├── exception
-    │   │               │   ├── repository
-    │   │               │   └── service
-    │   │               └── order
-    │   │                   ├── controller
-    │   │                   ├── domain
-    │   │                   ├── exception
-    │   │                   ├── repository
-    │   │                   └── service
-    │   └── resources
-    │       └── application.properties
+├── main
+│   ├── generated
+│   │   └── com
+│   │       └── meowdev
+│   │           └── echo
+│   │               └── service
+│   │                   ├── base
+│   │                   │   ├── QAbstractBaseEntity.java
+│   │                   │   ├── QAbstractBaseUserByEntity.java
+│   │                   │   └── QAbstractBaseUserDeleteEntity.java
+│   │                   ├── hurdles
+│   │                   │   └── domain
+│   │                   │       ├── QBag.java
+│   │                   │       └── QItem.java
+│   │                   ├── policy
+│   │                   │   └── domain
+│   │                   │       ├── QPolicyAgree.java
+│   │                   │       └── QPolicyHistory.java
+│   │                   ├── quartz
+│   │                   │   └── domain
+│   │                   │       └── QUserMetric.java
+│   │                   └── user
+│   │                       └── domain
+│   │                           ├── QUser.java
+│   │                           └── QUserMetric.java
+│   ├── java
+│   │   └── com
+│   │       └── meowdev
+│   │           └── echo
+│   │               ├── EchoApplication.java
+│   │               ├── controller
+│   │               │   ├── policy
+│   │               │   │   ├── PolicyAgreeController.java
+│   │               │   │   └── PolicyHistoryController.java
+│   │               │   └── user
+│   │               │       ├── EmailController.java
+│   │               │       ├── OauthController.java
+│   │               │       └── UserSignController.java
+│   │               ├── security
+│   │               │   ├── BaseWebClient.java
+│   │               │   ├── WebAuthenticationEntryPoint.java
+│   │               │   ├── WebSecurityConfig.java
+│   │               │   └── exception
+│   │               │       └── TokenExpiredException.java
+│   │               ├── service
+│   │               │   ├── base
+│   │               │   │   ├── AbstractBaseEntity.java
+│   │               │   │   ├── AbstractBaseUserByEntity.java
+│   │               │   │   ├── AbstractBaseUserDeleteEntity.java
+│   │               │   │   └── QuerydslConfiguration.java
+│   │               │   ├── config
+│   │               │   │   └── AppConfig.java
+│   │               │   ├── oauth
+│   │               │   │   ├── AuthCodeRequestUrlProvider.java
+│   │               │   │   ├── AuthCodeRequestUrlProviderComposite.java
+│   │               │   │   ├── HttpInterfaceConfig.java
+│   │               │   │   ├── OauthMemberClient.java
+│   │               │   │   ├── OauthMemberClientComposite.java
+│   │               │   │   ├── OauthServerTypeConverter.java
+│   │               │   │   ├── google
+│   │               │   │   │   ├── GoogleApiClient.java
+│   │               │   │   │   ├── GoogleAuthCodeRequestUrlProvider.java
+│   │               │   │   │   ├── GoogleMemberClient.java
+│   │               │   │   │   ├── GoogleOauthProviderConfig.java
+│   │               │   │   │   ├── GoogleOauthRegistrationConfig.java
+│   │               │   │   │   └── GoogleUserMeInfoResponseDto.java
+│   │               │   │   ├── kakao
+            .... 
 ```
 
 * 장점   
