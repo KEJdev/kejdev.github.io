@@ -2,7 +2,7 @@
 layout: post
 title: Node.js 란? 
 date: 2024-08-08 00:00:00 +0900
-category: etc
+category: ETC
 ---
 
 Node.js의 특징을 요약하면 아래와 같다. 
