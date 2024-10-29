@@ -14,8 +14,7 @@ category: Java
 <br>
 
 
-클래스 앞에 `abstract`를 붙이면 추상 클래스가 된다.    
-추상 클래스는 직접 객체를 생성할 수 없으며 자식 클래스에서 상속을 통해서 사용된다.    
+클래스 앞에 `abstract`를 붙이면 추상 클래스가 된다. 
 
 <br>
 
@@ -35,7 +34,7 @@ public abstract class Payment {
 
 <br>
 
-Payment는 추상 클래스고, processPayment()는 `abstract` 키워드를 사용하여 추상 메서드를 만들었다. 보다싶이 processPayment는 구현 없이 선언만 되어 있다.     
+Payment는 추상 클래스고, processPayment()는 `abstract` 키워드를 사용하여 추상 메서드를 만들었다. 보다시피 processPayment는 구현 없이 선언만 되어 있다.     
 
 이렇게 되면 Payment를 상속 받는 클래스는 반드시 processPayment() 메서드를 받드시 구현해야한다. 만약 추상 클래스에서 선언된 추상 메서드를 재정의(Override)하지 않으면 컴파일 에러가 난다.   
 
@@ -74,8 +73,7 @@ public abstract class Payment {
 
 <br>  
 
-이렇게 추상 클래스를 정의하고 변수(charge)를 초기화 하는 생성자를 포함하도록 작성했다. 
-그리고 자식 클래스에서 부모 클래스의 생성자를 호출하면 초기화 작업을 수행 할 수 있게 된다.  
+추상 클래스를 정의하고 변수(charge)를 초기화 하는 생성자를 포함하도록 작성했고, 아래 자식 클래스에서 부모 클래스의 생성자를 호출하면 초기화 작업을 수행 할 수 있게 된다.  
 
 <br>
 
