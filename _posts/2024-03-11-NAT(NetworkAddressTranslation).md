@@ -40,8 +40,6 @@ NAT를 사용하게 되면 하나의 공인 IP 주소를 여러 개의 사설 IP
 NAT는 OSI 3계층에서 작동하며, NAT를 구현하는 장비는 주로 라우터와 같은 네트워크 장비이다.  
 OSI모델의 7계층 구조 중에 네트워크 계층에 속하여 내부와 외부 네트워크 간의 트래픽을 관리하고 네트워크 주소의 변환을 담당한다.
 
-<br>
-
 Reference
 
 - [NAT란 무엇입니까?](https://simplificandoredes.com/en/what-is-nat/)

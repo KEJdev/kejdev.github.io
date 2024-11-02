@@ -21,8 +21,6 @@ Spring Security UserDetails는 Spring Security 프레임워크에서 사용자�
 
 위에 있는 그럼은 이전 Spring Security관련 포스팅에서도 한번 봤던 그림이다. 그만큼 중요한 그림인데, 이번 User Details 구현할때 많은 도움이 되었기 때문에 그림 순서대로 구현해보자.
 
-<br>
-
 ### AuthenticationFilter
 
 AuthenticationFilter는 초기 요청 시 사용자의 자격 증명(사용자 이름과 비밀번호)를 확인해야한다. 아래와 같이 기존에 있던 SecurityFillterChain 부분에 아래와 같이 한 줄을 추가한다.
@@ -44,8 +42,6 @@ public SecurityFilterChain localSecurityFilterChain(HttpSecurity http,
     return addExceptionHandling(http).build();
 }
 ```
-
-<br>
 
 ### UsernamePasswordAuthenticationToken
 
@@ -73,8 +69,6 @@ public Authentication authenticate(Authentication authentication) throws Authent
 
 현재 코드는 소셜 로그인(카카오, 네이버)과 자체 회원가입 둘다 구현되어 있다. 따라서 소셜 로그인의 경우 직접적으로 패스워드를 저장하는 것이 아니라서 괜찮지만, 자체 로그인의 경우 패스워드를 관리해야 되기 때문에 ProviderType이 자체 회원가입을 경우에 비밀번호 일치 여부를 확인 할 필요가 있었다.
 
-<br>
-
 ### AuthenticationManager
 
 AuthenticationManager는 생성된 Token이 올바른 유저에서 온 것이 아닌지를 확인하는 부분이다. 나는 아래와 같이 AuthenticationManagerBuilder를 사용하여 유저 로그인, 인증을 처리했다.
@@ -84,8 +78,6 @@ public void configure (AuthenticationManagerBuilder auth) throws Exception {
     auth.authenticationProvider(userAuthenticationProvider);
 }
 ```
-
-<br>
 
 ### AuthenticationManager와 AuthenticationProvider
 
@@ -129,8 +121,6 @@ public class UserAuthenticationProvider implements AuthenticationProvider {
 }
 ```
 
-<br>
-
 ### UserDetailsService
 
 UserDetailsService는 해당 유저의 정보를 데이터베이스나 다른 저장소에서 검색해서 Spring Security에게 제공한다.
@@ -158,8 +148,6 @@ public class UserDetailService implements UserDetailsService {
     }
 }
 ```
-
-<br>
 
 ### UserDetails
 
@@ -233,8 +221,6 @@ public class UserPrincipal implements UserDetails {
     }
 }
 ```
-
-<br>
 
 ### SecurityContext & Authentication
 

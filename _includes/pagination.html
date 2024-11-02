@@ -2,54 +2,30 @@
 The paginator for post list on HomgPage.
 -->
 <!-- left arrow -->
+<!-- 이전 페이지 버튼 (현재 페이지 기준 바로 이전 페이지로 이동) -->
 {% if paginator.previous_page %}
-  <a  href="{{ paginator.previous_page_path | relative_url }} "  aria-label="previous-page"> </a>
+  <a href="{{ paginator.previous_page_path | relative_url }}" aria-label="previous-page" style="color: #AAA;"><<</a>
 {% endif %}
 
-<!-- page numbers -->
-{% assign left_ellipsis = false %}
-{% assign right_ellipsis = false %}
+<!-- 페이지 번호 묶음 계산 -->
+{% assign max_pages_to_show = 5 %} <!-- 묶음당 최대 페이지 수 -->
+{% assign start_page = paginator.page | minus: 1 | divided_by: max_pages_to_show | times: max_pages_to_show | plus: 1 %}
+{% assign end_page = start_page | plus: max_pages_to_show | minus: 1 %}
 
-{% for i in (1..paginator.total_pages) %}
-
-  {% assign pre = paginator.page | minus: 8 %}
-  {% assign next = paginator.page | plus: 8 %}
-  {% assign pre_less = pre | minus: 8 %}
-  {% assign next_more = next | plus: 8 %}
-  {% assign show = false %}
-
-  {% if paginator.page == 1 %}
-    {% if i <= 8 or i == paginator.total_pages %}
-      {% assign show = true %}
-    {% endif %}
-  {% elsif paginator.page == paginator.total_pages %}
-    {% if i == 1 or i >= pre_less %}
-      {% assign show = true %}
-    {% endif %}
-  {% else %}
-    {% if i == 1 or i == paginator.total_pages%}
-      {% assign show = true %}
-    {% elsif i >= pre and i <= next %}
-      {% assign show = true %}
-    {% endif %}
+<!-- 페이지 번호 표시 -->
+{% for i in (start_page..end_page) %}
+  {% if i <= paginator.total_pages %}
+    <a href="{% if i == 1 %}{{ paginator.previous_page_path | relative_url }}{% else %}{{ site.baseurl }}/page/{{ i }}{% endif %}"
+       {% if i == 1 %}onclick="if (window.location.pathname === '{{ paginator.previous_page_path | relative_url }}') { window.location.href = '{{ paginator.previous_page_path | relative_url }}'; }"{% endif %}
+       style="padding: 5px; margin: 0 3px; color: {% if i == paginator.page %}#ff008b{% else %}#333333{% endif %};
+              border-radius: 5px; text-decoration: none;">
+      {{ i }}
+    </a>
   {% endif %}
-
-  {% if show %}
-      <a href="{{ site.baseurl }}/{% if i > 1%}page/{{ i }}/{% endif %}" style=" padding:10px; color: 
-        {% if paginator.page == i %}#DDD;{% else %}#AAA{% endif %}">
-        {{ i }}
-      </a>
-
-  {% else %}
-    <!-- hide number -->
-    {% if i < pre and left_ellipsis == false %}
-        <span >...</span>
-      {% assign left_ellipsis = true %}
-    {% elsif i > next and right_ellipsis == false %}
-        <span >...</span>
-      {% assign right_ellipsis = true %}
-    {% endif %}
-  {% endif %}
-
 {% endfor %}
 
+
+<!-- 다음 페이지 버튼 (현재 페이지 기준 바로 다음 페이지로 이동) -->
+{% if paginator.next_page %}
+  <a href="{{ paginator.next_page_path | relative_url }}" aria-label="next-page" style="color: #AAA;"> >> </a>
+{% endif %}

@@ -8,15 +8,12 @@ category: Spring
 
 이전 포스팅에 [Quartz 구현](https://kejdev.github.io/spring/2024/05/15/SpringQuartzStatistics.html) 관련 글을 쓰긴했는데, 재사용을 염두하지 않고 구현했던거라 이번에 스케줄링 작업 몇개 추가하면서 코드를 조금 수정했다.     
 
-<br>  
 
 ### QuartzService 
 
-<br>  
 
 기존에 있던 QuartzService를 추상 클래스로 만들어 상속 받을 수 있도록 했다. 이렇게 되면 이제 각 도메인이나 필요한 곳에서 가져다 사용할 수 있다. 
 
-<br>  
 
 ```java  
 public abstract class QuartzBaseService {
@@ -77,13 +74,12 @@ public abstract class QuartzBaseService {
 }
 ```
 
-<br>
 
 
 그리고 스케줄링 해야 하는 곳에서 initJob()을 구현하면 되는데, 이제는 여러 작업을 관리해야 하다보니 enum으로 만드는게 다른 팀원들과 일할 때도 편할 거 같아 enum으로 작업 내용을 정리햇다. 
 
 
-<br> 
+
 
 ```java 
 
@@ -127,11 +123,10 @@ public enum UserAccountQuartzInfo {
 ```
 
 
-<br> 
 
 enum으로 만들었으면 아래와 같이 initJob을 구현하면 Quartz 구현이 끝난다.  
 
-<br> 
+
 
 ```java
 public class UserAccountDeleteQuartzService extends QuartzBaseService {
@@ -154,7 +149,6 @@ public class UserAccountDeleteQuartzService extends QuartzBaseService {
 }
 ```
 
-<br>  
 
 
 이렇게 한번 기본 틀을 만들면 이제 어느 도메인에서도 쉽게 상속 받아서 initJob만 구현하면 되기 때문에 여러 작업을 관리하기 편하다. 

@@ -8,7 +8,7 @@
 		<div class='sidebar-brand'>
 			<a href="/" style = "font-family: 'Gelasio'" >{{ site.title }}</a>
 		</div>
-		<p class="lead" style="color: rgb(255, 255, 255);">{{ site.description }}</p>
+		<p class="lead" style="color: rgb(0, 0, 0);">{{ site.description }}</p>
 		{%- if social.github -%}
 			<a rel="me" href="https://github.com/{{ social.github | cgi_escape | escape }}" title="{{ social.github | escape }}">
 				<svg class="svg-icon grey">
@@ -27,12 +27,12 @@
 
 <div class="sidebar-item sidebar-nav" style="margin-right:8px; margin-top:20px">
 	<ul class="nav">
-	<li class="nav-title" style="color:rgb(255, 255, 255); font-weight:bold;">Pages</li>
+	<li class="nav-title" style="color:rgb(0, 0, 0); font-weight:bold;">Pages</li>
 	<li>
-		<a class="nav-item" style="text-transform: capitalize; color:rgb(255, 255, 255);" href="/">Articles</a>
+		<a class="nav-item" style="text-transform: capitalize; color:rgb(0, 0, 0);" href="/">Articles</a>
 	</li>
 	<li>
-		<a class="nav-item" style="text-transform: capitalize; color:aliceblue;" href="/about">About</a>
+		<a class="nav-item" style="text-transform: capitalize; color:rgb(0, 0, 0);" href="/about">About</a>
 	</li>
 	<!-- {% assign pages_list = site.pages %}
 	{% for node in pages_list %}
@@ -51,10 +51,10 @@
 
 <div class="sidebar-item sidebar-nav">
 	<ul class="nav">
-			<li class="nav-title" style="color:rgb(255, 255, 255); font-weight:bold;">Category</li>
+			<li class="nav-title" style="color:rgb(0, 0, 0); font-weight:bold;">Category</li>
 		{% for category in site.categories %}
 		<li>
-			<a class="nav-item" style="color:aliceblue;" href="{{ root_url }}/{{ site.category_dir }}#{{ category | first }}">
+			<a class="nav-item" style="color:rgb(0, 0, 0);" href="{{ root_url }}/{{ site.category_dir }}#{{ category | first }}">
 				<span class="name">{{ category | first }}</span>
 				<span class="badge">{{ category | last | size }}</span>
 			</a>

@@ -1,8 +1,9 @@
 @import url(//fonts.googleapis.com/css?family=Ubuntu:500&subset=latin,latin-ext);
-@import url("https://fonts.googleapis.com/css?family=Gelasio|Kulim+Park|Nanum+Myeongjo|Nanum+Gothic|Noto+Sans|Noto+Sans+KR|Roboto&display=swap");
-@import url(syntax/monokai.css);
-@font-face {
-  font-family: "S-CoreDream-3Light";
+@import url("https://fonts.googleapis.com/css?family=Gowun+Batang:wght@400;700|Gelasio|Kulim+Park|Nanum+Myeongjo|Nanum+Gothic|Noto+Sans|Noto+Sans+KR|Roboto&display=swap");
+@import url(syntax/github.css);
+
+/* @font-face {
+  font-family: "Gowun Batang";
   src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff")
     format("woff");
   font-weight: normal;
@@ -15,7 +16,7 @@
     format("woff");
   font-weight: bold;
   font-style: normal;
-}
+} */
 
 :root {
   --blue: #007bff;
@@ -44,7 +45,8 @@
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
-  --font-family-sans-serif: "Noto Sans KR", "Roboto", "Nanum Gothic";
+  --font-family-sans-serif: "Gowun Batang", "Noto Sans KR", "Roboto",
+    "Nanum Gothic";
   --font-family-serif: "Nanum Myeongjo";
 }
 
@@ -73,14 +75,20 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-  font-family: "S-CoreDream-3Light", "Noto Sans KR", "Roboto", "Gelasio",
+  font-family: "Gowun Batang", "Lora" , "Noto Sans KR", "Roboto", "Gelasio",
     "Nanum Myeongjo", serif;
   color: #000000;
 }
 
 strong {
-  font-family: "S-CoreDream-6Bold", sans-serif;
-  font-weight: bold;
+  font-family: "Gowun Batang", sans-serif;
+  /* font-weight: 700; */
+}
+
+aside p {
+   font-size: 14px;
+  margin-top: 0;  /* top 마진 제거 */
+  margin-bottom: 0;  /* bottom 마진 제거 */
 }
 
 aside {
@@ -114,17 +122,34 @@ a:hover {
 
 pre {
   display: block;
-  overflow: auto;
+  white-space: pre;
+  overflow-x: scroll;
   margin-bottom: 15px;
-  padding-bottom: 10px;
-  padding: 15px;
+  padding: 20px;
   line-height: 1.2;
+  background-color: #e4e4e4; /* 배경색 추가 (선택 사항) */
+  border-radius: 5px; /* 모서리 둥글게 (선택 사항) */
+  border: 1px solid #ddd; /* 테두리 추가 (선택 사항) */
+  
 }
 
 code {
-  font-family: "Menlo", "Consolas", monospace;
+  font-family:"Menlo", "Consolas", monospace;
   font-size: 0.8em;
   margin: 0px;
+  white-space: pre-wrap; /* 코드가 길어지면 줄바꿈 */
+  word-wrap: break-word; /* 단어가 길어도 줄바꿈 */
+}
+
+/* 인라인 코드에만 스타일 적용 */
+p code, span code {
+  background-color: #d7d7d7; /* 회색 배경 */
+  color: #24292f;
+  padding: 2px 4px; /* 작은 여백 */
+  border-radius: 3px; /* 모서리 둥글게 */
+  font-family: "Menlo", "Consolas", monospace; /* 고정폭 폰트 */
+  font-size: 0.9em;
+  white-space: nowrap; /* 줄바꿈 방지 */
 }
 
 .container {
@@ -138,7 +163,7 @@ code {
   /*margin-left: 180px;*/
   margin-left: auto;
   margin-right: auto;
-  max-width: 900px;
+  max-width: 1100px;
 }
 
 .content-wrapper {
@@ -155,8 +180,8 @@ code {
   flex: 0 0 300px;
   padding: 50px;
   z-index: 1;
-  background: #212529;
-  color: #fff;
+  background: #e7e7e747;
+  color: #000000;
 }
 
 .sidebar-item {
@@ -170,8 +195,8 @@ code {
 
 .sidebar-brand > a {
   font-size: 250%;
-  font-family: "S-CoreDream-3Light", "Roboto", "Gelasio";
-  color: #fff;
+  font-family: "Gowun Batang", "Roboto", "Gelasio";
+  color: #000000;
 }
 
 .lead {
@@ -190,15 +215,15 @@ code {
 
 .nav-title {
   font-size: 100%;
-  font-family: "S-CoreDream-3Light", "Roboto", "Noto Sans";
+  font-family: "Gowun Batang", "Roboto", "Noto Sans";
   text-transform: uppercase;
-  border-bottom: 1px solid rgb(255, 255, 255);
+  border-bottom: 1px solid rgb(0, 0, 0);
   margin-bottom: 5px;
 }
 
 a.nav-item {
   font-size: 110%;
-  font-family: "S-CoreDream-3Light", "Roboto", "Noto Sans";
+  font-family: "Gowun Batang", "Roboto", "Noto Sans";
   text-transform: inherit;
   color: #aaa;
 }
@@ -289,8 +314,8 @@ article img {
   max-width: 100%;
   display: block;
   margin: auto;
-  margin-top: 2%;
-  margin-block-end: 2%;
+  margin-top: 8%;
+  margin-block-end: 8%;
 }
 
 blockquote {
@@ -302,22 +327,38 @@ blockquote {
 }
 
 p {
-  margin-top: 0;
-  margin-bottom: 0%;
+  margin-top: 5%;
+  margin-bottom: 5%;
 }
 
-article h1, article h2, article h3, article h4, article h5, article h6 {
-  font-family: "S-CoreDream-3Light", "Roboto", "Nanum Gothic";
-  color: #3851f4;
-  margin-bottom: 0;
+article h1::before,
+article h2::before,
+article h3::before,
+article h4::before,
+article h5::before,
+article h6::before {
+  content: "📖"; /* 원하는 이모지와 공백 추가 */
+  font-family: "Gowun Batang", "Roboto", "Nanum Gothic";
+  font-weight: 700;
+  font-style: normal;
+  margin-right: 8px; /* 텍스트와 이모지 간의 간격 조정 */
+}
+
+article h1,
+article h2,
+article h3,
+article h4,
+article h5,
+article h6 {
+  font-family: "Gowun Batang", "Roboto", "Nanum Gothic";
+  font-weight: 700;
+  font-style: normal;
+  /* color: #3851f4; */
+  margin-bottom: 5%;
+  margin-top: 5%;
   /* 어두운 회색(#444) 외곽선 추가 */
-  text-shadow: 
-    -0.1px -0.1px 0 #3851f4,  
-     0.1px -0.1px 0 #3851f4,
-    -0.1px  0.1px 0 #3851f4,
-     0.1px  0.1px 0 #3851f4;
+  text-shadow: -0.1px -0.1px 0 #828282;
 }
-
 
 /* article h1,
 article h2,
@@ -325,7 +366,7 @@ article h3,
 article h4,
 article h5,
 article h6 {
-  font-family: "S-CoreDream-3Light", "Roboto", "Nanum Gothic";
+  font-family: "Gowun Batang", "Roboto", "Nanum Gothic";
   color: #1900ff;
   margin-bottom: 0;
 } */
@@ -376,19 +417,19 @@ header.home {
 
 footer {
   padding-top: 15px;
-  font-family: "S-CoreDream-3Light", "Roboto", "Ubuntu";
+  font-family: "Gowun Batang", "Roboto", "Ubuntu";
 }
 
 .sidebar-footer {
   margin-top: 80px;
   font-size: 0.75em;
   font-weight: lighter;
-  font-family: "S-CoreDream-3Light", "Roboto";
+  font-family: "Gowun Batang", "Roboto";
   line-height: 1.5;
 }
 
 .sidebar-footer a {
-  color: #ccc;
+  color: #000000;
 }
 
 @media (max-width: 576px) {

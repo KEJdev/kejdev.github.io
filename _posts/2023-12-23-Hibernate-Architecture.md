@@ -26,8 +26,8 @@ category: Spring
 1. 애플리케이션 계층(Application Layer)
 
 - 역할: 개발자가 작성하는 비즈니스 로직과 객체 모델을 포함한다
-- 구성 요소:  
-   - Transient Objects: 데이터베이스에 저장되지 않은 임시 객체들이다 - Persistent Objects: 데이터베이스에 저장되며 하이버네이트 세션에 의해 관리되는 영구 객체들이다.
+- 구성 요소:
+  - Transient Objects: 데이터베이스에 저장되지 않은 임시 객체들이다 - Persistent Objects: 데이터베이스에 저장되며 하이버네이트 세션에 의해 관리되는 영구 객체들이다.
 
 2. 하이버네이트 코어 계층(Hibernate Core Layer)
 
@@ -54,8 +54,6 @@ category: Spring
 ![hibernate-2](/public/img/comprehensive_hibernate_architecture2.png)
 
 따라서, 하이버네이트의 내부 계층은 SessionFactory, Session, Transaction 등으로 구성되어 있고 이 내부 계층이 애플리케이션 계층과 데이터베이스 계층 사이에서 중요한 역할을 한다. 이 내부 계층들은 하이버네이트의 핵심기능과 연결성을 제공하고 애플리케이션 계층과 데이터베이스 계층을 원활하게 연결하는데 필요한 모든 처리를 담당한다.
-
-<br>
 
 ---
 

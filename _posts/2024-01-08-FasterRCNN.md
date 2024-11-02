@@ -23,10 +23,8 @@ Faster RCNN의 아키텍처는 아래와 같다.
 
 <img src="/public/img/FasterRCNN.png" alt="FasterRCNN" width="300" height="450">
 
-
-* 전체 이미지를 Convolutional Neural Network(CNN)에 통과시켜 feature map을 생성한다.  
-* 생성된 feature map은 Region Proposal Network(RPN)으로 전달된다. RPN은 여러 크기와 비율을 가진 anchor boxes를 사용하여 후보 영역을 추출한다. 
-
+1. 전체 이미지를 Convolutional Neural Network(CNN)에 통과시켜 feature map을 생성한다.
+2. 생성된 feature map은 Region Proposal Network(RPN)으로 전달된다. RPN은 여러 크기와 비율을 가진 anchor boxes를 사용하여 후보 영역을 추출한다.
     <aside>
     <span class="icon">🥕</span> 
     <div class="content">
@@ -35,8 +33,7 @@ Faster RCNN의 아키텍처는 아래와 같다.
     </aside>
 
 
-* RPN이 추출한 후보 영역에서 각 anchor box에 대해 객체일 가능성을 점수화하고, 이 점수가 높은 object proposals를 선택한다.
-
+3. RPN이 추출한 후보 영역에서 각 anchor box에 대해 객체일 가능성을 점수화하고, 이 점수가 높은 object proposals를 선택한다.
     <aside>
     <span class="icon">🥕</span> 
     <div class="content">
@@ -44,11 +41,10 @@ Faster RCNN의 아키텍처는 아래와 같다.
     </div>
     </aside>
 
-* 선택된 object proposals에 대해 RoI Pooling을 수행하여 각각의 후보 영역에 대해 고정된 크기의 feature vector를 얻는다.
-* RoI Pooling으로 얻은 feature vector는 fully connected layers로 전달되어 최종적으로 classification과 bounding box regression을 수행하여 객체의 종류와 위치를 결정한다. 
+4. 선택된 object proposals에 대해 RoI Pooling을 수행하여 각각의 후보 영역에 대해 고정된 크기의 feature vector를 얻는다.
+5. RoI Pooling으로 얻은 feature vector는 fully connected layers로 전달되어 최종적으로 classification과 bounding box regression을 수행하여 객체의 종류와 위치를 결정한다. 
 
-## faster RCNN 결론 
-
+### faster RCNN 결론 
 Region Proposal Network(RPN)를 도입함으로써 후보 영역 추출 과정을 네트워크에 통합하였고, 객체 탐지 속도를 크기 향상시켰고 end-to-end 학습이 가능해졌다. 
 
 
