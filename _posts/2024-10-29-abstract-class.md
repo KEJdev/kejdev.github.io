@@ -5,7 +5,7 @@ date: 2024-10-29 00:00:00 +0900
 category: Java 
 ---
 
-추상 클래스는 상속과 객체지향 프로그래밍(OOP)에서 공통된 기능을 정의하고, **여러 자식 클래스가 확장하여 재사용할 수 있도록** 해주는 역활을 한다. 따라서 추상 클래스는 완전한 구현이 아닌 템플릿 역활(기본 틀)을 하며, 일부 메서드에서는 구현을 강제한다.     
+추상 클래스는 상속과 객체지향 프로그래밍(OOP)에서 공통된 기능을 정의하고, **여러 자식 클래스가 확장하여 재사용할 수 있도록** 해주는 역활을 한다. 따라서 추상 클래스는 완전한 구현이 아닌 템플릿 역활(기본 틀)을 하며, **추상 메서드에서는 구현을 강제**하기 때문에 일관성 유지, 확장성 등에 대한 장점이 있다.      
 
 <br>
 
@@ -38,15 +38,10 @@ Payment는 추상 클래스고, processPayment()는 `abstract` 키워드를 사�
 
 이렇게 되면 Payment를 상속 받는 클래스는 반드시 processPayment() 메서드를 받드시 구현해야한다. 만약 추상 클래스에서 선언된 추상 메서드를 재정의(Override)하지 않으면 컴파일 에러가 난다.   
 
-<br>  
-
-### 추상 클래스의 역활  
 
 <br>  
 
-추상 클래스는 위 예제처럼 상속 구조에서 부모 클래스로 사용되고 자식 클래스들이 공통으로 가져야 할 속성이나 기능을 정의한다. 또한 추상 클래스는 추상 메서드가 포함될 수 있는데 추상 메서드는 구현 없이 선언만 되어 있으므로 클래스 자체로는 완전한 기능을 갖지 않는다.  
-
-즉, 추상 클래스가 **구현되지 않은 상태에서는 객체를 생성해도 동작을 수행할 수 없기 때문에**, 직접 인스턴스화를 할 수 없다. 하지만 직접 인스턴스화를 할 수 없을 뿐이지, **자식 클래스가 추상 메서드를 구현하면 객체를 생성**할 수 있다.
+추상 클래스는 상속 구조에서 부모 클래스로 사용되고 자식 클래스들이 공통으로 가져야 할 속성이나 기능을 정의한다. 추상 클래스에는 구현 없이 선언만 된 추상 메서드가 포함되기 때문에 추상 클래스 자체로 완전한 기능을 갖지 않는다. 이러한 불완전함 때문에 추상 클래스는 직접 인스턴스화 할 수 없다. 하지만 자식 클래스가 추상 메서드를 구현하면 객체를 생성하고 동작을 수행할 수 있다. 
 
 <br>  
 
@@ -101,14 +96,21 @@ public class CreditCardPayment extends Payment {
 
 추상화가 중요한 이유는 여러 가지가 있겠지만, 핵심은 **하이 레벨과 로우 레벨을 분리하여 플러그인처럼 교체 가능한 아키텍처를 구현할 수 있는 기반**을 마련하는 데 있다.
 
-* high-level 은 비즈니스 로직이나 큰 구조를 담당하는 코드   
-    > 예: 결제를 진행하는 비즈니스 로직을 포함한 `OrderService` 클래스가 high-level에 해당됨  
+* high-level 은 비즈니스 로직이나 주요 작업 흐름을 관리하며 세부 기능을 직접 구현하지 않고 추상화된 인터페이스나 추상 클래스를 통해 기능을 호출하거나 전체적인 흐름을 제어한다.    
+
+    <aside>
+    <span class="icon">🥕</span> 
+    <div class="content">
+    <p>예를 들어 아래와 같이 결제를 진행하는 비즈니스 로직을 포함한 `OrderService` 클래스가 high-level에 해당되는데 `OrderService` 는 결제 방식에 관계 없이 결제를 처리하도록 "결제를 진행해라" 라는 요청만 한다.  </p>  
+    </div>
+    </aside>
+
+    <br>
 
     ```java
     public class OrderService {
         private final Payment payment;
 
-        // 생성자 주입(의존성 역전)
         public OrderService(Payment payment){
             this.payment = payment;
         }
@@ -122,18 +124,22 @@ public class CreditCardPayment extends Payment {
 
     <br>  
     
-* low-level 은 자식 클래스에서 동작하는 세부 구현을 담당하는 코드  
-    > 예: `OrderService` 클래스가 사용하는 `CreditCardPayment`와 같은 구체적인 결제 방식이 low-level에 해당됨  
+* low-level 은 high level의 요청에 따라 실제 작업을 수행하고 구체적인 기능을 정의한다.  
+    <aside>
+    <span class="icon">🥕</span> 
+    <div class="content">
+    <p>예를 들어 `CreditCardPayme` 클래스가 Payment 추상 클래스를 상속받아서 processPayment라는 메서드를 구체적으로 구현하는데, 결제를 어떻게 처리할지를 상세하게 정의하기 때문에 Low level 클래스라고 할 수 있다.  </p>  
+    </div>
+    </aside>
+    
+    <br>  
 
     ```java
-    // 추상 클래스 
-    public abstract class Payment {
-        // 추상 메서드 
-        public abstract void processPayment();
-
-        // 일반 메서드 
-        public void receipt(){
-            System.out.println("삐비비빅 ~ 영수증을 출력합니닷 !");
+    // low-level 코드
+    public class CreditCardPayment extends Payment {
+        @Override
+        public void processPayment() {
+            System.out.println("신용카드 결제를 처리합니다.");
         }
     }
     ```
@@ -141,5 +147,5 @@ public class CreditCardPayment extends Payment {
 
 <br>  
 
-정리하자면 추상화를 사용하면 **하이 레벨 코드가 로우 레벨의 세부 사항에 의존하지 않고**, **추상 클래스나 인터페이스를 통해 필요한 동작을 정의할 수 있다.** 이로 인해 **로우 레벨 구현을 유연하게 교체**할 수 있고, 시스템의 확장성과 유지보수성을 높일 수 있다.  
+정리하자면 추상화를 사용하면 **하이 레벨 코드가 로우 레벨의 세부 사항에 의존하지 않고**, **추상 클래스나 인터페이스를 통해 필요한 동작을 정의할 수 있다.** 이로 인해 **로우 레벨 구현을 유연하게 교체**할 수 있고, 시스템의 확장성과 유지보수/강제성을 높일 수 있다.  
 
