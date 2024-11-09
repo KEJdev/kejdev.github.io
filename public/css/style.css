@@ -1,5 +1,6 @@
 @import url(//fonts.googleapis.com/css?family=Ubuntu:500&subset=latin,latin-ext);
-@import url("https://fonts.googleapis.com/css?family=Gowun+Batang:wght@400;700|Gelasio|Kulim+Park|Nanum+Myeongjo|Nanum+Gothic|Noto+Sans|Noto+Sans+KR|Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Gelasio|Kulim+Park|Nanum+Myeongjo|Nanum+Gothic|Noto+Sans|Noto+Sans+KR|Roboto&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
 @import url(syntax/github.css);
 
 /* @font-face {
@@ -142,7 +143,7 @@ code {
 }
 
 /* 인라인 코드에만 스타일 적용 */
-p code, span code {
+p code, span code , li code{
   background-color: #d7d7d7; /* 회색 배경 */
   color: #24292f;
   padding: 2px 4px; /* 작은 여백 */
@@ -331,19 +332,32 @@ p {
   margin-bottom: 5%;
 }
 
-article h1::before,
-article h2::before,
-article h3::before,
-article h4::before,
-article h5::before,
-article h6::before {
-  content: "📖"; /* 원하는 이모지와 공백 추가 */
-  font-family: "Gowun Batang", "Roboto", "Nanum Gothic";
-  font-weight: 700;
-  font-style: normal;
-  margin-right: 8px; /* 텍스트와 이모지 간의 간격 조정 */
+/* h1 ~ h6에 각기 다른 이모지 설정 */
+article h1::before {
+  content: "📚"; /* 원하는 이모지 */
 }
 
+article h2::before {
+  content: "🖋️"; /* 원하는 이모지 */
+}
+
+article h3::before {
+  content: "🔍"; /* 원하는 이모지 */
+}
+
+article h4::before {
+  content: "✒️"; /* 원하는 이모지 */
+}
+
+article h5::before {
+  content: "📝"; /* 원하는 이모지 */
+}
+
+article h6::before {
+  content: "📌"; /* 원하는 이모지 */
+}
+
+/* 헤딩 스타일 공통 설정 */
 article h1,
 article h2,
 article h3,
@@ -353,12 +367,21 @@ article h6 {
   font-family: "Gowun Batang", "Roboto", "Nanum Gothic";
   font-weight: 700;
   font-style: normal;
-  /* color: #3851f4; */
   margin-bottom: 5%;
   margin-top: 5%;
-  /* 어두운 회색(#444) 외곽선 추가 */
-  text-shadow: -0.1px -0.1px 0 #828282;
+  text-shadow: -0.1px -0.1px 0 #828282; /* 어두운 회색 외곽선 */
 }
+
+/* 이모지와 텍스트 간의 간격 조정 */
+article h1::before,
+article h2::before,
+article h3::before,
+article h4::before,
+article h5::before,
+article h6::before {
+  margin-right: 8px;
+}
+
 
 /* article h1,
 article h2,
@@ -470,3 +493,16 @@ footer {
     display: none;
   }
 }
+
+/* 드래그 시 선택된 텍스트 스타일 커스터마이징 */
+::selection {
+  background-color: #ffeb3b; /* 선택된 텍스트의 배경색 */
+  color: #000; /* 선택된 텍스트의 글자 색 */
+}
+
+/* 파이어폭스 브라우저 호환성 추가 */
+::-moz-selection {
+  background-color: #ffeb3b;
+  color: #000;
+}
+

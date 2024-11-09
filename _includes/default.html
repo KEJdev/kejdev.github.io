@@ -1,24 +1,27 @@
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: "en" }}">
+<head>
   {%- include favicons.html -%}
   {%- include head.html -%}
-  <style>@import url(/public/css/syntax/{{ site.highlighter-theme }}.css);</style>
+  <style>
+    @import url("/public/css/syntax/{{ site.highlighter-theme }}.css");
+  </style>
   <title>{{ site.title }}</title>
-  <!-- <link href="/public/css/bootstrap.min.css" rel="stylesheet"> -->
+   <link rel="stylesheet" href="{{ '/public/css/style.css' | relative_url }}">
+</head>
 
-  <link href="/public/css/style.css" rel="stylesheet">
-  <body>
-  	<div class="container"> 
-		<div class="sidebar">
-			{% include sidebar.html %}
-		</div>
-	
+<body>
+<div class="container"> 
+	<div class="sidebar">
+		{% include sidebar.html %}
+	</div>
 
-		<div class="content-wrapper">
-			<div class="content">
-				{{ content }}
-			</div>
+	<div class="content-wrapper">
+		<div class="content">
+			{{ content }}
 		</div>
 	</div>
-  </body>
+</div>
+
+</body>
 </html>
