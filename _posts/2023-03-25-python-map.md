@@ -106,7 +106,7 @@ print(map(square, numbers)) # <map at 0x107c6d670>
 squares = map(lambda x: x**2, [1, 2, 3, 4, 5])
 ```
 
-이때 `squares`라는 `map`객체를 생성하지만, 실제로 `lambda` 함수가 싱실행되는 것은 `squares`객체를 이용하는 다른 함수가 호출될때까진 미뤄진다.
+이때 `squares`라는 `map`객체를 생성하지만, 실제로 `lambda` 함수가 실행되는 것은 `squares`객체를 이용하는 다른 함수가 호출될때까진 미뤄진다.
 
 ```python
 print(list(squares))

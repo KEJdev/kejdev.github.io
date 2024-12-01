@@ -88,21 +88,20 @@ public class CreditCardPayment extends Payment {
     </aside>
 
 
+```java
+public class OrderService {
+    private final Payment payment;
 
-    ```java
-    public class OrderService {
-        private final Payment payment;
-
-        public OrderService(Payment payment){
-            this.payment = payment;
-        }
-
-        public void processOrder(){
-            System.out.println("주문을 처리합니당");
-            payment.processPayment();
-        }
+    public OrderService(Payment payment){
+        this.payment = payment;
     }
-    ```  
+
+    public void processOrder(){
+        System.out.println("주문을 처리합니당");
+        payment.processPayment();
+    }
+}
+```  
     
 * low-level 은 high level의 요청에 따라 실제 작업을 수행하고 구체적인 기능을 정의한다.  
     <aside>
@@ -110,18 +109,17 @@ public class CreditCardPayment extends Payment {
     <div class="content">
     <p>예를 들어 `CreditCardPayme` 클래스가 Payment 추상 클래스를 상속받아서 processPayment라는 메서드를 구체적으로 구현하는데, 결제를 어떻게 처리할지를 상세하게 정의하기 때문에 Low level 클래스라고 할 수 있다.  </p>  
     </div>
-    </aside>
+    </aside>  
     
-
-    ```java
-    // low-level 코드
-    public class CreditCardPayment extends Payment {
-        @Override
-        public void processPayment() {
-            System.out.println("신용카드 결제를 처리합니다.");
-        }
+```java
+// low-level 코드
+public class CreditCardPayment extends Payment {
+    @Override
+    public void processPayment() {
+        System.out.println("신용카드 결제를 처리합니다.");
     }
-    ```
+}
+```
 
 
 정리하자면 추상화를 사용하면 **하이 레벨 코드가 로우 레벨의 세부 사항에 의존하지 않고**, **추상 클래스나 인터페이스를 통해 필요한 동작을 정의할 수 있다.** 이로 인해 **로우 레벨 구현을 유연하게 교체**할 수 있고, 시스템의 확장성과 유지보수/강제성을 높일 수 있다.  
