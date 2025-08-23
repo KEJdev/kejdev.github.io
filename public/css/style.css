@@ -1,6 +1,6 @@
 @import url(//fonts.googleapis.com/css?family=Ubuntu:500&subset=latin,latin-ext);
 @import url("https://fonts.googleapis.com/css?family=Gelasio|Kulim+Park|Nanum+Myeongjo|Nanum+Gothic|Noto+Sans|Noto+Sans+KR|Roboto&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Lora:ital,wght@0,400..700;1,400..700&display=swap");
 @import url(syntax/github.css);
 
 /* @font-face {
@@ -76,7 +76,7 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-  font-family: "Gowun Batang", "Lora" , "Noto Sans KR", "Roboto", "Gelasio",
+  font-family: "Gowun Batang", "Lora", "Noto Sans KR", "Roboto", "Gelasio",
     "Nanum Myeongjo", serif;
   color: #000000;
 }
@@ -87,9 +87,9 @@ strong {
 }
 
 aside p {
-   font-size: 14px;
-  margin-top: 0;  /* top 마진 제거 */
-  margin-bottom: 0;  /* bottom 마진 제거 */
+  font-size: 14px;
+  margin-top: 0; /* top 마진 제거 */
+  margin-bottom: 0; /* bottom 마진 제거 */
 }
 
 aside {
@@ -131,11 +131,10 @@ pre {
   background-color: #e4e4e4; /* 배경색 추가 (선택 사항) */
   border-radius: 5px; /* 모서리 둥글게 (선택 사항) */
   border: 1px solid #ddd; /* 테두리 추가 (선택 사항) */
-  
 }
 
 code {
-  font-family:"Menlo", "Consolas", monospace;
+  font-family: "Menlo", "Consolas", monospace;
   font-size: 0.8em;
   margin: 0px;
   white-space: pre-wrap; /* 코드가 길어지면 줄바꿈 */
@@ -143,7 +142,9 @@ code {
 }
 
 /* 인라인 코드에만 스타일 적용 */
-p code, span code , li code{
+p code,
+span code,
+li code {
   background-color: #d7d7d7; /* 회색 배경 */
   color: #24292f;
   padding: 2px 4px; /* 작은 여백 */
@@ -315,8 +316,8 @@ article img {
   max-width: 100%;
   display: block;
   margin: auto;
-  margin-top: 8%;
-  margin-block-end: 8%;
+  margin-top: 3%;
+  margin-block-end: 3%;
 }
 
 blockquote {
@@ -327,34 +328,34 @@ blockquote {
   margin-bottom: 15px;
 }
 
-p {
+/* p {
   margin-top: 5%;
   margin-bottom: 5%;
-}
+} */
 
 /* h1 ~ h6에 각기 다른 이모지 설정 */
 article h1::before {
-  content: "📚"; /* 원하는 이모지 */
+  content: "⛱︎"; /* 원하는 이모지 */
 }
 
 article h2::before {
-  content: "🖋️"; /* 원하는 이모지 */
+  content: "⛱︎"; /* 원하는 이모지 */
 }
 
 article h3::before {
-  content: "🔍"; /* 원하는 이모지 */
+  content: "⛱︎"; /* 원하는 이모지 */
 }
 
 article h4::before {
-  content: "✒️"; /* 원하는 이모지 */
+  content: "⛱︎"; /* 원하는 이모지 */
 }
 
 article h5::before {
-  content: "📝"; /* 원하는 이모지 */
+  content: "⛱︎"; /* 원하는 이모지 */
 }
 
 article h6::before {
-  content: "📌"; /* 원하는 이모지 */
+  content: "⛱︎"; /* 원하는 이모지 */
 }
 
 /* 헤딩 스타일 공통 설정 */
@@ -367,8 +368,9 @@ article h6 {
   font-family: "Gowun Batang", "Roboto", "Nanum Gothic";
   font-weight: 700;
   font-style: normal;
-  margin-bottom: 5%;
+  margin-bottom: 0%;
   margin-top: 5%;
+  color:#435a82;
   text-shadow: -0.1px -0.1px 0 #828282; /* 어두운 회색 외곽선 */
 }
 
@@ -381,7 +383,6 @@ article h5::before,
 article h6::before {
   margin-right: 8px;
 }
-
 
 /* article h1,
 article h2,
