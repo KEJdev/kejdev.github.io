@@ -3,24 +3,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Lora:ital,wght@0,400..700;1,400..700&display=swap");
 @import url(syntax/github.css);
 
-/* @font-face {
-  font-family: "Gowun Batang";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff")
+@font-face {
+  font-family: "ChosunIlboMyungjo";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Chosunilbo_myungjo.woff")
     format("woff");
   font-weight: normal;
-  font-style: normal;
+  font-display: swap;
 }
 
-@font-face {
-  font-family: "S-CoreDream-6Bold";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-6Bold.woff")
-    format("woff");
-  font-weight: bold;
-  font-style: normal;
-} */
-
 :root {
-  --blue: #007bff;
+  --blue: #25cd99;
   --indigo: #6610f2;
   --purple: #6f42c1;
   --pink: #e83e8c;
@@ -33,7 +25,7 @@
   --white: #fff;
   --gray: #6c757d;
   --gray-dark: #343a40;
-  --primary: #007bff;
+  --primary: #25cd99;
   --secondary: #6c757d;
   --success: #28a745;
   --info: #17a2b8;
@@ -46,9 +38,9 @@
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
-  --font-family-sans-serif: "Gowun Batang", "Noto Sans KR", "Roboto",
-    "Nanum Gothic";
-  --font-family-serif: "Nanum Myeongjo";
+  --font-family-sans-serif: "ChosunIlboMyungjo", "Gowun Batang", "Noto Sans KR",
+    "Roboto", "Nanum Gothic";
+  --font-family-serif: "ChosunIlboMyungjo";
 }
 
 * {
@@ -76,13 +68,13 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-  font-family: "Gowun Batang", "Lora", "Noto Sans KR", "Roboto", "Gelasio",
-    "Nanum Myeongjo", serif;
+  font-family: "ChosunIlboMyungjo", "Gowun Batang", "Lora", "Noto Sans KR",
+    "Roboto", "Gelasio", "Nanum Myeongjo", serif;
   color: #000000;
 }
 
 strong {
-  font-family: "Gowun Batang", sans-serif;
+  font-family: "ChosunIlboMyungjo", "Gowun Batang", sans-serif;
   /* font-weight: 700; */
 }
 
@@ -113,7 +105,7 @@ aside > .content {
 
 a {
   text-decoration: none;
-  color: #007bff;
+  color: #25cd99;
   background-color: transparent;
 }
 
@@ -197,7 +189,7 @@ li code {
 
 .sidebar-brand > a {
   font-size: 250%;
-  font-family: "Gowun Batang", "Roboto", "Gelasio";
+  font-family: "ChosunIlboMyungjo", "Gowun Batang", "Roboto", "Gelasio";
   color: #000000;
 }
 
@@ -215,9 +207,14 @@ li code {
   margin-top: 0px;
 }
 
+.sidebar-nav li {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
 .nav-title {
   font-size: 100%;
-  font-family: "Gowun Batang", "Roboto", "Noto Sans";
+  font-family: "ChosunIlboMyungjo", "Gowun Batang", "Roboto", "Noto Sans";
   text-transform: uppercase;
   border-bottom: 1px solid rgb(0, 0, 0);
   margin-bottom: 5px;
@@ -225,7 +222,7 @@ li code {
 
 a.nav-item {
   font-size: 110%;
-  font-family: "Gowun Batang", "Roboto", "Noto Sans";
+  font-family: "ChosunIlboMyungjo", "Gowun Batang", "Roboto", "Noto Sans";
   text-transform: inherit;
   color: #aaa;
 }
@@ -251,6 +248,9 @@ a.nav-item:hover {
   margin-left: 10px;
   font-size: 110%;
   color: #333;
+}
+.post-link:hover {
+  color: #25cd99; /* 원하는 색상으로 변경 */
 }
 
 #contact-list li .fa,
@@ -328,34 +328,9 @@ blockquote {
   margin-bottom: 15px;
 }
 
-/* p {
-  margin-top: 5%;
-  margin-bottom: 5%;
-} */
-
-/* h1 ~ h6에 각기 다른 이모지 설정 */
-article h1::before {
-  content: "⛱︎"; /* 원하는 이모지 */
-}
-
-article h2::before {
-  content: "⛱︎"; /* 원하는 이모지 */
-}
-
-article h3::before {
-  content: "⛱︎"; /* 원하는 이모지 */
-}
-
-article h4::before {
-  content: "⛱︎"; /* 원하는 이모지 */
-}
-
-article h5::before {
-  content: "⛱︎"; /* 원하는 이모지 */
-}
-
-article h6::before {
-  content: "⛱︎"; /* 원하는 이모지 */
+p {
+  margin-bottom: 5px;
+  margin-top: 5px;
 }
 
 /* 헤딩 스타일 공통 설정 */
@@ -365,12 +340,12 @@ article h3,
 article h4,
 article h5,
 article h6 {
-  font-family: "Gowun Batang", "Roboto", "Nanum Gothic";
+  font-family: "ChosunIlboMyungjo", "Gowun Batang", "Roboto", "Nanum Gothic";
   font-weight: 700;
   font-style: normal;
   margin-bottom: 0%;
   margin-top: 5%;
-  color:#435a82;
+  color: #000000;
   text-shadow: -0.1px -0.1px 0 #828282; /* 어두운 회색 외곽선 */
 }
 
@@ -441,14 +416,14 @@ header.home {
 
 footer {
   padding-top: 15px;
-  font-family: "Gowun Batang", "Roboto", "Ubuntu";
+  font-family: "ChosunIlboMyungjo", "Gowun Batang", "Roboto", "Ubuntu";
 }
 
 .sidebar-footer {
   margin-top: 80px;
   font-size: 0.75em;
   font-weight: lighter;
-  font-family: "Gowun Batang", "Roboto";
+  font-family: "ChosunIlboMyungjo", "Gowun Batang", "Roboto";
   line-height: 1.5;
 }
 
