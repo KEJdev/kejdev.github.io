@@ -33,8 +33,6 @@ svg:
 # theme: minima
 highlighter-theme: github
 date_format: "%Y-%M-%D"
-plugins:
-  - jekyll-feed
 
 google_site_verification: google_meta_tag_verification 
 google_analytics:
@@ -91,8 +89,9 @@ tipue_search:
 #
 # Excluded items can be processed by explicitly listing the directories or
 # their entries' file path in the `include:` list.
-gems:
+plugins:
   - jekyll-feed
+  - jekyll-paginate
 
 exclude:
   - .sass-cache/

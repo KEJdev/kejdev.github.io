@@ -481,3 +481,34 @@ footer {
   background-color: #ffeb3b;
   color: #000;
 }
+
+/* 초미니멀 버전 */
+article table {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+  margin: 30px 0;
+  background: transparent;
+}
+
+article table th {
+  background: transparent;
+  color: #25cd99;
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 12px 20px;
+  border-bottom: 2px solid #25cd99;
+}
+
+article table td {
+  padding: 14px 20px;
+  border-bottom: 1px solid #e5e7eb;
+  color: #374151;
+}
+
+article table tbody tr:hover {
+  background-color: #f0fdf4;
+}
+
