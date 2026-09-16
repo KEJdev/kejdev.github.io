@@ -15,8 +15,13 @@ The paginator for post list on HomgPage.
 <!-- 페이지 번호 표시 -->
 {% for i in (start_page..end_page) %}
   {% if i <= paginator.total_pages %}
-    <a href="{% if i == 1 %}{{ paginator.previous_page_path | relative_url }}{% else %}{{ site.baseurl }}/page/{{ i }}{% endif %}"
-       {% if i == 1 %}onclick="if (window.location.pathname === '{{ paginator.previous_page_path | relative_url }}') { window.location.href = '{{ paginator.previous_page_path | relative_url }}'; }"{% endif %}
+    <!-- 1페이지는 /page/1/ 이 아니라 사이트 루트로 생성된다 -->
+    {% if i == 1 %}
+      {% assign page_link = '/' | relative_url %}
+    {% else %}
+      {% assign page_link = site.paginate_path | replace: ':num', i | relative_url %}
+    {% endif %}
+    <a href="{{ page_link }}"
        style="padding: 5px; margin: 0 3px; color: {% if i == paginator.page %}#ff008b{% else %}#333333{% endif %};
               border-radius: 5px; text-decoration: none;">
       {{ i }}
